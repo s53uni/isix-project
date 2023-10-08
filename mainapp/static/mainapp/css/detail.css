@@ -3,60 +3,80 @@ body {
     background-color: #FFFFFF;
 }
 
-/* 기술 제목 */
-.intro__title {
-    padding: 60px 0;
-    display: flex;
-    text-align: center;
-    justify-content:center; 
-    align-items : center;
-    background-color: #1f4568;
-    color:#ffffff;
-}
-
-.intro__title__Large {
-    display: block;
-    font-size: 48px;
-    font-weight: 700;
-}
-
-.intro__title__Small {
-    display: block;
-    font-size: 18px;
-    font-weight: 500;
-    color:#7e94ad;
-}
-
-/* 기술 소개 */
-.intro__subtitle {
-    text-align: center;
-    font-size: 18px;
-    line-height : 30px;
-    padding: 30px 460px;
-    background-color: #F1F4FB;
-}
-
-/* 기술 상세 내용 */
-.intro__detail {
-    display:block;
-    padding: 50px 100px;
-}
-
-.intro__detail__box {
+.detail {
     display:flex;
-    justify-content: center;
+}
+
+/* sidebar css */
+.sidebar {
+    width: 15%;
+    font-size:15px;
+    font-weight: 400;
+    color: #1f4568;
+    background-color: white;
+    border-right:0.8px solid #e3e3e3;
+}
+
+/* avatar css */
+.avatar {
+    margin:30px;
+    display: flex;
     align-items: center;
-    padding:50px 0;
+    flex-direction: column;
+}
+.avatar__name {
+    flex: 1;
+    text-align: right;
+}
+.avatar__img > img {
+    display: block;
+    width: 80px;
 }
 
-.intro__detail__text {
-    line-height : 30px;
-    width: 32%;
-    margin: 0 20px;
+/* menubar css */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    justify-content: flex-start;
 }
 
-.intro__detail__img {
-    width: 32%;
-    margin: 0 20px;
-    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.5);
+.menu__text {
+    display: inline-block;
+}
+
+.menu__item {
+    text-transform: uppercase;
+    margin: 5px 15px;
+    padding: 15px;
+    border-left: 4px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    transition: color ease 0.3s;
+}
+
+.menu__item--active .menu__text {
+    color: #ffffff;
+}
+
+.menu__item:hover {
+    color: #6f79ff;
+}
+
+.menu__item--active {
+    background-color: #1f4568;
+    border-radius: 5px;
+}
+
+/* dashboard css */
+.dashboard {
+    width: 85%;
+}
+
+.dashboard img {
+    width: 100%;
+}
+
+.dashboard__title {
+    padding: 5px 30px;
 }

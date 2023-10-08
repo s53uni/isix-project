@@ -1,0 +1,62 @@
+html,
+body {
+    background-color: #FFFFFF;
+}
+
+/* 기술 제목 */
+.intro__title {
+    padding: 60px 0;
+    display: flex;
+    text-align: center;
+    justify-content:center; 
+    align-items : center;
+    background-color: #1f4568;
+    color:#ffffff;
+}
+
+.intro__title__Large {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.intro__title__Small {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color:#7e94ad;
+}
+
+/* 기술 소개 */
+.intro__subtitle {
+    text-align: center;
+    font-size: 18px;
+    line-height : 30px;
+    padding: 30px 460px;
+    background-color: #F1F4FB;
+}
+
+/* 기술 상세 내용 */
+.intro__detail {
+    display:block;
+    padding: 50px 100px;
+}
+
+.intro__detail__box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:50px 0;
+}
+
+.intro__detail__text {
+    line-height : 30px;
+    width: 32%;
+    margin: 0 20px;
+}
+
+.intro__detail__img {
+    width: 32%;
+    margin: 0 20px;
+    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.5);
+}
