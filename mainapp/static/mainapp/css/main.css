@@ -461,7 +461,7 @@ body {
 }
 
 .site__img {
-  top:-48px;
+  top: -50px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -473,7 +473,12 @@ body {
 
 /*menu header*/
 .header {
-  padding: 30px 100px;
+  padding: 18px 100px;
+  position: sticky;
+  top: 0px;
+  background-color: #F1F4FB;
+  border-bottom:0.8px solid #e3e3e3;
+  z-index: 10;
 }
 .header__elenco {
   padding: 0;
@@ -482,11 +487,10 @@ body {
 }
 .header__menu {
   float: right;
-  margin-top: 5px;
   font-weight: 500;
 }
 .header__el {
-  padding: 0 25px;
+  padding: 5px 25px;
   display: inline-block;
 }
 .header__img {
@@ -505,11 +509,50 @@ body {
   color: #1f4568;
   font-size: 18px;
   text-decoration: none;
+  display: block;
 }
 .header__link:hover {
   text-decoration: none;
-  color: #3a9fff;
+  color: #3a61ff;
 }
+
+.dropdown__content{
+  display : none;
+  position : absolute;
+  z-index : 1;
+  font-weight: 400;
+  text-align: center;
+  background-color: #ffffff;
+  min-width : 100px;
+  border-radius: 5px;
+}
+
+.dropdown__content a{
+  display : block;
+  text-decoration : none;
+  color : #1f4568;
+  font-size: 15px;
+  padding : 10px 20px;
+}
+
+.dropdown__content a:hover{
+  background-color : #ececec;
+  border-radius: 5px;
+}
+
+.dropdown__margin--1 {
+  margin: 2px 0 0 -28px;
+}
+
+.dropdown__margin--2 {
+  margin: 2px 0 0 -6px;
+}
+
+
+.header__el:hover .dropdown__content {
+  display: block;
+}
+
 .navbar-toggle .icon-bar {
   background-color: #8198ae;
 }
@@ -730,32 +773,12 @@ body {
 }
 
 .footer {
-  background-color: #1d364e;
-  height: 250px;
-}
-
-.footer__title {
-  font-size: 18px;
-  margin: 0;
-  margin-left: 0px;
-  margin-left: 10px;
-  display: inline-block;
-  line-height: 18px;
-  vertical-align: middle;
-  color: #3a9fff;
+  background-color: #142331;
+  height: 240px;
 }
 
 .footer__light {
   color: #fff;
-}
-
-.footer__social {
-  float: right;
-}
-
-.footer__social-l {
-  margin-left: 15px;
-  vertical-align: middle;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1002,19 +1025,25 @@ body {
 
 .contents {
   display: flex;
-  color:#aec0d2;
+  color:#ffffff;
   justify-content:center; 
 }
 
 .content--box {
   width: 250px;
-  padding: 20px 10px;
+  padding: 30px 10px;
   text-align: left;
+}
+
+.footer__title{
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .footer__text {
   display: block;
-  color:#aec0d2;
+  color:#ffffff;
+  font-weight: 300;
   text-decoration: none;
   margin: 5px 0px;
 }
