@@ -437,7 +437,7 @@ body {
   text-align: center;
 }
 .site__title {
-  font-size: 60px;
+  font-size: 45px;
   font-weight: 600;
   color:#ffffff;
   margin: 0;
@@ -445,7 +445,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 2;
-  animation: text-ani 2s ease forwards;
+  animation: text-ani 2.5s ease forwards;
 }
 
 .site__subtitle {
@@ -457,7 +457,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 2;
-  animation: text-ani 2s ease forwards;
+  animation: text-ani 2.5s ease forwards;
 }
 
 .site__img {
