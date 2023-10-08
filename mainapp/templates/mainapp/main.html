@@ -20,40 +20,7 @@
 </head>
 <body>
     <!-- header 시작 -->
-    <header class="header">
-        <div class="container header__container">
-            <!-- header logo -->
-            <div class="header__logo">
-                <a href="/"><img class="header__img" src="/static/images/isix_text_logo.png"></a>
-            </div>
-            <!-- header menu -->
-            <div class="header__menu">
-                <nav id="navbar" class="header__nav">
-                    <ul class="header__elenco">
-                        <li class="header__el">
-                            <a href="/intro/" class="header__link">기술 소개</a>
-                            <div class="dropdown__content dropdown__margin--1">
-                                <a href="#">생산 계획</a>
-                                <a href="#">공정 모니터링</a>
-                                <a href="#">자동화 검사</a>
-                            </div>
-                        </li>
-                        <li class="header__el"><a href="#" class="header__link">생산 계획</a></li>
-                        <li class="header__el">
-                            <a href="#" class="header__link">공정 모니터링</a>
-                            <div class="dropdown__content dropdown__margin--2">
-                                <a href="#">주조 공정</a>
-                                <a href="#">열처리 공정</a>
-                                <a href="#">CNC 공정</a>
-                            </div>
-                        </li>
-                        <li class="header__el"><a href="#" class="header__link">자동화 검사</a></li>
-                        <li class="header__el header__el--blue"><a href="#" class="btn btn--white">로그인 →</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    {% include 'mainapp/include/header.html' %}
     <!-- header 끝 -->
 
     <!-- 메인 이미지 시작 -->
@@ -127,41 +94,6 @@
     <!-- 기술 소개 끝 -->
 
     <!-- footer 시작 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="contents">
-                    <!-- 1열 -->
-                    <div class="content--box">
-                        <h3 class="footer__title">Team</h3>
-                        <span class="footer__text">2023 한국품질재단</span>
-                        <span class="footer__text footer__blank">빅데이터 분석가 양성과정 2기</span>
-                        <span class="footer__text">김소연 김현준 박시윤</span>
-                        <span class="footer__text">양현준 이경현 최예진</span>
-                    </div>
-                    <!-- 2열 -->
-                    <div class="content--box">
-                        <h3 class="footer__title">Links</h3>
-                        <a class="footer__text" href="#">기술 소개</a>
-                        <a class="footer__text" href="#">생산 계획</a>
-                        <a class="footer__text" href="#">공정 모니터링</a>
-                        <a class="footer__text" href="#">자동화 검사</a>
-                    </div>
-                    <!-- 3열 -->
-                    <div class="content--box">
-                        <h3 class="footer__title">References</h3>
-                        <a class="footer__text" href="https://codepen.io/veronicadev/pen/YYvjzO">Codepen - veronica</a>
-                        <a class="footer__text" href="https://www.freepik.com/free-ai-image/mechanic-controls-robotic-arm-futuristic-production-line-generated-by-ai_41366140.htm#query=smart%20factory&position=18&from_view=search&track=ais?log-in=google">Freepik - vecstock</a>
-                    </div>
-                    <!-- 4열 -->
-                    <div class="content--box">
-                        <h3 class="footer__title">Contact Us</h3>
-                        <a class="footer__text" href="mailto:data.syentist@gmail.com">E-mail</a>
-                        <a class="footer__text" href="https://github.com/isix-project">Github</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    {% include 'mainapp/include/footer.html' %}
     <!-- footer 끝 -->
 </body>
