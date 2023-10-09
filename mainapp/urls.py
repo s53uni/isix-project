@@ -3,6 +3,14 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    ### 자동화 검사 페이지
+    # - http://127.0.0.1:8000/inspection/
+    path('inspection/', views.detail_inspection),
+    
+    ### 공정 모니터링 페이지
+    # - http://127.0.0.1:8000/monitoring/
+    path('monitoring/', views.detail_monitoring),
+    
     ### 생산 계획 페이지
     # - http://127.0.0.1:8000/planning/
     path('planning/', views.detail_planning),

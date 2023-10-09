@@ -2,6 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
+### 자동화 검사 페이지
+def detail_inspection(request):
+    return render(request,
+                  "mainapp/inspection/detail_inspection.html",
+                  {})
+
+### 공정 모니터링 페이지
+def detail_monitoring(request):
+    return render(request,
+                  "mainapp/monitoring/detail_monitoring.html",
+                  {})
+
 ### 생산 계획 페이지
 def detail_planning(request):
     return render(request,
