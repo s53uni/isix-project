@@ -78,6 +78,11 @@ body {
     width: 100%;
 }
 
-.dashboard__title {
-    padding: 5px 30px;
+.dashboard__text {
+    padding: 15px 30px;
+    line-height: 15px;
+}
+
+.dashboard__ex {
+    color: #8198ae;
 }
