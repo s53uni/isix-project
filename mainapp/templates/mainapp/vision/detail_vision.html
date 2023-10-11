@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생산 계획</title>
+    <!-- favicon 설정하기 -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
+
+    <!-- font.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'css/font.css'%}">
+
+    <!-- main.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css'%}">
+
+    <!-- detail.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/detail.css'%}">
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <!-- header 시작 -->
+    {% include 'mainapp/include/header.html' %}
+    <!-- header 끝 -->
+
+    <!-- detail 시작 -->
+    <div class="detail">
+        <!-- menu 시작 -->
+        <div class="sidebar">
+            <div class="avatar">
+                <div class="avatar__img">
+                    <img src="/static/images/person.png" alt="avatar">
+                </div>
+                <div class="avatar__name">Manager</div>
+            </div>
+            <nav class="menu">
+                <a class="menu__item" href="#">
+                    <span class="menu__text">Part 6</span>
+                </a>
+                <a class="menu__item" href="#">
+                    <span class="menu__text">Part 15</span>
+                </a>
+                <a class="menu__item" href="#">
+                    <span class="menu__text">Part 16</span>
+                </a>
+                <a class="menu__item" href="#">
+                    <span class="menu__text">Part 29</span>
+                </a>
+                <a class="menu__item menu__item--active" href="#">
+                    <span class="menu__text">Part 94</span>
+                </a>
+            </nav>
+        </div>
+        <!-- menu 끝 -->
+
+        <!-- dashboard 시작 -->
+        <div class="dashboard">
+            <h2 class="dashboard__title">자동화 공정</h2>
+            <img src="/static/images/grafana_ex.png">
+        </div>
+        <!-- dashboard 끝-->
+    </div>
+    <!-- detail 끝-->
+
+    <!-- footer 시작 -->
+    {% include 'mainapp/include/footer.html' %}
+    <!-- footer 끝 -->
+</body>
+</html>

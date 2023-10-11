@@ -16,7 +16,7 @@ from sklearn.metrics import mean_absolute_error
 
 
 ### 생산 계획 모델
-class Prod_Plan :
+class Prod_Plan_Model :
     def __init__(self, part, num, date) :
         ### 데이터 가져오기
         data = self.getData(part, num)

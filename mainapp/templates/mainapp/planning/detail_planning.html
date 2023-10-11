@@ -62,7 +62,12 @@
                 <h2 class="dashboard__title">생산 계획</h2>
                 <span class="dashboard__ex">생산 계획 모델 임시 연결</span>
             </div>
+            <!-- 임시 모델 연결 -->
             {{ y_pred_part_inv }}
+            <!-- 임시 DB 연결 -->
+            {% for prod in prods %}
+                {{ prod.plan_date }}
+            {% endfor %}
         </div>
         <!-- dashboard 끝-->
     </div>

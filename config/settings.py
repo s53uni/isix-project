@@ -19,15 +19,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-e7u8rv^4nna)cfbte&#+x)5&9wogf!6v3kw)30dv7i6%i$r$)r'
+SECRET_KEY ='django-insecure-e7u8rv^4nna)cfbte&#+x)5&9wogf!6v3kw)30dv7i6%i$r$)r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 # 수정...
 ALLOWED_HOSTS = ['127.0.0.1']
-
 
 # Application definition
 
@@ -87,26 +85,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    # 오라클 사용시 추가
-    'oracle':{
-      'ENGINE' : 'django.db.backends.oracle', #오라클과 백엔드 연결해라
-      'NAME' : 'xe', #oracle SID
-      'USER' : 'isix', #oracle 사용자이름
-      'PASSWORD' : 'dbdb', #oracle 비밀번호
-      'HOST' : 'localhost', #oracle 호스트이름
-      'PORT' : '1521', #oracle 포트번호
+        'ENGINE': 'django.db.backends.mysql', # 사용할 데이터베이스 엔진
+        'NAME': 'isix', # 데이터베이스 이름 
+        'USER': 'root', # 접속할 Database 계정 아이디 ex) root
+        'PASSWORD': '0000',  # 접속할 Database 계정 비밀번호 ex) 1234
+        'HOST': 'localhost',   # host는 로컬 환경에서 동작한다면 ex) localhost
+        'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
     },
 }
-
-# 추가된 DB를 사용할 App을 지정(연결)하기
-DATABASE_ROUTERS = [
-    # 앱이름.파일이름.클래스이름(바뀔 수도 있음)
-    # 'frontapp.router.DBRouter',
-    'mainapp.router.DBRouter',
-]
 
 ### Logging 처리
 # - DB 실행 내용을 console 창에서 확인할 수 있도록 처리

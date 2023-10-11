@@ -1,35 +1,53 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+# Database import
+from .models import Prod_Plan
+
 ### 클래스 불러오기
-from mainapp.pyfiles.prod_plan.prod_plan import Prod_Plan
+from mainapp.pyfiles.prod_plan.prod_plan import Prod_Plan_Model
 
 ### 자동화 검사 페이지
-def detail_inspection(request):
+def detail_vision(request):
     return render(request,
-                  "mainapp/inspection/detail_inspection.html",
+                  "mainapp/vision/detail_vision.html",
+                  {})
+    
+    
+### cnc 공정 모니터링 페이지
+def cnc_proc_monitoring(request):
+    return render(request,
+                  "mainapp/monitoring/cnc_proc_monitoring.html",
+                  {})
+    
+### 열처리 공정 모니터링 페이지
+def heat_proc_monitoring(request):
+    return render(request,
+                  "mainapp/monitoring/heat_proc_monitoring.html",
                   {})
 
-### 공정 모니터링 페이지
-def detail_monitoring(request):
+### 주조 공정 모니터링 페이지
+def cast_proc_monitoring(request):
     return render(request,
-                  "mainapp/monitoring/detail_monitoring.html",
+                  "mainapp/monitoring/cast_proc_monitoring.html",
                   {})
 
 ### 생산 계획 페이지
 def detail_planning(request):
     
-    prod_plan = Prod_Plan(6, 3, '2021-09-13 18:30:00')
+    prod_plan = Prod_Plan_Model(6, 3, '2021-09-13 18:30:00')
     y_pred_part_inv = prod_plan.getY_Pred_Part_Inv()
+    prods = Prod_Plan.objects.all()
     
     return render(request,
                   "mainapp/planning/detail_planning.html",
-                  {"y_pred_part_inv":y_pred_part_inv})
+                  {"y_pred_part_inv":y_pred_part_inv,
+                   "prods":prods})
 
 ### 기술 소개 - 자동화 검사 페이지
-def intro_inspection(request):
+def intro_vision(request):
     return render(request,
-                  "mainapp/introduce/intro_inspection.html",
+                  "mainapp/introduce/intro_vision.html",
                   {})
 
 ### 기술 소개 - 공정 모니터링 페이지

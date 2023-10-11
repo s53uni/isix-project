@@ -1,3 +1,26 @@
 from django.db import models
 
-# Create your models here.
+from django.db.models.fields import CharField, TextField
+from django.db.models.fields import IntegerField
+
+# <클래스가 만들어진 후 매핑 작업 수행하기>
+# python manage.py makemigrations mainapp
+# python manage.py migrate
+
+class Prod_Plan(models.Model):
+    part_no =  CharField(primary_key=True, max_length=15)
+    plan_0day = IntegerField()
+    plan_1day = IntegerField()
+    plan_2day = IntegerField()
+    plan_3day = IntegerField()
+    plan_4day = IntegerField()
+    plan_5day = IntegerField()
+    plan_6day = IntegerField()
+    plan_7day = IntegerField()
+    plan_8day = IntegerField()
+    plan_9day = IntegerField()
+    plan_date =  CharField(max_length=30)
+
+    class Meta:
+        managed = False
+        db_table = 'prod_plan'

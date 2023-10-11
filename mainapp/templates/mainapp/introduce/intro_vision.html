@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기술 소개 - 자동화 검사</title>
+    <!-- favicon 설정하기 -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
+
+    <!-- font.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'css/font.css'%}">
+
+    <!-- main.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css'%}">
+
+    <!-- intro.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/intro.css'%}">
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+    </script>
+</head>
+<body>
+    <!-- header 시작 -->
+    {% include 'mainapp/include/header.html' %}
+    <!-- header 끝 -->
+    
+    <!-- 기술 소개 시작 -->
+    <div class="intro__box">
+        <!-- 기술 제목 -->
+        <div class="intro__title">
+            <span class="intro__title__Large">자동화 검사</h1>
+            <span class="intro__title__Small">Automated Inspection</span>
+        </div>
+        <!-- 기술 소개 -->
+        <div class="intro__subtitle">
+            <h2>재고 관리를 위한 생산 계획</h2>
+            <p>딥러닝을 활용한 생산 계획을 통해 예측 오류로 인한 재고 발생을 해결하고 경영 악화를 극복합니다. 부품의 발주 수량을 예측하고 각 공정에 전달하여 작업 흐름을 관리합니다.</p>
+        </div>
+        <!-- 기술 상세 내용 -->
+        <div class="intro__detail">
+            <div class="intro__detail__box">
+                <div class="intro__detail__text">
+                    <h2>1일에서 7일 후의 발주 수량 예측</h2>
+                    <p>금형 개발을 위한 표준업무 절차를 정의하여 금형제작(개발) 및 수정이력, 설계변경(EO)이력을 통합 관리하고 정의된 표준공정에 따라 개발 일정을 관리하고, 금형제작 진척현황을 일정주기로 모니터링할 수 있습니다.</p>
+                </div>
+                <img class="intro__detail__img" src="/static/images/machine_image.jpg">
+            </div>
+            <div class="intro__detail__box">
+                <img class="intro__detail__img" src="/static/images/machine_image.jpg">
+                <div class="intro__detail__text">
+                    <h2>1일에서 7일 후의 발주 수량 예측</h2>
+                    <p>금형 개발을 위한 표준업무 절차를 정의하여 금형제작(개발) 및 수정이력, 설계변경(EO)이력을 통합 관리하고 정의된 표준공정에 따라 개발 일정을 관리하고, 금형제작 진척현황을 일정주기로 모니터링할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 기술 소개 끝 -->
+
+    <!-- footer 시작 -->
+    {% include 'mainapp/include/footer.html' %}
+    <!-- footer 끝 -->
+</body>
+</html>
