@@ -20,7 +20,7 @@ def detail_vision(request):
 
 ### cnc 공정 모니터링 페이지
 def cnc_proc_monitoring(request):
-    
+    Cnc_Proc_Model()
     return render(request,
                   "mainapp/monitoring/cnc_proc_monitoring.html",
                   {})

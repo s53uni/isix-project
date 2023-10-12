@@ -24,7 +24,6 @@ class Cnc_Proc_Model :
     def __init__(self) :
         # 모델 불러오기
         self.getModel()
-        self.getData()
         self.getResult()
 
     def getModel(self) :
@@ -44,16 +43,7 @@ class Cnc_Proc_Model :
         # StandardScaler 객체 불러오기
         with open("mainapp/pyfiles/cnc_proc/cnc_model/ss.pkl", 'rb') as model_file:
             self.ss = pickle.load(model_file)
-    
-    
-    def getData(self) :
-        # CSV 파일 불러오기
-        csv_file = pd.read_csv("mainapp/pyfiles/cnc_proc/data_new/cnc_sql.csv")
 
-        # 필요한 열 선택
-        selected_columns = csv_file.columns
-        self.csv_file = csv_file[selected_columns]
-    
     
     def getResult(self) :
         # 현재 날짜와 시간 가져오기
@@ -68,26 +58,33 @@ class Cnc_Proc_Model :
         formatted_date = current_date.strftime("%y-%m-%d")
         one_formatted_date = one_day_ago.strftime("%y-%m-%d")
         two_formatted_date = two_day_ago.strftime("%y-%m-%d")
+        
+        # CSV 파일 불러오기
+        csv_file = pd.read_csv("mainapp/pyfiles/cnc_proc/data_new/cnc_sql.csv")
+
+        # 필요한 열 선택
+        selected_columns = csv_file.columns
+        csv_file = csv_file[selected_columns]
 
         list_a = []
 
         for idx in range(0, 337, 1):
-            temp = two_formatted_date + self.csv_file["cnc_date"][idx][10:]
+            temp = two_formatted_date + csv_file["cnc_date"][idx][10:]
             datetime_obj = datetime.strptime(temp, "%y-%m-%d %H:%M:%S.%f")
             list_a.append(datetime_obj)
 
         for idx in range(337, 675, 1):
-            temp = one_formatted_date + self.csv_file["cnc_date"][idx][10:]
+            temp = one_formatted_date + csv_file["cnc_date"][idx][10:]
             datetime_obj = datetime.strptime(temp, "%y-%m-%d %H:%M:%S.%f")
             list_a.append(datetime_obj)
 
         for idx in range(675, 1085, 1):
-            temp = formatted_date + self.csv_file["cnc_date"][idx][10:]
+            temp = formatted_date + csv_file["cnc_date"][idx][10:]
             datetime_obj = datetime.strptime(temp, "%y-%m-%d %H:%M:%S.%f")
             list_a.append(datetime_obj)
 
         # 'ReceivedDateTime' 열 업데이트
-        self.csv_file["cnc_date"] = list_a
+        csv_file["cnc_date"] = list_a
 
         # MySQL 연결 정보 설정
         db_config = {
@@ -114,7 +111,7 @@ class Cnc_Proc_Model :
         # 생성/삭제 쿼리 지정
         create_query = """CREATE TABLE cnc_proc (
                             cnc_id VARCHAR2(30) PRIMARY KEY,
-                            cnc_date DATE,
+                            cnc_date DATETIME,
                             SpindleSpeed_max FLOAT,
                             Servocurrent_mean FLOAT,
                             SpindleLoad_max FLOAT,
@@ -143,11 +140,11 @@ class Cnc_Proc_Model :
                     cursor.execute(create_query)
                     print("테이블 생성 완료")
             try:
-                before = np.array(self.csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs])
+                before = np.array(csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs])
                 ss_tr = self.ss.transform(before)
-                spindlespeed_min_max_scaled = ((self.csv_file["SpindleSpeed_max"][i:i+bs] - 2211.8949500000003) / (2233.11 - 2211.8949500000003))
-                ServoCurrent_X_mean_min_max_scaled = ((self.csv_file["Servocurrent_mean"][i:i+bs] - 117.88133108108109) / (194.2170588235294 - 117.88133108108109))
-                SpindleLoad_max_min_max_scaled = ((self.csv_file["SpindleLoad_max"][i:i+bs] - 6325.85119) / (33725.8057185 - 6325.85119))
+                spindlespeed_min_max_scaled = ((csv_file["SpindleSpeed_max"][i:i+bs] - 2211.8949500000003) / (2233.11 - 2211.8949500000003))
+                ServoCurrent_X_mean_min_max_scaled = ((csv_file["Servocurrent_mean"][i:i+bs] - 117.88133108108109) / (194.2170588235294 - 117.88133108108109))
+                SpindleLoad_max_min_max_scaled = ((csv_file["SpindleLoad_max"][i:i+bs] - 6325.85119) / (33725.8057185 - 6325.85119))
                 spindlespeed_mse = tf.losses.mean_squared_error(spindlespeed_min_max_scaled, self.spindlespeed_md.predict(spindlespeed_min_max_scaled))
                 SpindleLoad_mse = tf.losses.mean_squared_error(SpindleLoad_max_min_max_scaled, self.spindlespeed_md.predict(SpindleLoad_max_min_max_scaled))
                 ServoCurrent_mse = tf.losses.mean_squared_error(ServoCurrent_X_mean_min_max_scaled, self.ServoCurrent_X_mean.predict(ServoCurrent_X_mean_min_max_scaled))
@@ -157,8 +154,8 @@ class Cnc_Proc_Model :
                                 'Servocurrent_mse': ServoCurrent_mse,
                                 'cnc_pred': self.passorfail_md.predict(ss_tr)})
                 
-                df_temp = pd.concat((self.csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs].reset_index(drop=True), df), axis=1)
-                df_temp = pd.concat((self.csv_file[["cnc_id", "cnc_date"]][i:i+bs].reset_index(drop=True),df_temp), axis=1)
+                df_temp = pd.concat((csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs].reset_index(drop=True), df), axis=1)
+                df_temp = pd.concat((csv_file[["cnc_id", "cnc_date"]][i:i+bs].reset_index(drop=True),df_temp), axis=1)
                 df_temp.to_sql(name="cnc_proc", con=engine, if_exists='append', index=False)
                 
                 print("{}번째 데이터 삽입 완료".format(str(i)))
