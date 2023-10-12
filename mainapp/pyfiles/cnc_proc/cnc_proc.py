@@ -20,10 +20,12 @@ import mysql.connector
 
 
 ### cnc 공정 모델
-class Cnc_Proc :
+class Cnc_Proc_Model :
     def __init__(self) :
         # 모델 불러오기
         self.getModel()
+        self.getData()
+        self.getResult()
 
     def getModel(self) :
         # Spindle Speed 모델 불러오기
@@ -95,7 +97,7 @@ class Cnc_Proc :
             'database': 'isix',    # MySQL 데이터베이스 이름
             'port': 3306,          # MySQL 포트 번호
         }
-        
+
         # SQLAlchemy 엔진 생성
         engine = create_engine(f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}")
 
@@ -105,19 +107,41 @@ class Cnc_Proc :
         # 커서 생성
         cursor = conn.cursor()
 
-        bs = 1
-        i = 0
-        max_idx = 20
+        # 테이블 존재 여부 확인 쿼리 실행
+        find_query = "SELECT table_name FROM information_schema.tables WHERE table_name = 'cnc_proc'"
+        cursor.execute(find_query)
 
-        while i < max_idx:
-            if i == 0:
-                # i가 0인 경우에만 테이블을 삭제
-                try:
-                    cursor.execute("DELETE FROM cnc_proc;")
+        # 생성/삭제 쿼리 지정
+        create_query = """CREATE TABLE cnc_proc (
+                            cnc_id VARCHAR2(30) PRIMARY KEY,
+                            cnc_date DATE,
+                            SpindleSpeed_max FLOAT,
+                            Servocurrent_mean FLOAT,
+                            SpindleLoad_max FLOAT,
+                            SpindleSpeed_mse FLOAT,
+                            SpindleLoad_mse FLOAT,
+                            Servocurrent_mse FLOAT,
+                            cnc_pred INT
+                        );"""
+
+        delete_query = "DELETE FROM cnc_proc;"
+
+        # block size
+        bs = 1
+
+        # 데이터 삽입 코드
+        for i in range(0, 10, 1) :
+            if i == 0 :
+                if cursor.fetchone():
+                    # 테이블 이미 존재할 경우 데이터 삭제
+                    print("테이블 이미 존재함")
+                    cursor.execute(delete_query)
                     conn.commit()
-                except Exception as delete_error:
-                    break
-                
+                else:
+                    # 테이블 없을 경우 테이블 생성
+                    print("테이블 존재하지 않음")
+                    cursor.execute(create_query)
+                    print("테이블 생성 완료")
             try:
                 before = np.array(self.csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs])
                 ss_tr = self.ss.transform(before)
@@ -137,9 +161,13 @@ class Cnc_Proc :
                 df_temp = pd.concat((self.csv_file[["cnc_id", "cnc_date"]][i:i+bs].reset_index(drop=True),df_temp), axis=1)
                 df_temp.to_sql(name="cnc_proc", con=engine, if_exists='append', index=False)
                 
+                print("{}번째 데이터 삽입 완료".format(str(i)))
                 i = i + bs
                 time.sleep(2)
             
             except Exception as result_error:
                 break
+        
+        
+
                 

@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.db.models.fields import CharField, TextField
+from django.db.models.fields import CharField, TextField, DateTimeField
 from django.db.models.fields import IntegerField
 
 # <클래스가 만들어진 후 매핑 작업 수행하기>
@@ -8,6 +8,7 @@ from django.db.models.fields import IntegerField
 # python manage.py migrate
 
 class Prod_Plan(models.Model):
+    
     part_no =  CharField(primary_key=True, max_length=15)
     plan_0day = IntegerField()
     plan_1day = IntegerField()
@@ -24,3 +25,19 @@ class Prod_Plan(models.Model):
     class Meta:
         managed = False
         db_table = 'prod_plan'
+        
+class Cnc_Proc(models.Model):
+    
+    cnc_id =  CharField(primary_key=True, max_length=15)
+    cnc_date = DateTimeField()
+    SpindleSpeed_max = IntegerField()
+    Servocurrent_mean = IntegerField()
+    SpindleLoad_max = IntegerField()
+    SpindleSpeed_mse = IntegerField()
+    SpindleSpeed_mse = IntegerField()
+    Servocurrent_mse = IntegerField()
+    cnc_pred = IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'cnc_proc'
