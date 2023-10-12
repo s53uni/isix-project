@@ -6,14 +6,16 @@ urlpatterns = [
     ### 자동화 검사 페이지
     # - http://127.0.0.1:8000/vision/
     path('vision/', views.detail_vision),
-    
-    ### cnc - 공정 모니터링 페이지
+    ### cnc 공정 모델 페이지
+    # - http://127.0.0.1:8000/monitoring/cnc_proc/model
+    path('monitoring/cnc_proc/model', views.cnc_proc_model),
+    ### cnc 공정 모니터링 페이지
     # - http://127.0.0.1:8000/monitoring/cnc_proc
     path('monitoring/cnc_proc', views.cnc_proc_monitoring),
-    ### 열처리 - 공정 모니터링 페이지
+    ### 열처리 공정 모니터링 페이지
     # - http://127.0.0.1:8000/monitoring/heat_proc
     path('monitoring/heat_proc', views.heat_proc_monitoring),
-    ### 주조 - 공정 모니터링 페이지
+    ### 주조 공정 모니터링 페이지
     # - http://127.0.0.1:8000/monitoring/cast_proc
     path('monitoring/cast_proc', views.cast_proc_monitoring),
     

@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-import asyncio
-from concurrent.futures import ThreadPoolExecutor
-from asgiref.sync import async_to_sync
-from asgiref.sync import sync_to_async
 # Database import
 from .models import Prod_Plan, Cnc_Proc
 
@@ -18,9 +14,15 @@ def detail_vision(request):
                   "mainapp/vision/detail_vision.html",
                   {})
 
+### cnc 공정 모니터링 모델 페이지
+def cnc_proc_model(request):
+    Cnc_Proc_Model()
+    return render(request,
+                  "mainapp/monitoring/cnc_proc_model.html",
+                  {})
+
 ### cnc 공정 모니터링 페이지
 def cnc_proc_monitoring(request):
-    Cnc_Proc_Model()
     return render(request,
                   "mainapp/monitoring/cnc_proc_monitoring.html",
                   {})

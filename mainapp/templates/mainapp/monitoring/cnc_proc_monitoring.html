@@ -16,6 +16,10 @@
 
     <!-- detail.css 가져오기 -->
     <link rel="stylesheet" href="{% static 'mainapp/css/detail.css'%}">
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
     <!-- header 시작 -->
@@ -55,9 +59,8 @@
         <!-- dashboard 시작 -->
         <div class="dashboard">
             <h2 class="dashboard__title">공정 모니터링</h2>
-            <iframe src="http://127.0.0.1:3000/d-solo/bd1d16e2-fd6d-42db-808d-53dd0756a975/cnc-proc?orgId=1&from=1696907677000&to=1696908367000&panelId=1" width="450" height="200" frameborder="0"></iframe>
+            <iframe src="http://127.0.0.1:3000/d-solo/bd1d16e2-fd6d-42db-808d-53dd0756a975/cnc-proc?orgId=1&from=1696907677000&to=1696908367000&refresh=auto&panelId=1" width="450" height="200" frameborder="0"></iframe>
         </div>
-        
         <!-- dashboard 끝-->
     </div>
     <!-- detail 끝-->
@@ -65,5 +68,43 @@
     <!-- footer 시작 -->
     {% include 'mainapp/include/footer.html' %}
     <!-- footer 끝 -->
+
+    {% comment %} <button id="runButton">Run</button>
+    <div class="run__pyfile"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+        // 버튼 클릭 이벤트를 바인딩
+        $("#runButton").click(function() {
+          $(".run__pyfile").load("/monitoring/cnc_proc/model", function(response, status, xhr) {
+            if (status === "success") {
+              // 요청 성공
+            } else {
+              // 요청 실패
+              console.error("Failed to load content");
+            }
+          });
+        });
+      });
+    </script> {% endcomment %}
+    <div class="run__pyfile"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // 페이지 로드 시 자동으로 요청을 보냄
+        $(".run__pyfile").load("/monitoring/cnc_proc/model", function(response, status, xhr) {
+        if (status === "success") {
+            // 요청 성공
+        } else {
+            // 요청 실패
+            console.error("Failed to load content");
+        }
+        });
+    });
+    </script>
 </body>
 </html>
