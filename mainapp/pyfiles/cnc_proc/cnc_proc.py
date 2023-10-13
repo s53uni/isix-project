@@ -51,8 +51,8 @@ class Cnc_Proc_Model :
 
         # 현재 날짜만 가져오기
         current_date = current_datetime.date()
-        one_day_ago = current_datetime - timedelta(days=1)
-        two_day_ago = current_datetime - timedelta(days=2)
+        one_day_ago = current_datetime + timedelta(days=1)
+        two_day_ago = current_datetime + timedelta(days=2)
 
         # 날짜를 원하는 형식으로 문자열로 변환
         formatted_date = current_date.strftime("%y-%m-%d")
@@ -69,7 +69,7 @@ class Cnc_Proc_Model :
         list_a = []
 
         for idx in range(0, 337, 1):
-            temp = two_formatted_date + csv_file["cnc_date"][idx][10:]
+            temp = formatted_date + csv_file["cnc_date"][idx][10:]
             datetime_obj = datetime.strptime(temp, "%y-%m-%d %H:%M:%S.%f")
             list_a.append(datetime_obj)
 
@@ -79,7 +79,7 @@ class Cnc_Proc_Model :
             list_a.append(datetime_obj)
 
         for idx in range(675, 1085, 1):
-            temp = formatted_date + csv_file["cnc_date"][idx][10:]
+            temp = two_formatted_date + csv_file["cnc_date"][idx][10:]
             datetime_obj = datetime.strptime(temp, "%y-%m-%d %H:%M:%S.%f")
             list_a.append(datetime_obj)
 

@@ -65,6 +65,23 @@
     </div>
     <!-- detail 끝-->
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // 페이지 로드 시 자동으로 요청을 보냄
+        $.get("/monitoring/cast_proc/model", function(data, status) {
+        if (status === "success") {
+            // 요청 성공
+            // 여기에서 데이터를 처리하거나 무시할 수 있습니다.
+        } else {
+            // 요청 실패
+            console.error("Failed to load content");
+        }
+        });
+    });
+    </script>
+
     <!-- footer 시작 -->
     {% include 'mainapp/include/footer.html' %}
     <!-- footer 끝 -->
