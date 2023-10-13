@@ -132,9 +132,9 @@ class Cnc_Proc_Model :
         # 데이터 삽입 코드
         for i in range(0, 10, 1) :
             
-            ### 외부에서 강제 종료 시키기
-            if self.forControl == True:
-                break
+            # ### 외부에서 강제 종료 시키기
+            # if self.forControl == True:
+            #     break
             
             if i == 0 :
                 if cursor.fetchone():
