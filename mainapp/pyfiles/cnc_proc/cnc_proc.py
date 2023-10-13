@@ -105,7 +105,7 @@ class Cnc_Proc_Model :
         cursor = conn.cursor()
 
         # 테이블 존재 여부 확인 쿼리 실행
-        find_query = "SELECT table_name FROM information_schema.tables WHERE table_name = 'cnc_proc'"
+        find_query = "SELECT table_name FROM information_schema.tables WHERE table_name = 'cnc_proc';"
         cursor.execute(find_query)
 
         # 생성/삭제 쿼리 지정
@@ -163,6 +163,7 @@ class Cnc_Proc_Model :
                 time.sleep(2)
             
             except Exception as result_error:
+                print(result_error)
                 break
         
         
