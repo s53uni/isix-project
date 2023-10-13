@@ -163,7 +163,20 @@ class Cnc_Proc_Model :
                                 'cnc_pred': self.passorfail_md.predict(ss_tr)})
                 
                 df_temp = pd.concat((csv_file[["SpindleSpeed_max", "Servocurrent_mean", "SpindleLoad_max"]][i:i+bs].reset_index(drop=True), df), axis=1)
-                df_temp = pd.concat((csv_file[["cnc_id", "cnc_date"]][i:i+bs].reset_index(drop=True),df_temp), axis=1)
+                
+                a = datetime.now()
+                
+                # 날짜와 시간을 문자열로 변환
+                a_str = a.strftime("%y-%m-%d %H:%M:%S.%f")
+                
+                # 문자열을 다시 datetime 객체로 변환
+                a_parsed = datetime.strptime(a_str, "%y-%m-%d %H:%M:%S.%f")
+                
+                df_2 = pd.DataFrame([[csv_file["cnc_id"][i:i+bs],a_parsed]],columns=["cnc_id","cnc_date"])
+
+                df_temp = pd.concat((df_2, df_temp), axis=1)
+
+                
                 df_temp.to_sql(name="cnc_proc", con=engine, if_exists='append', index=False)
                 
                 print("{}번째 데이터 삽입 완료".format(str(i)))

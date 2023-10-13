@@ -146,7 +146,20 @@ class Cast_Proc_Model :
                     cursor.execute(create_query)
                     print("테이블 생성 완료")
             try:
-                df_temp = csv_file[["cast_id", "cast_date", "cast_pressure", "lower_mold_temp", "upper_mold_temp", "sleeve_temp", "cast_pred"]][i:i+bs]
+                a = datetime.now()
+                                
+                # 날짜와 시간을 문자열로 변환
+                a_str = a.strftime("%y-%m-%d %H:%M:%S.%f")
+
+                # 문자열을 다시 datetime 객체로 변환
+                a_parsed = datetime.strptime(a_str, "%y-%m-%d %H:%M:%S.%f")
+
+                df_2 = pd.DataFrame([[csv_file["cast_id"][i],a_parsed]],columns=["cast_id","cast_date"])
+
+                df_temp = csv_file[["cast_pressure", "lower_mold_temp", "upper_mold_temp", "sleeve_temp", "cast_pred"]][i:i+bs].reset_index(drop=True)
+
+                df_temp = pd.concat((df_2, df_temp), axis=1)
+                
                 df_temp.to_sql(name="cast_proc", con=engine, if_exists='append', index=False)
                 
                 print("{}번째 데이터 삽입 완료".format(str(i)))

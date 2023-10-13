@@ -49,7 +49,7 @@ class Heat_Proc_Model :
         # 생성/삭제 쿼리 지정
         create_query = """CREATE TABLE heat_proc (
                             heat_id VARCHAR(30) PRIMARY KEY,
-                            heat_date DATE,
+                            heat_date DATETIME,
                             quench_temp_min FLOAT,
                             saltbelt_temp_max FLOAT,
                             saltfurnace_temp_min FLOAT,
