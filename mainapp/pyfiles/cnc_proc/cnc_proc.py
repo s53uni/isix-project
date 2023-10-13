@@ -44,9 +44,9 @@ class Cnc_Proc_Model :
         with open("mainapp/pyfiles/cnc_proc/cnc_model/ss.pkl", 'rb') as model_file:
             self.ss = pickle.load(model_file)
 
-    ### 외부에서 강제 종료 시키기
-    def setForControl(self, b=True) :
-        self.forControl = b
+    # ### 외부에서 강제 종료 시키기
+    # def setForControl(self, b=True) :
+    #     self.forControl = b
     
     def getResult(self) :
         # 현재 날짜와 시간 가져오기
