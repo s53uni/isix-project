@@ -113,7 +113,7 @@ class Cnc_Proc_Model :
 
         # 생성/삭제 쿼리 지정
         create_query = """CREATE TABLE cnc_proc (
-                            cnc_id VARCHAR2(30) PRIMARY KEY,
+                            cnc_id VARCHAR(30) PRIMARY KEY,
                             cnc_date DATETIME,
                             SpindleSpeed_max FLOAT,
                             Servocurrent_mean FLOAT,
@@ -172,7 +172,7 @@ class Cnc_Proc_Model :
                 # 문자열을 다시 datetime 객체로 변환
                 a_parsed = datetime.strptime(a_str, "%y-%m-%d %H:%M:%S.%f")
                 
-                df_2 = pd.DataFrame([[csv_file["cnc_id"][i:i+bs],a_parsed]],columns=["cnc_id","cnc_date"])
+                df_2 = pd.DataFrame([[csv_file["cnc_id"][i],a_parsed]],columns=["cnc_id","cnc_date"])
 
                 df_temp = pd.concat((df_2, df_temp), axis=1)
 
