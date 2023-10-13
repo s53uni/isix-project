@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>생산 계획</title>
+    <title>자동화 검사</title>
     <!-- favicon 설정하기 -->
     <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
 
@@ -20,6 +20,14 @@
     <!-- 자바스크립트 -->
     <script type="text/javascript">
     </script>
+    <style>
+        iframe {
+            flex: 1; /* 각 iframe을 균일한 너비로 확장 */
+            border: none; /* 테두리 제거 */
+            height: 300px;
+            width: 400px; /* 원하는 높이로 설정 */
+        }
+    </style>
 </head>
 <body>
     <!-- header 시작 -->
@@ -58,13 +66,58 @@
 
         <!-- dashboard 시작 -->
         <div class="dashboard">
-            <h2 class="dashboard__title">자동화 공정</h2>
-            <img src="/static/images/grafana_ex.png">
+            <h2 class="dashboard__title">자동화 검사</h2>
+            <div class="dashboard__video">
+                <video src=""></video>
+                <iframe id="myIframe1" src="/vision/fail"></iframe>
+                <iframe id="myIframe2" src="/vision/pass"></iframe>
+            </div>
         </div>
         <!-- dashboard 끝-->
     </div>
     <!-- detail 끝-->
 
+
+
+    <script>
+        // 3초마다 iframe 새로 고침
+        function refreshIframe() {
+          var iframe = document.getElementById("myIframe1");
+          iframe.src = iframe.src; // 이렇게 iframe의 소스를 현재의 소스로 변경함으로써 새로 고침
+        }
+    
+        // 3초마다 refreshIframe 함수 호출
+        setInterval(refreshIframe, 3000); // 3초 = 3000밀리초
+    </script>
+    <script>
+        // 3초마다 iframe 새로 고침
+        function refreshIframe() {
+        var iframe = document.getElementById("myIframe2");
+        iframe.src = iframe.src; // 이렇게 iframe의 소스를 현재의 소스로 변경함으로써 새로 고침
+        }
+    
+        // 3초마다 refreshIframe 함수 호출
+        setInterval(refreshIframe, 3000); // 3초 = 3000밀리초
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // 페이지 로드 시 자동으로 요청을 보냄
+        $.get("/vision/model", function(data, status) {
+        if (status === "success") {
+            // 요청 성공
+            // 여기에서 데이터를 처리하거나 무시할 수 있습니다.
+        } else {
+            // 요청 실패
+            console.error("Failed to load content");
+        }
+        });
+    });
+    </script>
+    
     <!-- footer 시작 -->
     {% include 'mainapp/include/footer.html' %}
     <!-- footer 끝 -->

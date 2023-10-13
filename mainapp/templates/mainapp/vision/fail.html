@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision List</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Vision ID</th>
+                <th>Date</th>
+                <th>Prediction</th>
+                <th>Accuracy</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 이미지를 클릭하지 않고 Vision ID에 이미지 링크 추가 -->
+            {% for vision in visions %}
+            <tr>
+                <td><a href="/static/mainapp/fail/{{ vision.vision_img }}" target="_blank">{{ vision.vision_id }}</a></td>
+                <td>{{ vision.vision_date|date:"Y-m-d H:i:s" }}</td>
+                <td>{{ vision.vision_pred }}</td>
+                <td>{{ vision.vision_acc }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

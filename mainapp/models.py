@@ -1,7 +1,9 @@
 from django.db import models
 
-from django.db.models.fields import CharField, TextField, DateTimeField
+from django.db.models.fields import CharField, TextField, DateTimeField, BigIntegerField, FloatField
 from django.db.models.fields import IntegerField
+from django.db.models import FileField
+
 
 # <클래스가 만들어진 후 매핑 작업 수행하기>
 # python manage.py makemigrations mainapp
@@ -41,3 +43,18 @@ class Cnc_Proc(models.Model):
     class Meta:
         managed = False
         db_table = 'cnc_proc'
+        
+class Vision(models.Model):
+    
+    vision_id = TextField(primary_key=True)
+    vision_date = TextField()
+    vision_pred = BigIntegerField()
+    vision_acc = FloatField()
+    vision_img = FileField(upload_to='images/')
+    
+    def __str__(self):
+        return self.vision_id
+    
+    class Meta:
+        managed = False
+        db_table = 'vision'

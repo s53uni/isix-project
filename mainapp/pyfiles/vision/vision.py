@@ -87,7 +87,7 @@ class Vision_Model :
         # 생성/삭제 쿼리 지정
         create_query = """CREATE TABLE vision (
                             vision_id VARCHAR(30) PRIMARY KEY,
-                            vision_date DATE,
+                            vision_date DATETIME,
                             vision_acc FLOAT,
                             vision_img VARCHAR(100),
                             vision_pred INT
@@ -219,3 +219,5 @@ class Vision_Model :
 
         cap.release()
         cv2.destroyAllWindows()
+        
+        return cap
