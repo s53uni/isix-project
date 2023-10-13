@@ -18,6 +18,10 @@ import pickle
 from sqlalchemy import create_engine
 import mysql.connector
 
+import xgboost as xgb
+
+# XGBoost 모델을 초기화할 때 use_label_encoder 속성을 설정
+model = xgb.XGBClassifier(use_label_encoder=False)  # 또는 True로 설정
 
 ### cnc 공정 모델
 class Cnc_Proc_Model :
