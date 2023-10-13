@@ -61,7 +61,6 @@ class Cast_Proc_Model :
 
         # 결과 출력
         for date, items in daily_data.items():
-            print(f"날짜 : {date}")
             for item in items:
                 list_temp.append(item)
                 
