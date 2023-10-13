@@ -8,3 +8,6 @@ db.sqlite3-journal
 __pycache__/
 *.py[cod]
 *$py.class
+
+mainapp/static/mainapp/fail/*
+mainapp/static/mainapp/pass/*

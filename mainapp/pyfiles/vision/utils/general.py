@@ -47,9 +47,9 @@ except (ImportError, AssertionError):
 
 from ultralytics.utils.checks import check_requirements
 
-from mainapp.utils import TryExcept, emojis
-from mainapp.utils.downloads import curl_download, gsutil_getsize
-from mainapp.utils.metrics import box_iou, fitness
+from mainapp.pyfiles.vision.utils import TryExcept, emojis
+from mainapp.pyfiles.vision.utils.downloads import curl_download, gsutil_getsize
+from mainapp.pyfiles.vision.utils.metrics import box_iou, fitness
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[1]  # YOLOv5 root directory

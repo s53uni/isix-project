@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 
-from mainapp.utils import TryExcept, threaded
+from mainapp.pyfiles.vision.utils import TryExcept, threaded
 
 
 def fitness(x):

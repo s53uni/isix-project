@@ -9,9 +9,11 @@ from mainapp.pyfiles.prod_plan.prod_plan import Prod_Plan_Model
 from mainapp.pyfiles.cnc_proc.cnc_proc import Cnc_Proc_Model
 from mainapp.pyfiles.cast_proc.cast_proc import Cast_Proc_Model
 from mainapp.pyfiles.heat_proc.heat_proc import Heat_Proc_Model
+from mainapp.pyfiles.vision.vision import Vision_Model
 
 ### 자동화 검사 페이지
 def detail_vision(request):
+    Vision_Model()
     return render(request,
                   "mainapp/vision/detail_vision.html",
                   {})

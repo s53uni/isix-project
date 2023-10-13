@@ -21,14 +21,12 @@ if str(ROOT) not in sys.path:
 if platform.system() != 'Windows':
     ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
 
-from mainapp.yolo_models.models.common import *
-from mainapp.yolo_models.models.experimental import *
-# from models.common import *  # noqa
-# from models.experimental import *  # noqa
-from mainapp.utils.autoanchor import check_anchor_order
-from mainapp.utils.general import LOGGER, check_version, check_yaml, make_divisible, print_args
-from mainapp.utils.plots import feature_visualization
-from mainapp.utils.torch_utils import (fuse_conv_and_bn, initialize_weights, model_info, profile, scale_img, select_device,
+from mainapp.pyfiles.vision.yolo_models.models.common import *
+from mainapp.pyfiles.vision.yolo_models.models.experimental import *
+from mainapp.pyfiles.vision.utils.autoanchor import check_anchor_order
+from mainapp.pyfiles.vision.utils.general import LOGGER, check_version, check_yaml, make_divisible, print_args
+from mainapp.pyfiles.vision.utils.plots import feature_visualization
+from mainapp.pyfiles.vision.utils.torch_utils import (fuse_conv_and_bn, initialize_weights, model_info, profile, scale_img, select_device,
                                time_sync)
 
 try:

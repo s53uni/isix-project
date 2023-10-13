@@ -20,9 +20,9 @@ from PIL import Image, ImageDraw
 from scipy.ndimage.filters import gaussian_filter1d
 from ultralytics.utils.plotting import Annotator
 
-from mainapp.utils import TryExcept, threaded
-from mainapp.utils.general import LOGGER, clip_boxes, increment_path, xywh2xyxy, xyxy2xywh
-from mainapp.utils.metrics import fitness
+from mainapp.pyfiles.vision.utils import TryExcept, threaded
+from mainapp.pyfiles.vision.utils.general import LOGGER, clip_boxes, increment_path, xywh2xyxy, xyxy2xywh
+from mainapp.pyfiles.vision.utils.metrics import fitness
 
 # Settings
 RANK = int(os.getenv('RANK', -1))

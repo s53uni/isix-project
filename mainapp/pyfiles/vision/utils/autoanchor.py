@@ -10,8 +10,8 @@ import torch
 import yaml
 from tqdm import tqdm
 
-from mainapp.utils import TryExcept
-from mainapp.utils.general import LOGGER, TQDM_BAR_FORMAT, colorstr
+from mainapp.pyfiles.vision.utils import TryExcept
+from mainapp.pyfiles.vision.utils.general import LOGGER, TQDM_BAR_FORMAT, colorstr
 
 PREFIX = colorstr('AutoAnchor: ')
 

@@ -37,12 +37,12 @@ except (ImportError, AssertionError):
 
 from ultralytics.utils.plotting import Annotator, colors, save_one_box
 
-from mainapp.utils import TryExcept
-from mainapp.utils.dataloaders import exif_transpose, letterbox
-from mainapp.utils.general import (LOGGER, ROOT, Profile, check_requirements, check_suffix, check_version, colorstr,
+from mainapp.pyfiles.vision.utils import TryExcept
+from mainapp.pyfiles.vision.utils.dataloaders import exif_transpose, letterbox
+from mainapp.pyfiles.vision.utils.general import (LOGGER, ROOT, Profile, check_requirements, check_suffix, check_version, colorstr,
                            increment_path, is_jupyter, make_divisible, non_max_suppression, scale_boxes, xywh2xyxy,
                            xyxy2xywh, yaml_load)
-from mainapp.utils.torch_utils import copy_attr, smart_inference_mode
+from mainapp.pyfiles.vision.utils.torch_utils import copy_attr, smart_inference_mode
 
 
 def autopad(k, p=None, d=1):  # kernel, padding, dilation
