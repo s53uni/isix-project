@@ -22,7 +22,7 @@ def vision_fail(request) :
     return render(request,
            'mainapp/vision/fail.html',
            {'visions': visions})
-
+#----------------------------------------------------------
 ### 자동화 검사 모델 페이지
 def vision_model(request):
     Vision_Model()
@@ -35,7 +35,7 @@ def detail_vision(request):
     return render(request,
                   "mainapp/vision/detail_vision.html",
                   {})
-
+#----------------------------------------------------------
 ### cnc 공정 모니터링 모델 페이지
 def cnc_proc_model(request):
     Cnc_Proc_Model()
@@ -74,19 +74,16 @@ def cast_proc_monitoring(request):
     return render(request,
                   "mainapp/monitoring/cast_proc_monitoring.html",
                   {})
-
+#----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
-    
-    prod_plan = Prod_Plan_Model(6, 3, '2021-09-13 18:30:00')
-    y_pred_part_inv = prod_plan.getY_Pred_Part_Inv()
+
     prods = Prod_Plan.objects.all()
     
     return render(request,
                   "mainapp/planning/detail_planning.html",
-                  {"y_pred_part_inv":y_pred_part_inv,
-                   "prods":prods})
-
+                  {})
+#----------------------------------------------------------
 ### 기술 소개 - 자동화 검사 페이지
 def intro_vision(request):
     return render(request,
@@ -104,7 +101,7 @@ def intro_plannning(request):
     return render(request,
                   "mainapp/introduce/intro_planning.html",
                   {})
-
+#----------------------------------------------------------
 ### 메인 페이지
 def main(request):
     return render(request,

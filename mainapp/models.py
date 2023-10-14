@@ -9,9 +9,12 @@ from django.db.models import FileField
 # python manage.py makemigrations mainapp
 # python manage.py migrate
 
+
+### 생산계획 테이블
 class Prod_Plan(models.Model):
     
     part_no =  CharField(primary_key=True, max_length=15)
+    plan_date = DateTimeField()
     plan_0day = IntegerField()
     plan_1day = IntegerField()
     plan_2day = IntegerField()
@@ -20,14 +23,12 @@ class Prod_Plan(models.Model):
     plan_5day = IntegerField()
     plan_6day = IntegerField()
     plan_7day = IntegerField()
-    plan_8day = IntegerField()
-    plan_9day = IntegerField()
-    plan_date =  CharField(max_length=30)
 
     class Meta:
         managed = False
         db_table = 'prod_plan'
-        
+
+### CNC 공정 테이블    
 class Cnc_Proc(models.Model):
     
     cnc_id =  CharField(primary_key=True, max_length=15)
@@ -43,7 +44,8 @@ class Cnc_Proc(models.Model):
     class Meta:
         managed = False
         db_table = 'cnc_proc'
-        
+
+### Vision 테이블  
 class Vision(models.Model):
     
     vision_id = TextField(primary_key=True)
