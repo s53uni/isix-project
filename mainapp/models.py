@@ -14,7 +14,7 @@ from django.db.models import FileField
 class Prod_Plan(models.Model):
     
     part_no =  CharField(primary_key=True, max_length=15)
-    plan_date = DateTimeField()
+    plan_date = CharField(max_length=15)
     plan_0day = IntegerField()
     plan_1day = IntegerField()
     plan_2day = IntegerField()

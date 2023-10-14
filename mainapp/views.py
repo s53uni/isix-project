@@ -5,7 +5,6 @@ from django.views import View
 from .models import Prod_Plan, Cnc_Proc, Vision
 
 ### 클래스 불러오기
-from mainapp.pyfiles.prod_plan.prod_plan import Prod_Plan_Model
 from mainapp.pyfiles.cnc_proc.cnc_proc import Cnc_Proc_Model
 from mainapp.pyfiles.cast_proc.cast_proc import Cast_Proc_Model
 from mainapp.pyfiles.heat_proc.heat_proc import Heat_Proc_Model
@@ -77,12 +76,15 @@ def cast_proc_monitoring(request):
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
+    part_number = request.GET.get("part_no","")
+    part_plan = Prod_Plan.objects.filter(part_no=part_number)
 
-    prods = Prod_Plan.objects.all()
+    
     
     return render(request,
                   "mainapp/planning/detail_planning.html",
-                  {})
+                  {"part_number":part_number,
+                   "part_plan":part_plan})
 #----------------------------------------------------------
 ### 기술 소개 - 자동화 검사 페이지
 def intro_vision(request):

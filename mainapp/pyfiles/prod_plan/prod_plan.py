@@ -112,7 +112,7 @@ cursor.execute(find_query)
 # 생성/삭제 쿼리 지정
 create_query = """CREATE TABLE prod_plan (
                     part_no VARCHAR(15),
-                    plan_date DATE,
+                    plan_date VARCHAR(15),
                     plan_0day FLOAT,
                     plan_1day FLOAT,
                     plan_2day FLOAT,
@@ -157,7 +157,7 @@ for part in [6, 15, 16, 29, 94] :
     part_df['plan_0day'] = list(part_data['plan_0day'])[:30]
     for i in range(0,7,1) :
         part_df['plan_{}day'.format(i+1)] = list_pred[i][:30]
-    part_df['part_no'] = 'Part {}'.format(part)
+    part_df['part_no'] = 'part{}'.format(part)
     
     # SQLAlchemy 엔진 생성
     engine = create_engine(f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}")

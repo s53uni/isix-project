@@ -19,9 +19,15 @@
 
     <!-- 자바스크립트 -->
     <script type="text/javascript">
+        function initform(part_no) {
+            var element = document.querySelector('#' + part_no);
+        
+            // 새로운 클래스 추가
+            element.classList.add('menu__item--active');
+        }
     </script>
 </head>
-<body>
+<body onload="initform('{{part_number}}');">
     <!-- header 시작 -->
     {% include 'mainapp/include/header.html' %}
     <!-- header 끝 -->
@@ -37,19 +43,19 @@
                 <div class="avatar__name">Manager</div>
             </div>
             <nav class="menu">
-                <a class="menu__item" href="#">
+                <a id="part6" class="menu__item" href="/planning/?part_no=part6">
                     <span class="menu__text">Part 6</span>
                 </a>
-                <a class="menu__item" href="#">
+                <a id="part15" class="menu__item" href="/planning/?part_no=part15">
                     <span class="menu__text">Part 15</span>
                 </a>
-                <a class="menu__item" href="#">
+                <a id="part16" class="menu__item" href="/planning/?part_no=part16">
                     <span class="menu__text">Part 16</span>
                 </a>
-                <a class="menu__item" href="#">
+                <a id="part29" class="menu__item" href="/planning/?part_no=part29">
                     <span class="menu__text">Part 29</span>
                 </a>
-                <a class="menu__item menu__item--active" href="#">
+                <a id="part94" class="menu__item" href="/planning/?part_no=part94">
                     <span class="menu__text">Part 94</span>
                 </a>
             </nav>
@@ -62,12 +68,13 @@
                 <h2 class="dashboard__title">생산 계획</h2>
                 <span class="dashboard__ex">생산 계획 모델 임시 연결</span>
             </div>
-            <!-- 임시 모델 연결 -->
-            {{ y_pred_part_inv }}
-            <!-- 임시 DB 연결 -->
-            {% for prod in prods %}
-                {{ prod.plan_date }}
-            {% endfor %}
+            <div class="dashboard__select">
+                <select name="part_date">
+                    {% for date in part_plan %}
+                        <option value="{{date.plan_date}}">{{date.plan_date}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
         <!-- dashboard 끝-->
     </div>
