@@ -76,15 +76,20 @@ def cast_proc_monitoring(request):
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
+    ### 기본 변수
     part_number = request.GET.get("part_no","")
     part_plan = Prod_Plan.objects.filter(part_no=part_number)
 
-    
+    ### select box 받아온 변수
+    part_date = request.POST.get("part_date","2021-09-13")
+    part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
     
     return render(request,
                   "mainapp/planning/detail_planning.html",
                   {"part_number":part_number,
-                   "part_plan":part_plan})
+                   "part_plan":part_plan,
+                   "part_date":part_date,
+                   "part_date_plan":part_date_plan})
 #----------------------------------------------------------
 ### 기술 소개 - 자동화 검사 페이지
 def intro_vision(request):

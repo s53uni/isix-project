@@ -19,15 +19,32 @@
 
     <!-- 자바스크립트 -->
     <script type="text/javascript">
-        function initform(part_no) {
+        function initform(part_no, part_date) {
             var element = document.querySelector('#' + part_no);
         
             // 새로운 클래스 추가
             element.classList.add('menu__item--active');
+
+            // select box 유지
+            fm = document.getElementById("fm");
+
+            for(i=0; i<fm.part_date.options.length; i++) {
+                if(fm.part_date.options[i].value == part_date) {
+                    fm.part_date.options[i].selected = true;
+                    break;
+                }
+            }
+        }
+        function goSearch(part_no) {
+            fm = document.getElementById("fm");
+            part_date = fm.part_date.value;
+
+            fm.action = "/planning/?part_no=" + part_no;
+            fm.submit();
         }
     </script>
 </head>
-<body onload="initform('{{part_number}}');">
+<body onload="initform('{{part_number}}','{{part_date}}');">
     <!-- header 시작 -->
     {% include 'mainapp/include/header.html' %}
     <!-- header 끝 -->
@@ -69,11 +86,27 @@
                 <span class="dashboard__ex">생산 계획 모델 임시 연결</span>
             </div>
             <div class="dashboard__select">
-                <select name="part_date">
-                    {% for date in part_plan %}
-                        <option value="{{date.plan_date}}">{{date.plan_date}}</option>
-                    {% endfor %}
-                </select>
+                <form id="fm" method="post" action="#">
+                    {% csrf_token %}
+                    <select name="part_date">
+                        {% for date in part_plan %}
+                            <option value="{{date.plan_date}}">{{date.plan_date}}</option>
+                        {% endfor %}
+                    </select>
+                    <input id="bt" type="button" value="확인하기" onclick="goSearch('{{part_number}}')">
+                </form>
+            </div>
+            <div>
+                <h3>당일 발주 수량</h3>
+                <span>{{part_date_plan.plan_0day}}</span>
+            </div>
+            <div>
+                <h3>D+1일 발주 예정 수량</h3>
+                <span>{{part_date_plan.plan_1day}}</span>
+            </div>
+            <div>
+                <h3>D+2일 발주 예정 수량</h3>
+                <span>{{part_date_plan.plan_2day}}</span>
             </div>
         </div>
         <!-- dashboard 끝-->

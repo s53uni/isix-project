@@ -113,14 +113,14 @@ cursor.execute(find_query)
 create_query = """CREATE TABLE prod_plan (
                     part_no VARCHAR(15),
                     plan_date VARCHAR(15),
-                    plan_0day FLOAT,
-                    plan_1day FLOAT,
-                    plan_2day FLOAT,
-                    plan_3day FLOAT,
-                    plan_4day FLOAT,
-                    plan_5day FLOAT,
-                    plan_6day FLOAT,
-                    plan_7day FLOAT
+                    plan_0day INT,
+                    plan_1day INT,
+                    plan_2day INT,
+                    plan_3day INT,
+                    plan_4day INT,
+                    plan_5day INT,
+                    plan_6day INT,
+                    plan_7day INT
                 );"""
 
 delete_query = "DELETE FROM prod_plan;"
