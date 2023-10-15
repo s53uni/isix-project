@@ -34,23 +34,18 @@
                 <div class="avatar__img">
                     <img src="/static/images/person.png" alt="avatar">
                 </div>
-                <div class="avatar__name">Manager</div>
+                <div class="avatar__name">관리자</div>
             </div>
             <nav class="menu">
-                <a class="menu__item" href="#">
-                    <span class="menu__text">Part 6</span>
+                <a class="menu__item" href="/monitoring/cast_proc">
+                    <span class="menu__text">주조 공정</span>
                 </a>
-                <a class="menu__item" href="#">
-                    <span class="menu__text">Part 15</span>
                 </a>
-                <a class="menu__item" href="#">
-                    <span class="menu__text">Part 16</span>
+                <a class="menu__item menu__item--active" href="/monitoring/heat_proc">
+                    <span class="menu__text">열처리 공정</span>
                 </a>
-                <a class="menu__item" href="#">
-                    <span class="menu__text">Part 29</span>
-                </a>
-                <a class="menu__item menu__item--active" href="#">
-                    <span class="menu__text">Part 94</span>
+                <a class="menu__item" href="/monitoring/cnc_proc">
+                    <span class="menu__text">CNC 공정</span>
                 </a>
             </nav>
         </div>
@@ -58,8 +53,11 @@
 
         <!-- dashboard 시작 -->
         <div class="dashboard">
-            <h2 class="dashboard__title">공정 모니터링</h2>
-            <img src="/static/images/grafana_ex.png">
+            <div class="dashboard__text">
+                <h2 class="dashboard__title">열처리 공정 모니터링</h2>
+                <span class="dashboard__ex">생산 계획 모델 임시 연결</span>
+            </div>
+                <img src="/static/images/grafana_ex.png">
         </div>
         <!-- dashboard 끝-->
     </div>

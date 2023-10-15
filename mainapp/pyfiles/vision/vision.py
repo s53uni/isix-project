@@ -38,6 +38,33 @@ class Vision_Model :
 
         # 커서 생성
         cursor = conn.cursor()
+        
+        # 테이블 존재 여부 확인 쿼리 실행
+        find_query = "SELECT table_name FROM information_schema.tables WHERE table_name = 'vision';"
+        cursor.execute(find_query)
+
+        # 생성/삭제 쿼리 지정
+        create_query = """CREATE TABLE vision (
+                            vision_id VARCHAR(30) PRIMARY KEY,
+                            vision_date DATETIME,
+                            vision_acc FLOAT,
+                            vision_img VARCHAR(100),
+                            vision_pred INT
+                        );"""
+        delete_query = "DELETE FROM vision;"
+
+        img_to_draw_temp = ""
+        
+        if cursor.fetchone():
+                # 테이블 이미 존재할 경우 데이터 삭제
+                print("테이블 이미 존재함")
+                cursor.execute(delete_query)
+                conn.commit()
+        else:
+                # 테이블 없을 경우 테이블 생성
+                print("테이블 존재하지 않음")
+                cursor.execute(create_query)
+                print("테이블 생성 완료")
 
         ### 실행 시 동일한 결과를 얻기위한 random seed 설정
         # - 완전히 동일하지는 않음
@@ -80,32 +107,6 @@ class Vision_Model :
         prev_box = (0, 0, 0, 0)
         img_to_draw_temp = ""
         
-        # 테이블 존재 여부 확인 쿼리 실행
-        find_query = "SELECT table_name FROM information_schema.tables WHERE table_name = 'vision';"
-        cursor.execute(find_query)
-
-        # 생성/삭제 쿼리 지정
-        create_query = """CREATE TABLE vision (
-                            vision_id VARCHAR(30) PRIMARY KEY,
-                            vision_date DATETIME,
-                            vision_acc FLOAT,
-                            vision_img VARCHAR(100),
-                            vision_pred INT
-                        );"""
-        delete_query = "DELETE FROM vision;"
-
-        img_to_draw_temp = ""
-        if number == 1:
-            if cursor.fetchone():
-                    # 테이블 이미 존재할 경우 데이터 삭제
-                    print("테이블 이미 존재함")
-                    cursor.execute(delete_query)
-                    conn.commit()
-            else:
-                    # 테이블 없을 경우 테이블 생성
-                    print("테이블 존재하지 않음")
-                    cursor.execute(create_query)
-                    print("테이블 생성 완료")
                 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -168,8 +169,6 @@ class Vision_Model :
                             pred_data
                             
                             vision_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                            
-                            
                             
                             df_temp = pd.DataFrame({'vision_id': vision_id,
                                 'vision_date': vision_date,

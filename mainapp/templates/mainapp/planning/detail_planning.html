@@ -19,6 +19,7 @@
 
     <!-- 자바스크립트 -->
     <script type="text/javascript">
+        // 페이지 실행시 함수
         function initform(part_no, part_date) {
             var element = document.querySelector('#' + part_no);
         
@@ -35,6 +36,7 @@
                 }
             }
         }
+        // select box button 함수
         function goSearch(part_no) {
             fm = document.getElementById("fm");
             part_date = fm.part_date.value;
@@ -57,7 +59,7 @@
                 <div class="avatar__img">
                     <img src="/static/images/person.png" alt="avatar">
                 </div>
-                <div class="avatar__name">Manager</div>
+                <div class="avatar__name">관리자</div>
             </div>
             <nav class="menu">
                 <a id="part6" class="menu__item" href="/planning/?part_no=part6">
@@ -83,34 +85,39 @@
         <div class="dashboard">
             <div class="dashboard__text">
                 <h2 class="dashboard__title">생산 계획</h2>
-                <span class="dashboard__ex">생산 계획 모델 임시 연결</span>
+                <span class="dashboard__ex">PART {{number}}의 7일간 발주 예정 수량을 알려드립니다.</span>
             </div>
             <div class="dashboard__select">
                 <form id="fm" method="post" action="#">
                     {% csrf_token %}
+                    <span>기준일자</span>
                     <select name="part_date">
                         {% for date in part_plan %}
                             <option value="{{date.plan_date}}">{{date.plan_date}}</option>
                         {% endfor %}
                     </select>
-                    <input id="bt" type="button" value="확인하기" onclick="goSearch('{{part_number}}')">
+                    <input id="bt" type="button" value="조회하기" onclick="goSearch('{{part_number}}')">
                 </form>
             </div>
-            <div>
-                <h3>당일 발주 수량</h3>
-                <span>{{part_date_plan.plan_0day}}</span>
-            </div>
-            <div>
-                <h3>D+1일 발주 예정 수량</h3>
-                <span>{{part_date_plan.plan_1day}}</span>
-            </div>
-            <div>
-                <h3>D+2일 발주 예정 수량</h3>
-                <span>{{part_date_plan.plan_2day}}</span>
-            </div>
-            <div>
-                <iframe src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/new-dashboard?orgId=1&var-part_no={{part_number}}&var-plan_date={{part_date}}&panelId=1" width="450" height="200" frameborder="0"></iframe>
-                <iframe src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/new-dashboard?orgId=1&var-part_no={{part_number}}&panelId=2" width="800" height="500" frameborder="0"></iframe>
+            <div class="dashboard__contents">
+                <div class="dashboard__day">
+                    <div class="dashboard__plan">
+                        <h2>당일 발주 수량</h2>
+                        <span>{{part_date_plan.plan_0day}}</span>
+                    </div>
+                    <div class="dashboard__plan">
+                        <h2>D+1일 발주 예정 수량</h2>
+                        <span>{{part_date_plan.plan_1day}}</span>
+                    </div>
+                    <div class="dashboard__plan">
+                        <h2>D+2일 발주 예정 수량</h2>
+                        <span>{{part_date_plan.plan_2day}}</span>
+                    </div>
+                </div>
+                <div class="dashboard__graph">
+                    <iframe class="week_plan" src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/new-dashboard?orgId=1&var-part_no={{part_number}}&var-plan_date={{part_date}}&panelId=1" frameborder="0"></iframe>
+                    <iframe class="all_plan" src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/new-dashboard?orgId=1&var-part_no={{part_number}}&panelId=2" frameborder="0"></iframe>
+                </div>
             </div>
         </div>
         <!-- dashboard 끝-->

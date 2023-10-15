@@ -86,3 +86,60 @@ body {
 .dashboard__ex {
     color: #8198ae;
 }
+
+.dashboard__select select,
+.dashboard__select input{
+    font-family: "Pretendard", sans-serif;
+    font-size: 16px;
+    color: #1f4568;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.5px solid #8198ae;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.dashboard__select input {
+    padding: 7px 15px;
+    border:none;
+}
+.dashboard__select {
+    padding: 10px 30px;
+}
+
+/* dashboard contents */
+.dashboard__contents {
+    display: block;
+    padding: 20px;
+}
+/* dashboard dayplan */
+.dashboard__day {
+    display: flex;
+    padding: 10px;
+}
+.dashboard__plan {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    width: 300px;
+    height: 180px;
+    text-align: center;
+    margin-right: 20px;
+}
+.dashboard__plan span {
+    font-size:60px;
+    font-weight: 600;
+}
+
+/* grafana */
+.dashboard__graph {
+    display:block;
+    padding:10px;
+}
+.week_plan {
+    width: 1000px;
+    height: 350px;
+}
+.all_plan {
+    width: 1000px;
+    height: 350px;
+}

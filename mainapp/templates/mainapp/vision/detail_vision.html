@@ -69,8 +69,8 @@
             <h2 class="dashboard__title">자동화 검사</h2>
             <div class="dashboard__video">
                 <video src=""></video>
-                <iframe id="myIframe1" src="/vision/fail"></iframe>
-                <iframe id="myIframe2" src="/vision/pass"></iframe>
+                <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=auto&panelId=2" width="450" height="200" frameborder="0"></iframe>
+                <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=auto&panelId=1" width="450" height="200" frameborder="0"></iframe>
             </div>
         </div>
         <!-- dashboard 끝-->
@@ -79,27 +79,7 @@
 
 
 
-    <script>
-        // 3초마다 iframe 새로 고침
-        function refreshIframe() {
-          var iframe = document.getElementById("myIframe1");
-          iframe.src = iframe.src; // 이렇게 iframe의 소스를 현재의 소스로 변경함으로써 새로 고침
-        }
     
-        // 3초마다 refreshIframe 함수 호출
-        setInterval(refreshIframe, 3000); // 3초 = 3000밀리초
-    </script>
-    <script>
-        // 3초마다 iframe 새로 고침
-        function refreshIframe() {
-        var iframe = document.getElementById("myIframe2");
-        iframe.src = iframe.src; // 이렇게 iframe의 소스를 현재의 소스로 변경함으로써 새로 고침
-        }
-    
-        // 3초마다 refreshIframe 함수 호출
-        setInterval(refreshIframe, 3000); // 3초 = 3000밀리초
-    </script>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
