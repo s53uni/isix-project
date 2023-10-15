@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-# Database import
+from django.core.cache import cache
+
+# DB import
 from .models import Prod_Plan, Cnc_Proc, Vision
 
 ### 클래스 불러오기
@@ -10,21 +12,20 @@ from mainapp.pyfiles.cast_proc.cast_proc import Cast_Proc_Model
 from mainapp.pyfiles.heat_proc.heat_proc import Heat_Proc_Model
 from mainapp.pyfiles.vision.vision import Vision_Model
 
-def vision_pass(request) :
-    visions = Vision.objects.filter(vision_pred=1).order_by('-vision_id')
-    return render(request,
-           'mainapp/vision/pass.html',
-           {'visions': visions})
+### 인스턴스 전역변수
+my_instance = None
 
-def vision_fail(request) :
-    visions = Vision.objects.filter(vision_pred=0).order_by('-vision_id')
-    return render(request,
-           'mainapp/vision/fail.html',
-           {'visions': visions})
-#----------------------------------------------------------
 ### 자동화 검사 모델 페이지
 def vision_model(request):
-    Vision_Model()
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+        
+    # 클래스 인스턴스 생성
+    my_instance = Vision_Model()
+    my_instance.runModel()
+    
     return render(request,
                   "mainapp/vision/vision_model.html",
                   {})
@@ -37,7 +38,15 @@ def detail_vision(request):
 #----------------------------------------------------------
 ### cnc 공정 모니터링 모델 페이지
 def cnc_proc_model(request):
-    Cnc_Proc_Model()
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+        
+    # 클래스 인스턴스 생성
+    my_instance = Cnc_Proc_Model()
+    my_instance.runModel()
+
     return render(request,
                   "mainapp/monitoring/cnc_proc_model.html",
                   {})
@@ -50,7 +59,15 @@ def cnc_proc_monitoring(request):
     
 ### 열처리 공정 모니터링 모델 페이지
 def heat_proc_model(request):
-    Heat_Proc_Model()
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+        
+    # 클래스 인스턴스 생성    
+    my_instance = Heat_Proc_Model()
+    my_instance.runModel()
+
     return render(request,
                   "mainapp/monitoring/heat_proc_model.html",
                   {})
@@ -63,7 +80,15 @@ def heat_proc_monitoring(request):
 
 ### 주조 공정 모니터링 모델 페이지
 def cast_proc_model(request):
-    Cast_Proc_Model()
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+        
+    # 클래스 인스턴스 생성    
+    my_instance = Cast_Proc_Model()
+    my_instance.runModel()
+    
     return render(request,
                   "mainapp/monitoring/cast_proc_model.html",
                   {})
@@ -76,6 +101,10 @@ def cast_proc_monitoring(request):
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     ### 기본 변수
     part_number = request.GET.get("part_no","")
     number = part_number[4:]
@@ -95,24 +124,40 @@ def detail_planning(request):
 #----------------------------------------------------------
 ### 기술 소개 - 자동화 검사 페이지
 def intro_vision(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     return render(request,
                   "mainapp/introduce/intro_vision.html",
                   {})
 
 ### 기술 소개 - 공정 모니터링 페이지
 def intro_monitoring(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     return render(request,
                   "mainapp/introduce/intro_monitoring.html",
                   {})
 
 ### 기술 소개 - 생산 계획 페이지
 def intro_plannning(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     return render(request,
                   "mainapp/introduce/intro_planning.html",
                   {})
 #----------------------------------------------------------
 ### 메인 페이지
 def main(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     return render(request,
                   "mainapp/main.html",
                   {})

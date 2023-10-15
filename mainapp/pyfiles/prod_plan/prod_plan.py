@@ -89,7 +89,6 @@ def getModel(part, num, Xscaler_part, X_part, yscaler_part, y_part) :
 # ---------------------------------------------------------------------------------------------------------
 # 코드 실행
 
-
 # MySQL 연결 정보 설정
 db_config = {
     'user': 'root',        # MySQL 사용자 이름

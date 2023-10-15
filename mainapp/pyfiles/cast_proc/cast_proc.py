@@ -11,13 +11,16 @@ from datetime import datetime, timedelta
 ### 주조 공정 모델
 class Cast_Proc_Model :
     def __init__(self) :
-        # 모델 불러오기
-        self.runModel()
+        # 실행 플래그 초기화
+        self.is_running = False
 
-    def runModel(self) :
+    def stopModel(self):
+        # 실행 플래그를 False로 설정하여 코드 중지
+        self.is_running = False
         
-        # 현재 날짜와 시간 가져오기
-        current_datetime = datetime.now()
+    def runModel(self) :
+        # 실행 플래그를 True로 설정
+        self.is_running = True
 
         # 원래 컬럼 이름과 새로운 컬럼 이름을 매핑하는 딕셔너리 생성
         column_mapping = {
@@ -127,23 +130,27 @@ class Cast_Proc_Model :
                         );"""
 
         delete_query = "DELETE FROM cast_proc;"
-
+        
+        if cursor.fetchone():
+            # 테이블 이미 존재할 경우 데이터 삭제
+            print("테이블 이미 존재함")
+            cursor.execute(delete_query)
+            conn.commit()
+        else:
+            # 테이블 없을 경우 테이블 생성
+            print("테이블 존재하지 않음")
+            cursor.execute(create_query)
+            print("테이블 생성 완료")
+            
         bs = 1
-        i = 0
         max_idx = 10 # max index = 92014
 
-        for i in range(0, max_idx, 1) :
-            if i == 0 :
-                if cursor.fetchone():
-                    # 테이블 이미 존재할 경우 데이터 삭제
-                    print("테이블 이미 존재함")
-                    cursor.execute(delete_query)
-                    conn.commit()
-                else:
-                    # 테이블 없을 경우 테이블 생성
-                    print("테이블 존재하지 않음")
-                    cursor.execute(create_query)
-                    print("테이블 생성 완료")
+        for i in range(0, max_idx, 1) : 
+            
+            ### 외부에서 강제 종료 시키기
+            if self.is_running == False:
+                break
+            
             try:
                 a = datetime.now()
                                 

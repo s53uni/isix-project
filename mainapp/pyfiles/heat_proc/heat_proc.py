@@ -12,10 +12,17 @@ import time
 ### 열처리 공정 모델
 class Heat_Proc_Model :
     def __init__(self) :
-        # 모델 불러오기
-        self.runModel()
-
+        # 실행 플래그 초기화
+        self.is_running = False
+        
+    def stopModel(self):
+        # 실행 플래그를 False로 설정하여 코드 중지
+        self.is_running = False
+        
     def runModel(self) :
+        # 실행 플래그를 True로 설정
+        self.is_running = True
+        
         with open("mainapp/pyfiles/heat_proc/tem_model/xgb_mm_heating.pickle", 'rb') as model_file:
             xgb_mm_heating = pickle.load(model_file)
 
@@ -57,23 +64,25 @@ class Heat_Proc_Model :
                         );"""
 
         delete_query = "DELETE FROM heat_proc;"
-
+        
+        if cursor.fetchone():
+            # 테이블 이미 존재할 경우 데이터 삭제
+            print("테이블 이미 존재함")
+            cursor.execute(delete_query)
+            conn.commit()
+        else:
+            # 테이블 없을 경우 테이블 생성
+            print("테이블 존재하지 않음")
+            cursor.execute(create_query)
+            print("테이블 생성 완료")
+            
         bs = 1
-        i = 0
-        max_idx = 20 # max number of = 136 
+        max_idx = 10 # max number of = 136 
 
         for i in range(0, max_idx, 1) :
-            if i == 0 :
-                if cursor.fetchone():
-                    # 테이블 이미 존재할 경우 데이터 삭제
-                    print("테이블 이미 존재함")
-                    cursor.execute(delete_query)
-                    conn.commit()
-                else:
-                    # 테이블 없을 경우 테이블 생성
-                    print("테이블 존재하지 않음")
-                    cursor.execute(create_query)
-                    print("테이블 생성 완료")
+            ### 외부에서 강제 종료 시키기
+            if self.is_running == False:
+                break
             
             try:
                 heat_pred = xgb_mm_heating.predict(mms.fit_transform(data.iloc[i:i+1, :]))

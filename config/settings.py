@@ -168,5 +168,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ### 로그인 상태에서 브라우저가 닫혔을 때 세션정보(로그인 정보) 삭제하기(로그아웃 처리)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
-### 날짜 포맷
-DATETIME_FORMAT = "Y-m-d H:i:s"
+# 세션 엔진 설정 (기본값: 'django.contrib.sessions.backends.db' - 데이터베이스 백엔드)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# 세션 쿠키의 유효 기간 (초) - 기본값: 1209600 (2주)
+SESSION_COOKIE_AGE = 3600  # 1시간

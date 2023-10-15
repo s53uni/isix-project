@@ -18,10 +18,17 @@ import pandas as pd
 ### 자동화 검사 모델
 class Vision_Model :
     def __init__(self) :
-        # 모델 불러오기
-        self.runModel()
+        # 실행 플래그 초기화
+        self.is_running = False
+        
+    def stopModel(self):
+        # 실행 플래그를 False로 설정하여 코드 중지
+        self.is_running = False
 
     def runModel(self) :
+        # 실행 플래그를 True로 설정
+        self.is_running = True
+        
         # MySQL 연결 정보 설정
         db_config = {
             'user': 'root',        # MySQL 사용자 이름
@@ -109,6 +116,10 @@ class Vision_Model :
         
                 
         while cap.isOpened():
+            ### 외부에서 강제 종료 시키기
+            if self.is_running == False:
+                break
+            
             ret, frame = cap.read()
 
             if not ret:
