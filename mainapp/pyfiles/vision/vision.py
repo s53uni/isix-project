@@ -97,7 +97,7 @@ class Vision_Model :
         model_cnn.summary()
 
         ## 동영상 1초당 2프레임으로 저장
-        cap = cv2.VideoCapture('mainapp/pyfiles/vision/videos/sample_video.mp4')
+        cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video.mp4')
 
         # 코덱 정의
         fourcc = cv2.VideoWriter_fourcc(*'DIVX') # window의 경우 DIVX
