@@ -15,6 +15,8 @@ from mainapp.pyfiles.vision.vision import Vision_Model
 ### 인스턴스 전역변수
 my_instance = None
 
+#----------------------------------------------------------
+
 ### 자동화 검사 모델 페이지
 def vision_model(request):
     global my_instance
