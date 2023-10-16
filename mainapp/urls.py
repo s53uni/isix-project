@@ -3,6 +3,12 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    ### 자동화 검사 fail 페이지
+    # - http://127.0.0.1:8000/vision/fail
+    path('vision/fail', views.detail_fail),
+    ### 자동화 검사 pass 페이지
+    # - http://127.0.0.1:8000/vision/pass
+    path('vision/pass', views.detail_pass),
     ### 자동화 검사 모델 페이지
     # - http://127.0.0.1:8000/vision/model
     path('vision/model', views.vision_model),
