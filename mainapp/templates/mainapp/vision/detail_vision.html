@@ -57,9 +57,16 @@
                 <span class="dashboard__ex">의 7일간 발주 예정 수량을 알려드립니다.</span>
             </div>
             <div class="dashboard__video">
-                <video src="{% static 'mainapp/videos/sample_video.mp4'%}" autoplay muted></video>
-                <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=auto&panelId=2" frameborder="0"></iframe>
-                <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=auto&panelId=1" frameborder="0"></iframe>
+                <video src="{% static 'mainapp/videos/sample_video.mp4'%}" autoplay muted controls></video>
+            </div>
+            <div class="dashboard__graph">
+                <div>
+                    <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=1s&panelId=3" width="1000" height="400" frameborder="0"></iframe>
+                </div>
+                <div>
+                    <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=1s&panelId=2" width="500" height="300" frameborder="0"></iframe>
+                    <iframe src="http://127.0.0.1:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=1s&panelId=1" width="500" height="300" frameborder="0"></iframe>
+                </div>
             </div>
         </div>
         <!-- dashboard 끝-->
