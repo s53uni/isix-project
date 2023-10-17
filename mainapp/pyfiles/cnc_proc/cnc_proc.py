@@ -20,9 +20,6 @@ import mysql.connector
 
 import xgboost as xgb
 
-# XGBoost 모델을 초기화할 때 use_label_encoder 속성을 설정
-model = xgb.XGBClassifier(use_label_encoder=False)  # 또는 True로 설정
-
 ### cnc 공정 모델
 class Cnc_Proc_Model :
     def __init__(self) :
@@ -146,7 +143,7 @@ class Cnc_Proc_Model :
         bs = 1
 
         # 데이터 삽입 코드
-        for i in range(0, 10, 1) :
+        for i in range(0, 30, 1) :
             
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:

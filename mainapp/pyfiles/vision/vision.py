@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 from sqlalchemy import create_engine
 import mysql.connector
 import pandas as pd
+import time
 
 
 ### 자동화 검사 모델
@@ -97,7 +98,7 @@ class Vision_Model :
         model_cnn.summary()
 
         ## 동영상 1초당 2프레임으로 저장
-        cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video.mp4')
+        cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video1.mp4')
 
         # 코덱 정의
         fourcc = cv2.VideoWriter_fourcc(*'DIVX') # window의 경우 DIVX
@@ -190,6 +191,8 @@ class Vision_Model :
                             df_temp.to_sql(name="vision", con=engine, if_exists='append', index=False)
                             count_ok += 1
                             number += 1
+                            time.sleep(2.5)
+                            
                         else :
                             print(f"count_def[{count_def}] / 예측값[0] / 예측범주명칭[불량]")
                             vision_id = datetime.now().strftime("%Y%m%d") + "-" + "{:03d}".format(number)
@@ -213,6 +216,8 @@ class Vision_Model :
                             
                             count_def += 1
                             number += 1
+                            
+                            time.sleep(2.5)
 
 
                     if prev_box != current_box :
