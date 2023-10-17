@@ -149,3 +149,19 @@ body {
     width: 1000px;
     height: 350px;
 }
+
+/* table */
+table {
+    border-collapse: collapse;
+    width: 300px;
+}
+
+th, td {
+border: 1px solid black;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #f1f1f1;
+}

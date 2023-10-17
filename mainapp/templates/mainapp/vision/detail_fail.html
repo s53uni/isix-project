@@ -66,8 +66,24 @@
                 {% else %}
                 <div>
                     <img style="width:300px;" src="/static/mainapp/fail/{{vision_tb.vision_img}}">
-                    <p>해당 부품 번호는 {{vision_tb.vision_id}} 입니다.</p>
-                    <p>부품 양불 판정 일자는 {{vision_tb.vision_date}}이며 불량품으로 분류되었습니다.</p>
+                    <table>
+                        <tr>
+                            <th>구분</th>
+                            <th>내용</th>
+                        </tr>
+                        <tr>
+                            <td>부품 번호</td>
+                            <td>{{vision_tb.vision_id}}</td>
+                        </tr>
+                        <tr>
+                            <td>판정 일자</td>
+                            <td>{{vision_tb.vision_date}}</td>
+                        </tr>
+                        <tr>
+                            <td>판정 결과</td>
+                            <td>불량품</td>
+                        </tr>
+                    </table>
                 </div>
                 {% endif %}
             </div>
