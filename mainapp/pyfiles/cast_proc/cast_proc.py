@@ -143,7 +143,7 @@ class Cast_Proc_Model :
             print("테이블 생성 완료")
             
         bs = 1
-        max_idx = 10 # max index = 92014
+        max_idx = 30 # max index = 92014
 
         for i in range(0, max_idx, 1) : 
             
