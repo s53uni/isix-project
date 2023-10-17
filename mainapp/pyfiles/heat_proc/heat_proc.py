@@ -77,7 +77,7 @@ class Heat_Proc_Model :
             print("테이블 생성 완료")
             
         bs = 1
-        max_idx = 10 # max number of = 136 
+        max_idx = 30 # max number of = 136 
 
         for i in range(0, max_idx, 1) :
             ### 외부에서 강제 종료 시키기
