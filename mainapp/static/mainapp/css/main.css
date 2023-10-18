@@ -93,15 +93,15 @@ body {
   background-repeat: no-repeat;
 }
 
-.price-box--purple .price-box__img {
+.price-box--planning .price-box__img {
   background-image: url("/static/images/planning_image.png");
 }
 
-.price-box--violet .price-box__img {
+.price-box--monitoring .price-box__img {
   background-image: url("/static/images/monitoring_image.png");
 }
 
-.price-box--blue .price-box__img {
+.price-box--auto .price-box__img {
   background-image: url("/static/images/auto_image.png");
 }
 
@@ -231,27 +231,6 @@ body {
   border: 1px solid #8198ae;
 }
 
-.btn--purple {
-  background-color: #8a3aff;
-}
-
-.btn--purple:hover {
-  background-color: #b284f6;
-}
-
-.btn--violet {
-  background-color: #6f79ff;
-}
-.btn--violet:hover {
-  background-color: #878ef3;
-}
-
-.btn--blue {
-  background-color: #3a9fff;
-}
-.btn--blue:hover {
-  background-color: #63b2fc;
-}
 .btn--width {
   width: 120px;
 }
@@ -425,11 +404,11 @@ body {
   text-align: center;
 }
 .site__title {
-  font-size: 70px;
+  font-size: 42px;
   font-weight: 600;
   color:#ffffff;
   margin: 0;
-  top: -480px;
+  top: -370px;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -437,11 +416,11 @@ body {
 }
 
 .site__subtitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   color: #ffffff;
   margin: 0;
-  top: -480px;
+  top: -360px;
   text-align: center;
   position: relative;
   z-index: 2;
