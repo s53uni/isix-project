@@ -187,18 +187,6 @@ body {
   top: -4px;
 }
 
-.price-box--purple .price-box__list-el:before {
-  color: #8a3aff;
-}
-
-.price-box--violet .price-box__list-el:before {
-  color: #6f79ff;
-}
-
-.price-box--blue .price-box__list-el:before {
-  color: #3a9fff;
-}
-
 .price-box__wrap:hover {
   backface-visibility: hidden;
   transform: scale(1.05, 1.05);
