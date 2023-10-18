@@ -74,6 +74,18 @@ class Vision_Model :
                 cursor.execute(create_query)
                 print("테이블 생성 완료")
 
+        # 실행시 기존 이미지 삭제하기
+        dir_list = ['mainapp/static/mainapp/pass', 'mainapp/static/mainapp/fail']
+        
+        try:
+            for dir in dir_list :
+                for filename in os.listdir(dir):
+                    if filename.endswith(".jpg"):
+                        file_path = os.path.join(dir, filename)
+                        os.remove(file_path)
+        except Exception as error:
+            print(f"파일 삭제 중 오류 발생: {error}")
+
         ### 실행 시 동일한 결과를 얻기위한 random seed 설정
         # - 완전히 동일하지는 않음
         tf.keras.utils.set_random_seed(42)
@@ -236,3 +248,4 @@ class Vision_Model :
         cv2.destroyAllWindows()
         
         return cap
+    
