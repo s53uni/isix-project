@@ -91,11 +91,11 @@ def getModel(part, num, Xscaler_part, X_part, yscaler_part, y_part) :
 
 # MySQL 연결 정보 설정
 db_config = {
-    'user': 'root',        # MySQL 사용자 이름
-    'password': '0000',    # MySQL 비밀번호
-    'host': 'localhost',   # MySQL 호스트 주소
-    'database': 'isix',    # MySQL 데이터베이스 이름
-    'port': 3306,          # MySQL 포트 번호
+            'user': 'isix',        # MySQL 사용자 이름
+            'password': 'dnqnsxn1',    # MySQL 비밀번호
+            'host': '43.202.171.200',   # MySQL 호스트 주소
+            'database': 'isix',    # MySQL 데이터베이스 이름
+            'port': 3306          # MySQL 포트 번호
 }
 
 # MySQL 서버에 연결
