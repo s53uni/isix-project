@@ -308,6 +308,7 @@ body {
   }
   .header__elenco.active{
     display: block;
+    margin-bottom: 35px;
     background-color: #ffffff;
   }
   .header__container {
