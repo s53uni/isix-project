@@ -106,7 +106,7 @@ class Vision_Model :
         model.load_state_dict(checkpoint['model'].state_dict())
         model.eval()  # 추론 모드로 모델 설정
 
-        model_cnn = keras.models.load_model('mainapp/pyfiles/vision/yolo_models/models/best_cnn_model.h5')
+        model_cnn = keras.models.load_model('mainapp/pyfiles/vision/yolo_models/models/best_cnn_model2.h5')
         model_cnn.summary()
 
         ## 동영상 1초당 2프레임으로 저장
