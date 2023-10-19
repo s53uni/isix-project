@@ -186,10 +186,11 @@ body {
 }
 .dashboard__passfail {
     display: flex;
+    justify-content: space-between;
     width: 100%;
 }
 .dashboard__passfail iframe{
-    width: 49%;
+    width: 49.7%;
 }
 
 

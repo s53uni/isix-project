@@ -58,9 +58,33 @@
                 </div>
             </div>
             <div class="dashboard__graph">
+                {% if vision_id == "" %}
                 <div>
                     <iframe src="http://43.202.171.200:3000/d-solo/aeb2fe8a-7c29-413c-9a7e-9a797ac2bbaf/vision?orgId=1&refresh=1s&theme=light&panelId=2" width="1000" height="400" frameborder="0"></iframe>
                 </div>
+                {% else %}
+                <div>
+                    <img style="width:300px;" src="/static/mainapp/pass/{{vision_tb.vision_img}}">
+                    <table>
+                        <tr>
+                            <th>구분</th>
+                            <th>내용</th>
+                        </tr>
+                        <tr>
+                            <td>부품 번호</td>
+                            <td>{{vision_tb.vision_id}}</td>
+                        </tr>
+                        <tr>
+                            <td>판정 일자</td>
+                            <td>{{vision_tb.vision_date}}</td>
+                        </tr>
+                        <tr>
+                            <td>판정 결과</td>
+                            <td>양품</td>
+                        </tr>
+                    </table>
+                </div>
+                {% endif %}
             </div>
         </div>
         <!-- dashboard 끝-->

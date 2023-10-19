@@ -34,9 +34,19 @@ def detail_fail(request):
 
 ### 자동화 검사 pass 페이지
 def detail_pass(request):
+    # vision_id 받아오기
+    vision_id = request.GET.get("vision_id","")
+    
+    if vision_id != "" :
+        # 테이블에서 이미지 가져오기
+        vision_tb = Vision.objects.filter(vision_id=vision_id)[0]
+    else :
+        vision_tb = None
+        
     return render(request,
                   "mainapp/vision/detail_pass.html",
-                  {})
+                  {"vision_id":vision_id,
+                   "vision_tb":vision_tb})
 
 ### 자동화 검사 모델 페이지
 def vision_model(request):

@@ -52,7 +52,6 @@ body {
 
 /* 기술 상세 내용 */
 .intro__detail {
-    display:block;
     padding: 50px;
 }
 .intro__detail__box {
@@ -87,6 +86,12 @@ body {
 
 /* -----1024px----- */
 @media screen and (max-width: 1024px) {
+    .intro__detail {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     .intro__detail__box {
         display:block;
         text-align: center; 
