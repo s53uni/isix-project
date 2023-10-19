@@ -292,7 +292,7 @@ body {
   background-color: #fff;
   color: #8198ae;
 }
-/* -----button----- */
+/* -----buttonul----- */
 
 /* -----1024px----- */
 @media screen and (max-width: 1024px) {
@@ -308,7 +308,6 @@ body {
   }
   .header__elenco.active{
     display: block;
-    margin-bottom: 35px;
     background-color: #ffffff;
   }
   .header__container {
