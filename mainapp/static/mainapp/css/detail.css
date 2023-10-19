@@ -45,6 +45,7 @@ body {
 }
 .menu__text {
     display: inline-block;
+    font-size: 16px;
 }
 .menu__item {
     text-transform: uppercase;
@@ -71,6 +72,7 @@ body {
 }
 .dashboard__explain {
     padding:30px;
+    font-weight: 300;
     border-bottom: 0.8px solid #e3e3e3;
 }
 .dashboard__title {
@@ -112,6 +114,7 @@ body {
     display: block;
     padding:30px;
 }
+/* 생산 계획 */
 .dashboard__day {
     display: flex;
     justify-content: space-between;
@@ -136,6 +139,30 @@ body {
     font-size:24px;
     margin:0;
 }
+/* 공정 모니터링 */
+.dashboard__range {
+    display: flex;
+}
+.dashboard__range {
+    justify-content: space-between;
+    width:100%;
+}
+.dashboard__range--value {
+    display: block;
+    width: 33%;
+}
+.dashboard__range--value iframe {
+    width: 100%;
+}
+.dashboard__pred iframe {
+    width: 100%;
+    height: 300px;
+}
+.dashboard__table iframe {
+    width: 100%;
+    height: 400px;
+}
+/* 자동화 검사 */
 .dashboard__video {
     padding:0 300px;
 }
