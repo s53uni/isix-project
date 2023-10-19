@@ -123,7 +123,7 @@ body {
   animation: text-ani 2.5s ease forwards;
 }
 .site__subtitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   margin: 0;
   top: -315px;
@@ -145,13 +145,13 @@ body {
 }
 
 .summary__title {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 600;
   margin: 0px;
 }
 
 .summary__subtitle{
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   color: #8198ae;
 }
@@ -166,7 +166,7 @@ body {
 .content--box__title {
   font-size: 20px;
   font-weight: 600;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 .content--box__list {
   text-align: left;
@@ -303,9 +303,9 @@ body {
   .navbar__toggleBtn {
     display: block;
     position: absolute;
-    top:9px;
+    top:12px;
     right: 22px;
-    font-size: 30px;
+    font-size: 24px;
   }
   .header__elenco{
     display:none;

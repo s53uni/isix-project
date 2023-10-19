@@ -1,0 +1,167 @@
+html,
+body {
+    background-color: #FFFFFF;
+}
+
+.detail {
+    display:flex;
+}
+
+/* sidebar css */
+.sidebar {
+    width: 15%;
+    font-size:15px;
+    font-weight: 400;
+    color: #1f4568;
+    background-color: white;
+    border-right:0.8px solid #e3e3e3;
+}
+
+/* avatar css */
+.avatar {
+    margin:30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.avatar__name {
+    flex: 1;
+    text-align: right;
+}
+.avatar__img > img {
+    display: block;
+    width: 75px;
+    margin: 5px;
+}
+
+/* menubar css */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    justify-content: flex-start;
+}
+
+.menu__text {
+    display: inline-block;
+}
+
+.menu__item {
+    text-transform: uppercase;
+    margin: 5px 15px;
+    padding: 15px;
+    border-left: 4px solid transparent;
+    color: inherit;
+    text-decoration: none;
+    transition: color ease 0.3s;
+}
+
+.menu__item--active .menu__text {
+    color: #ffffff;
+}
+
+.menu__item:hover {
+    color: #6f79ff;
+}
+
+.menu__item--active {
+    background-color: #1f4568;
+    border-radius: 5px;
+}
+
+/* dashboard css */
+.dashboard {
+    width: 85%;
+}
+
+.dashboard img {
+    width: 100%;
+}
+
+.dashboard__text {
+    padding: 15px 30px;
+    line-height: 15px;
+}
+
+.dashboard__ex {
+    color: #8198ae;
+}
+
+.dashboard__select select,
+.dashboard__select input{
+    font-family: "Pretendard", sans-serif;
+    font-size: 16px;
+    color: #1f4568;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0.5px solid #8198ae;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.dashboard__select input {
+    padding: 7px 15px;
+    border:none;
+}
+.dashboard__select {
+    padding: 10px 30px;
+}
+
+/* dashboard contents */
+.dashboard__contents {
+    display: block;
+    padding: 20px;
+}
+/* dashboard dayplan */
+.dashboard__day {
+    display: flex;
+    padding: 10px;
+}
+.dashboard__plan {
+    padding: 10px;
+    border: 0.5px solid #e3e3e3;
+    width: 300px;
+    height: 180px;
+    text-align: center;
+    margin-right: 20px;
+}
+.dashboard__plan span {
+    font-size:60px;
+    font-weight: 600;
+}
+.dashboard__video {
+    padding:0 300px;
+}
+.dashboard__video video {
+    width: 400px;
+    height: auto;
+}
+
+/* grafana */
+.dashboard__graph {
+    display:block;
+    padding:10px;
+}
+.week_plan {
+    width: 1000px;
+    height: 350px;
+}
+.all_plan {
+    width: 1000px;
+    height: 350px;
+}
+
+/* table */
+table {
+    border-collapse: collapse;
+    width: 300px;
+}
+
+th, td {
+border: 1px solid black;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #f1f1f1;
+}
