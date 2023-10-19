@@ -86,34 +86,37 @@
 
         <!-- dashboard 시작 -->
         <div class="dashboard">
-            <div class="dashboard__text">
-                <h2 class="dashboard__title">생산 계획</h2>
-                <span class="dashboard__ex">PART {{number}}의 7일간 발주 예정 수량을 알려드립니다.</span>
+            <div class="dashboard__explain">
+                <div class="dashboard__text">
+                    <span class="dashboard__title">생산 계획</span>
+                    <span class="dashboard__ex">AI 알고리즘 기반 수량 예측을 통해 기준일자로부터 7일 간의 발주 예정 수량을 알려드립니다.</span>
+                </div>
+                <div class="dashboard__select">
+                    <form id="fm" method="post" action="#">
+                        {% csrf_token %}
+                        <span>기준일자</span>
+                        <select name="part_date">
+                            {% for date in part_plan %}
+                                <option value="{{date.plan_date}}">{{date.plan_date}}</option>
+                            {% endfor %}
+                        </select>
+                        <input id="bt" type="button" value="조회하기" onclick="goSearch('{{part_number}}')">
+                    </form>
+                </div>
             </div>
-            <div class="dashboard__select">
-                <form id="fm" method="post" action="#">
-                    {% csrf_token %}
-                    <span>기준일자</span>
-                    <select name="part_date">
-                        {% for date in part_plan %}
-                            <option value="{{date.plan_date}}">{{date.plan_date}}</option>
-                        {% endfor %}
-                    </select>
-                    <input id="bt" type="button" value="조회하기" onclick="goSearch('{{part_number}}')">
-                </form>
-            </div>
-            <div class="dashboard__contents">
+            
+            <div class="dashboard__content">
                 <div class="dashboard__day">
                     <div class="dashboard__plan">
                         <h2>당일 발주 수량</h2>
                         <span>{{part_date_plan.plan_0day}}</span>
                     </div>
                     <div class="dashboard__plan">
-                        <h2>D+1일 발주 예정 수량</h2>
+                        <h2>1일 후 발주 예정 수량</h2>
                         <span>{{part_date_plan.plan_1day}}</span>
                     </div>
                     <div class="dashboard__plan">
-                        <h2>D+2일 발주 예정 수량</h2>
+                        <h2>2일 후 발주 예정 수량</h2>
                         <span>{{part_date_plan.plan_2day}}</span>
                     </div>
                 </div>

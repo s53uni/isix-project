@@ -8,9 +8,9 @@ body {
     position: relative;
 }
 .intro__title {
-    display: flex;
     text-align: center;
     justify-content:center; 
+    align-items: center;
     background-color: #1f4568;
     color:#ffffff;
     padding: 50px;
@@ -93,15 +93,3 @@ body {
     }
 }
 /* -----1024px----- */
-
-/* -----767px----- */
-@media screen and (max-width: 767px) {
-
-}
-/* -----767px----- */
-
-/* -----480px----- */
-@media screen and (max-width: 480px) {
-    
-}
-/* -----480px----- */

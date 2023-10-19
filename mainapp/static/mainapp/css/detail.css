@@ -4,10 +4,12 @@ body {
 }
 
 .detail {
+    position: relative;
     display:flex;
+    border-top: 0.8px solid #e3e3e3;
 }
 
-/* sidebar css */
+/* -----sidebar css----- */
 .sidebar {
     width: 15%;
     font-size:15px;
@@ -17,7 +19,7 @@ body {
     border-right:0.8px solid #e3e3e3;
 }
 
-/* avatar css */
+/* -----avatar css----- */
 .avatar {
     margin:30px;
     display: flex;
@@ -34,99 +36,106 @@ body {
     margin: 5px;
 }
 
-/* menubar css */
+/* -----menubar css----- */
 .menu {
     display: flex;
     flex-direction: column;
     align-items: normal;
     justify-content: flex-start;
 }
-
 .menu__text {
     display: inline-block;
 }
-
 .menu__item {
     text-transform: uppercase;
     margin: 5px 15px;
     padding: 15px;
-    border-left: 4px solid transparent;
     color: inherit;
     text-decoration: none;
     transition: color ease 0.3s;
 }
-
 .menu__item--active .menu__text {
     color: #ffffff;
 }
-
 .menu__item:hover {
     color: #6f79ff;
 }
-
 .menu__item--active {
     background-color: #1f4568;
     border-radius: 5px;
 }
 
-/* dashboard css */
+/* -----dashboard css----- */
 .dashboard {
+    position: relative;
     width: 85%;
 }
-
-.dashboard img {
-    width: 100%;
+.dashboard__explain {
+    position: relative;
+    padding:30px;
+    border-bottom: 0.8px solid #e3e3e3;
 }
-
 .dashboard__text {
-    padding: 15px 30px;
-    line-height: 15px;
+    display: block;
 }
-
+.dashboard__title {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40px;
+}
 .dashboard__ex {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
     color: #8198ae;
 }
-
 .dashboard__select select,
 .dashboard__select input{
     font-family: "Pretendard", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     color: #1f4568;
-    padding: 5px;
-    border-radius: 5px;
+    border-radius: 3px;
     border: 0.5px solid #8198ae;
     cursor: pointer;
-    padding: 5px 10px;
+    padding: 3px 10px;
 }
+
 .dashboard__select input {
-    padding: 7px 15px;
+    padding: 5px 10px;
     border:none;
 }
 .dashboard__select {
-    padding: 10px 30px;
+    padding:15px 0;
 }
 
-/* dashboard contents */
-.dashboard__contents {
+/* -----dashboard contents----- */
+.dashboard__content {
+    position: relative;
     display: block;
-    padding: 20px;
+    padding:30px;
 }
-/* dashboard dayplan */
 .dashboard__day {
     display: flex;
-    padding: 10px;
+    width:100%;
 }
 .dashboard__plan {
     padding: 10px;
     border: 0.5px solid #e3e3e3;
-    width: 300px;
-    height: 180px;
     text-align: center;
-    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
 }
 .dashboard__plan span {
-    font-size:60px;
+    display: block;
+    font-size:52px;
     font-weight: 600;
+}
+.dashboard__plan h2 {
+    display: block;
+    font-size:24px;
+    margin:0;
 }
 .dashboard__video {
     padding:0 300px;
@@ -136,21 +145,20 @@ body {
     height: auto;
 }
 
-/* grafana */
+/* -----grafana----- */
 .dashboard__graph {
     display:block;
-    padding:10px;
 }
 .week_plan {
-    width: 1000px;
-    height: 350px;
+    width: 100%;
+    height: 300px;
 }
 .all_plan {
-    width: 1000px;
-    height: 350px;
+    width: 100%;
+    height: 300px;
 }
 
-/* table */
+/* -----table----- */
 table {
     border-collapse: collapse;
     width: 300px;
@@ -165,3 +173,14 @@ text-align: left;
 th {
 background-color: #f1f1f1;
 }
+
+/* -----1024px----- */
+@media screen and (max-width: 1024px) {
+    .detail {
+        border:none;
+    }
+    .sidebar {
+        display: none;
+    }
+}
+/* -----1024px----- */

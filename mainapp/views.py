@@ -130,7 +130,6 @@ def detail_planning(request):
         my_instance.stopModel()
     ### 기본 변수
     part_number = request.GET.get("part_no","")
-    number = part_number[4:]
     part_plan = Prod_Plan.objects.filter(part_no=part_number)
 
     ### select box 받아온 변수
@@ -140,7 +139,6 @@ def detail_planning(request):
     return render(request,
                   "mainapp/planning/detail_planning.html",
                   {"part_number":part_number,
-                   "number":number,
                    "part_plan":part_plan,
                    "part_date":part_date,
                    "part_date_plan":part_date_plan})
