@@ -17,6 +17,9 @@
     <!-- detail.css 가져오기 -->
     <link rel="stylesheet" href="{% static 'mainapp/css/detail.css'%}">
 
+    <!-- fontawesome 가져오기-->
+    <script src="https://kit.fontawesome.com/a156a684e7.js" crossorigin="anonymous"></script>
+
     <!-- 자바스크립트 -->
     <script type="text/javascript">
         // 페이지 실행시 함수
@@ -127,5 +130,15 @@
     <!-- footer 시작 -->
     {% include 'mainapp/include/footer.html' %}
     <!-- footer 끝 -->
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+        const toggleBtn = document.querySelector('.navbar__toggleBtn');
+        const menu = document.querySelector('.header__elenco');
+
+        toggleBtn.addEventListener('click', () => {
+        menu.classList.toggle('active')
+        })
+    </script>
 </body>
 </html>
