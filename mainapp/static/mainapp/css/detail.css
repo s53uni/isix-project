@@ -210,6 +210,12 @@ th {
 background-color: #f1f1f1;
 }
 
+/* -----반응형 메뉴----- */
+.res__menu {
+    display:none;
+}
+
+
 /* -----1024px----- */
 @media screen and (max-width: 1024px) {
     .detail {
@@ -236,6 +242,26 @@ background-color: #f1f1f1;
     }
     .dashboard__passfail iframe{
         width: 100%;
+    }
+    .res__menu {
+        display:block;
+        background-color: #7e94ad;
+    }
+    .res__menu ul {
+        display:flex;
+        justify-content: space-between;
+        margin:0;
+        padding:12px 20px;
+        font-size:16px;
+        font-weight: 400;
+    }
+    .res__menu li {
+        display: inline-block;
+    }
+    .res__menu a {
+        display:block;
+        text-decoration: none;
+        color:#ffffff;
     }
 }
 /* -----1024px----- */
