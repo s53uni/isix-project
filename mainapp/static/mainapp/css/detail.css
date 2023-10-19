@@ -5,7 +5,7 @@ body {
 
 .detail {
     position: relative;
-    display:flex;
+    display: flex;
     border-top: 0.8px solid #e3e3e3;
 }
 
@@ -67,16 +67,11 @@ body {
 
 /* -----dashboard css----- */
 .dashboard {
-    position: relative;
     width: 85%;
 }
 .dashboard__explain {
-    position: relative;
     padding:30px;
     border-bottom: 0.8px solid #e3e3e3;
-}
-.dashboard__text {
-    display: block;
 }
 .dashboard__title {
     display: block;
@@ -108,6 +103,7 @@ body {
 }
 .dashboard__select {
     padding:15px 0;
+    display: block;
 }
 
 /* -----dashboard contents----- */
@@ -118,10 +114,13 @@ body {
 }
 .dashboard__day {
     display: flex;
+    justify-content: space-between;
     width:100%;
+    margin-bottom: 5px;
 }
 .dashboard__plan {
-    padding: 10px;
+    padding: 30px;
+    width: 31.3%;
     border: 0.5px solid #e3e3e3;
     text-align: center;
     align-items: center;
@@ -151,11 +150,11 @@ body {
 }
 .week_plan {
     width: 100%;
-    height: 300px;
+    height: 400px;
 }
 .all_plan {
     width: 100%;
-    height: 300px;
+    height: 400px;
 }
 
 /* -----table----- */
@@ -178,9 +177,30 @@ background-color: #f1f1f1;
 @media screen and (max-width: 1024px) {
     .detail {
         border:none;
+        display: inline;
     }
     .sidebar {
         display: none;
     }
+    .dashboard {
+        width: 100%;
+    }
+    .dashboard__plan h2 {
+        font-size:18px;
+    }
+    .dashboard__plan span {
+        font-size:38px;
+    }
 }
 /* -----1024px----- */
+
+/* -----480px----- */
+@media screen and (max-width: 480px) {
+    .dashboard__plan h2 {
+        font-size:10px;
+    }
+    .dashboard__plan span {
+        font-size:28px;
+    }
+}
+/* -----480px----- */
