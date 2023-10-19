@@ -93,8 +93,20 @@ body {
         align-items: center;
     }
     .intro__detail__box {
-        display:block;
+        flex-direction: column;
         text-align: center; 
+    }
+    .intro__detail__box {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+    .intro__detail__text {
+        width: 70%;
+    }
+    .intro__detail__text--title {
+        font-size: 20px;
     }
 }
 /* -----1024px----- */

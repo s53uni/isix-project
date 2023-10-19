@@ -228,6 +228,9 @@ background-color: #f1f1f1;
     .dashboard__plan span {
         font-size:38px;
     }
+    .week_plan {
+        height: 250px;
+    }
     .dashboard__passfail {
         display: block;
     }
