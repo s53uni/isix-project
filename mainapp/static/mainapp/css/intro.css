@@ -4,59 +4,104 @@ body {
 }
 
 /* 기술 제목 */
+.intro__box {
+    position: relative;
+}
 .intro__title {
-    padding: 60px 0;
     display: flex;
     text-align: center;
     justify-content:center; 
-    align-items : center;
     background-color: #1f4568;
     color:#ffffff;
+    padding: 50px;
 }
-
-.intro__title__Large {
+.intro__title__large {
     display: block;
     font-size: 48px;
     font-weight: 700;
 }
-
-.intro__title__Small {
+.intro__title__small {
     display: block;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     color:#7e94ad;
 }
 
-/* 기술 소개 */
+/* 기술 부제목 */
 .intro__subtitle {
     text-align: center;
+    align-items: center;
+    justify-content:center; 
     font-size: 18px;
-    line-height : 30px;
-    padding: 30px 460px;
     background-color: #F1F4FB;
+    padding:30px 50px;
+}
+.intro__subtitle__large {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    margin:15px 0;
+}
+.intro__subtitle__small {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    margin:15px 0;
 }
 
 /* 기술 상세 내용 */
 .intro__detail {
     display:block;
-    padding: 50px 100px;
+    padding: 50px;
 }
-
 .intro__detail__box {
     display:flex;
     justify-content: center;
     align-items: center;
-    padding:50px 0;
+    margin: 30px;
 }
-
 .intro__detail__text {
-    line-height : 30px;
-    width: 32%;
-    margin: 0 20px;
+    display: block;
+    width: 450px;
+    margin:15px;
+}
+.intro__detail__text--title {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 60px;
+}
+.intro__detail__text--cont {
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.intro__detail__img {
+    display: block;
+    width: 450px;
+    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.5);
+    margin:15px;
 }
 
-.intro__detail__img {
-    width: 32%;
-    margin: 0 20px;
-    box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.5);
+/* -----1024px----- */
+@media screen and (max-width: 1024px) {
+    .intro__detail__box {
+        display:block;
+        text-align: center; 
+    }
 }
+/* -----1024px----- */
+
+/* -----767px----- */
+@media screen and (max-width: 767px) {
+
+}
+/* -----767px----- */
+
+/* -----480px----- */
+@media screen and (max-width: 480px) {
+    
+}
+/* -----480px----- */

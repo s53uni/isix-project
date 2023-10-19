@@ -8,9 +8,6 @@ body {
 }
 
 /* -----header----- */
-.collapse{
-  display: block;
- }
 .header {
   padding: 18px 80px;
   top:0;
@@ -142,13 +139,13 @@ body {
 
 .summary__title {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0px;
 }
 
 .summary__subtitle{
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   color: #8198ae;
 }
 /* -----기술 요약 제목----- */
@@ -299,9 +296,6 @@ body {
 
 /* -----1024px----- */
 @media screen and (max-width: 1024px) {
-  .collapse{
-    display: none;
-  }
   .navbar__toggleBtn {
     display: block;
     position: absolute;
