@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,7 +158,13 @@ STATIC_URL = 'static/'
 
 ### 추가...
 ### 각 앱(app)에서 관리할 수 있도록 정적파일 관리 폴더 정의하기
-STATICFILES_DIRS = [BASE_DIR/'static']
+# STATICFILES_DIRS = [BASE_DIR/'static']
+
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'main', 'static'),
+        )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
