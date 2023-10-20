@@ -156,6 +156,16 @@ body {
 }
 .computer__img img {
   width: 80%;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  border-radius: 6px;
+}
+.computer__img img:hover {
+  backface-visibility: hidden;
+  transform: scale(1.05, 1.05);
 }
 /* -----computer image----- */
 
