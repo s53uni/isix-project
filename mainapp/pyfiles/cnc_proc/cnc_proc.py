@@ -143,7 +143,7 @@ class Cnc_Proc_Model :
         bs = 1
 
         # 데이터 삽입 코드
-        for i in range(0, 50, 1) :
+        for i in range(0, 15, 1) :
             
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:
