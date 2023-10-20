@@ -126,9 +126,42 @@ body {
 }
 /* -----main image----- */
 
+/* -----기대효과----- */
+.research__img {
+  display:flex;
+  justify-content: center;
+  margin: 30px 0 130px 0;   
+}
+.research__img img {
+  width: 59%;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  border-radius: 6px;
+}
+.research__img img:hover {
+  backface-visibility: hidden;
+  transform: scale(1.05, 1.05);
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+}
+/* -----computer image----- */
+.computer__img {
+  display:flex;
+  justify-content: center;
+  margin-top: -10px;
+  margin-bottom: 130px; 
+}
+.computer__img img {
+  width: 80%;
+}
+/* -----computer image----- */
+
 /* -----기술 요약 제목----- */
 .isix__summary {
-  padding: 10px 0 80px 0;
+  padding: 10px 0 130px 0;
 }
 .summary__text {
   text-align: center;
@@ -180,11 +213,11 @@ body {
   top: -4px;
 }
 .content--box {
-  margin: 25px;
+  margin: 18px;
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2); /*0px 22px 20px -10px rgba(0, 0, 0,0.2)*/
-  padding: 35px 35px 40px 35px;
+  padding: 35px 32px 40px 32px;
   width: 210px;
   text-align: center;
   transition: all 0.4s;
@@ -366,6 +399,12 @@ body {
   .footer__box {
     margin: 30px 30px;
     padding: 0;
+  }
+  .research__img img {
+    width: 72%;
+  }
+  .computer__img img {
+    width: 93%;
   }
 }
 /* -----1024px----- */

@@ -21,14 +21,14 @@
     <style>
         .header__elenco.active{
             margin-bottom: 0;
-          }
+        }
     </style>
 </head>
 <body>
     <!-- header 시작 -->
     {% include 'mainapp/include/header.html' %}
     <!-- header 끝 -->
-
+    
     <!-- main image 시작 -->
     <div class="isix__main">
         <div class="site">
@@ -38,12 +38,11 @@
         </div>
     </div>
     <!-- main image 끝 -->
-    
     <!-- 기술 요약 시작 -->
     <div class="isix__summary">
         <div class="summary__text">
-            <h1 class="summary__title">기술 요약</h1>
-            <h2 class="summary__subtitle">중견·중소기업 대상 ML/AI 기반의 SaaS Solution 제공</h2>
+            <h1 class="summary__title">제조 공정 최적화를 위한 스마트 솔루션</h1>
+            <h2 class="summary__subtitle">대규모 투자가 제한적인 중견·중소기업 대상 SaaS Solution</h2>
         </div>
         <div class="summary__content">
             <!-- 첫번째 -->
@@ -79,6 +78,31 @@
         </div>
     </div>
     <!-- 기술 요약 끝 -->
+    
+    <!-- research 시작 -->
+    <div class="isix__research">
+        <div class="summary__text">
+            <h1 class="summary__title">불량률 감소, 원가 절감, 생산성 증대 효과</h1>
+            <h2 class="summary__subtitle">ML/AI 기반의 수요 예측, 공정 관제, 품질 검사를 통한 솔루션 제공</h2>
+        </div>
+        <div class="research__img">
+            <img src="/static/images/research.png">
+        </div>
+    </div>
+    <!-- research image 끝 -->
+
+    <!-- computer image 시작 -->
+    <div class="isix__computer">
+        <div class="summary__text">
+            <h1 class="summary__title">대시보드 시각화</h1>
+            <h2 class="summary__subtitle">실시간으로 현재의 공정 상황을 확인 및 감독</h2>
+        </div>
+        <div class="computer__img">
+            <img src="/static/images/computer_monitoring.png">
+        </div>
+    </div>
+    <!-- computer image 끝 -->
+
     
     <!-- footer 시작 -->
     {% include 'mainapp/include/footer.html' %}
