@@ -106,8 +106,14 @@ class Vision_Model :
         model.load_state_dict(checkpoint['model'].state_dict())
         model.eval()  # 추론 모드로 모델 설정
 
-        model_cnn = keras.models.load_model('mainapp/pyfiles/vision/yolo_models/models/best_cnn_model2.h5')
-        model_cnn.summary()
+        # TFLite 모델을 로드합니다.
+        interpreter = tf.lite.Interpreter(model_path='mainapp/pyfiles/vision/yolo_models/models/best_cnn_model.tflite')
+
+        # Interpreter를 초기화합니다.
+        interpreter.allocate_tensors()
+        
+        # model_cnn = keras.models.load_model('mainapp/pyfiles/vision/yolo_models/models/best_cnn_model2.h5')
+        # model_cnn.summary()
 
         ## 동영상 1초당 2프레임으로 저장
         cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video.mp4')
@@ -177,13 +183,28 @@ class Vision_Model :
                     if (cnt >= 2) & (prev_box != current_box):                
                         img_cnn = cv2.resize(img_to_draw_temp, (300, 300))
 
+                        # 데이터 유형을 FLOAT32로 변환
+                        img_cnn = np.array(img_cnn, dtype=np.float32)
+                    
                         # 배치 차원 추가
                         image_array = np.expand_dims(img_cnn, axis=0)
+                        
+                        # 모델 입력 텐서의 인덱스를 가져옵니다.
+                        input_index = interpreter.get_input_details()[0]["index"]
 
-                        pred_data = model_cnn.predict(image_array)
-                        print(pred_data)
+                        # 모델 출력 텐서의 인덱스를 가져옵니다.
+                        output_index = interpreter.get_output_details()[0]["index"]
 
-                        if pred_data[0] > 0.8:
+                        # 입력 데이터를 모델에 전달하고 예측을 수행합니다.
+                        interpreter.set_tensor(input_index, image_array)
+                        interpreter.invoke()
+
+                        pred_data = interpreter.get_tensor(output_index)
+                        
+                        # pred_data = model_cnn.predict(image_array)
+                        # print(pred_data)
+
+                        if pred_data[0][0] > 0.8:
                             print(f"count_ok[{count_ok}] / 예측값[1] / 예측범주명칭[양품]")
                             vision_id = datetime.now().strftime("%Y%m%d") + "-" + "{:03d}".format(number)
                             
@@ -203,7 +224,7 @@ class Vision_Model :
                             df_temp.to_sql(name="vision", con=engine, if_exists='append', index=False)
                             count_ok += 1
                             number += 1
-                            # time.sleep(2.5)
+                            time.sleep(2.5)
                             
                         else :
                             print(f"count_def[{count_def}] / 예측값[0] / 예측범주명칭[불량]")
@@ -229,7 +250,7 @@ class Vision_Model :
                             count_def += 1
                             number += 1
                             
-                            # time.sleep(2.5)
+                            time.sleep(2.5)
 
 
                     if prev_box != current_box :
