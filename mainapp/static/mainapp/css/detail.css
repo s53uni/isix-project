@@ -188,26 +188,37 @@ body {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 5px;
 }
 .dashboard__passfail iframe{
     width: 49.7%;
+}
+.dashboard__passfail--detail {
+    display: flex;
+}
+.dashboard__passfail--detail table {
+    margin-left: 10px;
+}
+.dashboard__passfail--img img {
+    width:250px;
+    border: 1px solid #1f4568;
 }
 
 
 /* -----table----- */
 table {
     border-collapse: collapse;
-    width: 300px;
+    height: 250px;
+    width: 500px;
 }
-
 th, td {
-border: 1px solid black;
-padding: 8px;
-text-align: left;
+    text-align: center;
+    border: 1px solid #1f4568;
+    padding: 8px;
+    text-align: left;
 }
-
 th {
-background-color: #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 /* -----반응형 메뉴----- */
@@ -263,6 +274,19 @@ background-color: #f1f1f1;
         text-decoration: none;
         color:#ffffff;
     }
+    .dashboard__passfail--detail {
+        display: block;
+    }
+    .dashboard__passfail--detail table {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+    }
+    .dashboard__passfail--img img {
+        width:100%;
+        border: 1px solid #1f4568;
+    }
+    
 }
 /* -----1024px----- */
 
