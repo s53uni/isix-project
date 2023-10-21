@@ -107,8 +107,8 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
   
 * 공정 모니터링
   - 주조/열처리/CNC 공정에 대한 모니터링을 제공합니다.
-  - 주요 특징을 식별하고 덜 중요한 특징을 무시하는 기능을 가진 XGBoost 모델을 통해 각 Feature의 값으로 제품의 품질을 예측합니다.
-  - RFE 분석을 통해 주요 Feature를 도출하고 XGBoost Tree 기능으로 공정 안정 범위를 설정하였습니다.
+  - XGBoost 모델을 통해 각 Feature의 값으로 제품의 품질을 예측합니다.
+  - RFE 분석을 통해 주요 Feature를 도출하고 XGBoost Tree 분류 기준으로 공정 안정 범위를 설정하였습니다.
 
 * 자동화 검사
   - 공정이 완료된 제품의 실시간 영상을 확인할 수 있습니다.
