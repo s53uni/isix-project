@@ -47,12 +47,12 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 <table align="center">
     <tr align="center">
-        <td style="width:300px;"><b>김소연</b></td>
-        <td style="width:300px;"><b>김현준</b></td>
-        <td style="width:300px;"><b>박시윤</b></td>
-        <td style="width:300px;"><b>양현준</b></td>
-        <td style="width:300px;"><b>이경현</b></td>
-        <td style="width:300px;"><b>최예진</b></td>
+        <td style="width:300px;"><a href="https://github.com/xx-Sommer-xx"><b>김소연</b></a></td>
+        <td style="width:300px;"><a href="https://github.com/pikachamps"><b>김현준</b></a></td>
+        <td style="width:300px;"><a href="https://github.com/s53uni"><b>박시윤</b></a></td>
+        <td style="width:300px;"><a href="https://github.com/rgon26"><b>양현준</b></a></td>
+        <td style="width:300px;"><a href="https://github.com/gustn1051"><b>이경현</b></a></td>
+        <td style="width:300px;"><a href="https://github.com/Erin-53"><b>최예진</b></a></td>
     </tr>
     <tr align="center">
         <td>안정 범위 모델<br>웹 배포</td>
@@ -92,7 +92,7 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 ## 📌 주요기능
 
-* 메인화면
+* 메인 화면
   - 간단한 서비스 소개와 기대효과를 보여줍니다.
   - 기술 소개, 생산 계획, 공정 모니터링, 자동화 검사로 향할 수 있는 메뉴들이 있습니다.
   - 각 페이지들은 예시 데이터들로 고객이 실제 사용시 볼 수 있는 화면을 구현해두었습니다.
@@ -102,7 +102,7 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
   
 * 생산 계획
   - 부품 5개에 대한 한 달의 생산 계획을 확인할 수 있습니다.
-  - LSTM 모델을 사용하여 이전 정보를 오랫동안 기억할 수 있으며, 이를 통해 긴 시퀀스 데이터를 처리할 수 있습니다.
+  - LSTM 모델을 사용하여 이전 정보를 오랫동안 기억할 수 있으며, 긴 시퀀스 데이터를 처리할 수 있습니다.
   - 딥러닝 기반의 모델로 발주 수량 예측을 확인하고 생산 계획을 수립할 수 있습니다.
   
 * 공정 모니터링
@@ -117,7 +117,7 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 <br>
 
-⭐ 각 작업들은 모두 MySQLDB에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
+⭐ 각 작업들은 모두 데이터베이스에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
 
 ⭐ 해당 서비스는 반응형 웹 사이트로 데스크탑과 모바일에서 실시간 확인이 가능합니다.
 
@@ -127,9 +127,9 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 <table align="center">
     <tr align="center">
-        <td>데스크탑</td>
-        <td>태블릿</td>
-        <td>모바일</td>
+        <td><b>데스크탑</b></td>
+        <td><b>태블릿</b></td>
+        <td><b>모바일</b></td>
     </tr>
     <tr align="center">
         <td><img src="https://github.com/s53uni/isix-project/assets/142832376/a2242374-55b1-494f-bd00-8376b5dea835.png"></td>
