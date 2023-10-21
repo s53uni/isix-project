@@ -132,8 +132,8 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
         <td>모바일</td>
     </tr>
     <tr align="center">
-        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/2bbbcf96-008c-4036-9d01-cf919c575a6f.png"></td>
-        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/ba916d09-8380-4ba9-8959-ea3782ff3309.png"></td>
+        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/a2242374-55b1-494f-bd00-8376b5dea835.png"></td>
+        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/1055e703-5861-4bd8-b67e-6e9a8c5d92e5.png"></td>
         <td><img src="https://github.com/s53uni/isix-project/assets/142832376/6525fa09-02b8-4f8c-a116-b360bb14c6f4.png"></td>
     </tr>
 </table>
