@@ -76,13 +76,12 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 ### Back-End
 * Django
 * Grafana
-* Mysql
+* MySQL
 
 ### Front-End
 * HTML5
 * CSS3
 * Javascript
-* jQuery
 
 ### AWS
 * EC2
@@ -114,4 +113,4 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
   - YOLOv5를 이용하여 실시간 영상 중 제품을 감지하여 캡처를 진행합니다. 
   - CNN을 통해 캡처된 이미지를 양품 또는 불량품으로 예측하여 분류합니다.
 
-💡 각 작업들은 모두 MysqlDB에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
+💡 각 작업들은 모두 MySQLDB에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
