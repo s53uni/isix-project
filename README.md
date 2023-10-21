@@ -1,15 +1,17 @@
 <div align="center">
   
-# ⚙️ 데이터 기반 스마트 제조 서비스 ISIX ⚙️
+# 데이터 기반 스마트 제조 서비스 ISIX
 
 **대규모 투자가 제한적인 중견·중소기업을 대상으로 ML/AI 기반 SaaS Solution 지향**
 
 <br>
 
+🔽 ISIX 바로가기 🔽<br>
 <a href="http://isix.kr" style="color:black;">http://isix.kr</a>
 
 <br>
 
+AWS 세부 정보
 <table align="center">
     <tr align="center">
         <td style="width:300px;"><b>vCPU</b></td>
@@ -33,7 +35,7 @@
 
 <br><br>
 
-## 🙋‍♂️ Team
+## 🙋‍♂️ 프로젝트 팀
 
 $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $X$ pand the manufacturing industry
 
@@ -41,7 +43,7 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 <br><br>
 
-## 😀 Member
+## 😀 프로젝트 팀원
 
 <table align="center">
     <tr align="center">
@@ -113,4 +115,25 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
   - YOLOv5를 이용하여 실시간 영상 중 제품을 감지하여 캡처를 진행합니다. 
   - CNN을 통해 캡처된 이미지를 양품 또는 불량품으로 예측하여 분류합니다.
 
-💡 각 작업들은 모두 MySQLDB에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
+<br>
+
+⭐ 각 작업들은 모두 MySQLDB에 저장되며 Grafana를 통해 시각적으로 모니터링 할 수 있습니다.
+
+⭐ 해당 서비스는 반응형 웹 사이트로 데스크탑과 모바일에서 실시간 확인이 가능합니다.
+
+<br><br>
+
+## 🔎 미리보기
+
+<table align="center">
+    <tr align="center">
+        <td>데스크탑</td>
+        <td>태블릿</td>
+        <td>모바일</td>
+    </tr>
+    <tr align="center">
+        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/2bbbcf96-008c-4036-9d01-cf919c575a6f.png"></td>
+        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/ba916d09-8380-4ba9-8959-ea3782ff3309.png"></td>
+        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/6525fa09-02b8-4f8c-a116-b360bb14c6f4.png"></td>
+    </tr>
+</table>
