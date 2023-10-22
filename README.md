@@ -1,6 +1,6 @@
 <div align="center">
   
-# 데이터 기반 스마트 제조 서비스 ISIX
+# ⚙️ 데이터 기반 스마트 제조 서비스 ISIX ⚙️
 
 **대규모 투자가 제한적인 중견·중소기업을 대상으로 ML/AI 기반 SaaS Solution 지향**
 
@@ -88,6 +88,10 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 ### AWS
 * EC2
 
+### Web Architecture
+
+![web_architecture2](https://github.com/s53uni/isix-project/assets/142832376/51b85a8e-a061-41c3-9129-a69de8189f9e)
+  
 <br><br>
 
 ## 📌 주요기능
