@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <!-- favicon 설정하기 -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
+    
+    <!-- font.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'css/font.css'%}">
+
+    <!-- main.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css'%}">
+
+    <!-- login.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/login.css'%}">
+</head>
+<body>
+    <!-- header 시작 -->
+    {% include 'mainapp/include/header.html' %}
+    <!-- header 끝 -->
+
+    <div class="container">
+        <div class="overlay" id="overlay">
+            <div class="sign-in" id="sign-in">
+                <h1>기존 회원이신가요?</h1>
+                <p>서비스를 이용하려면 로그인이 필요합니다.</p>
+                <button class="switch-button" id="slide-right-button">로그인하기</button>
+            </div>
+            <div class="sign-up" id="sign-up">
+                <h1>처음 오셨나요?</h1>
+                <p>회원가입 후 로그인하시면 다양한 서비스를 제공받으실 수 있습니다.</p>
+                <button class="switch-button" id="slide-left-button">회원가입하기</button>
+            </div>
+        </div>
+        <div class="form">
+            <div class="sign-in" id="sign-in-info">
+                <h1>로그인</h1>
+                <p class="small"></p>
+                <form id="sign-in-form">      
+                    <input type="email" placeholder="Email"/>
+                    <input type="password" placeholder="Password"/><br>
+                    <p class="forgot-password">비밀번호 찾기</p>
+                    <button class="control-button in">로그인하기</button>
+                </form>
+            </div>
+            <div class="sign-up" id="sign-up-info">
+                <h1>회원가입</h1>
+                <p class="small"></p>
+                <form id="sign-up-form">
+                    <input type="text" placeholder="Name"/>
+                    <input type="email" placeholder="Email"/>
+                    <input type="password" placeholder="Password"/>
+                    <button class="control-button up">회원가입하기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var overlay = document.getElementById("overlay");
+
+        // Buttons to 'switch' the page
+        var openSignUpButton = document.getElementById("slide-left-button");
+        var openSignInButton = document.getElementById("slide-right-button");
+
+        // The sidebars
+        var leftText = document.getElementById("sign-in");
+        var rightText = document.getElementById("sign-up");
+
+        // The forms
+        var accountForm = document.getElementById("sign-in-info")
+        var signinForm = document.getElementById("sign-up-info");
+
+        // Open the Sign Up page
+        openSignUp = () =>{
+            // Remove classes so that animations can restart on the next 'switch'
+            leftText.classList.remove("overlay-text-left-animation-out");
+            overlay.classList.remove("open-sign-in");
+            rightText.classList.remove("overlay-text-right-animation");
+            // Add classes for animations
+            accountForm.className += " form-left-slide-out"
+            rightText.className += " overlay-text-right-animation-out";
+            overlay.className += " open-sign-up";
+            leftText.className += " overlay-text-left-animation";
+            // hide the sign up form once it is out of view
+            setTimeout(function(){
+                accountForm.classList.remove("form-left-slide-in");
+                accountForm.style.display = "none";
+                accountForm.classList.remove("form-left-slide-out");
+            }, 700);
+            // display the sign in form once the overlay begins moving right
+            setTimeout(function(){
+                signinForm.style.display = "flex";
+                signinForm.classList += " form-right-slide-in";
+            }, 200);
+        }
+
+        // Open the Sign In page
+        openSignIn = () =>{
+            // Remove classes so that animations can restart on the next 'switch'
+            leftText.classList.remove("overlay-text-left-animation");
+            overlay.classList.remove("open-sign-up");
+            rightText.classList.remove("overlay-text-right-animation-out");
+            // Add classes for animations
+            signinForm.classList += " form-right-slide-out";
+            leftText.className += " overlay-text-left-animation-out";
+            overlay.className += " open-sign-in";
+            rightText.className += " overlay-text-right-animation";
+            // hide the sign in form once it is out of view
+            setTimeout(function(){
+                signinForm.classList.remove("form-right-slide-in")
+                signinForm.style.display = "none";
+                signinForm.classList.remove("form-right-slide-out")
+            },700);
+            // display the sign up form once the overlay begins moving left
+            setTimeout(function(){
+                accountForm.style.display = "flex";
+                accountForm.classList += " form-left-slide-in";
+            },200);
+        }
+
+        // When a 'switch' button is pressed, switch page
+        openSignUpButton.addEventListener("click", openSignUp, false);
+        openSignInButton.addEventListener("click", openSignIn, false);
+    </script>
+</body>
+</html>

@@ -185,6 +185,12 @@ def intro_plannning(request):
                   "mainapp/introduce/intro_planning.html",
                   {})
 #----------------------------------------------------------
+### 로그인 페이지
+def login(request) :
+    return render(request,
+                  "mainapp/member/login.html",
+                  {})
+#----------------------------------------------------------
 ### 메인 페이지
 def main(request):
     global my_instance

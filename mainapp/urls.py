@@ -51,6 +51,10 @@ urlpatterns = [
     # - http://127.0.0.1:8000/introduce/planning
     path('introduce/planning', views.intro_plannning),
     
+    ### 로그인 페이지
+    # - http://127.0.0.1:8000/login
+    path('login', views.login),
+    
     ### 메인 페이지
     # - http://127.0.0.1:8000/index/
     path('index/', views.main),
