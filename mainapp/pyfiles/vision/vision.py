@@ -32,9 +32,9 @@ class Vision_Model :
         
         # MySQL 연결 정보 설정
         db_config = {
-            'user': 'isix',        # MySQL 사용자 이름
-            'password': 'dnqnsxn1',    # MySQL 비밀번호
-            'host': '43.202.171.200',   # MySQL 호스트 주소
+            'user': 'root',        # MySQL 사용자 이름
+            'password': '0000',    # MySQL 비밀번호
+            'host': '127.0.0.1',   # MySQL 호스트 주소
             'database': 'isix',    # MySQL 데이터베이스 이름
             'port': 3306          # MySQL 포트 번호
         }
@@ -224,7 +224,8 @@ class Vision_Model :
                             df_temp.to_sql(name="vision", con=engine, if_exists='append', index=False)
                             count_ok += 1
                             number += 1
-                            # time.sleep(2.5)
+                            
+                            time.sleep(2.5)
                             
                         else :
                             print(f"count_def[{count_def}] / 예측값[0] / 예측범주명칭[불량]")
@@ -250,7 +251,7 @@ class Vision_Model :
                             count_def += 1
                             number += 1
                             
-                            # time.sleep(2.5)
+                            time.sleep(2.5)
 
 
                     if prev_box != current_box :

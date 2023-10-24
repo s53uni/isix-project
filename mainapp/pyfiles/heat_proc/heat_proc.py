@@ -34,12 +34,13 @@ class Heat_Proc_Model :
 
         # MySQL 연결 정보 설정
         db_config = {
-            'user': 'isix',        # MySQL 사용자 이름
-            'password': 'dnqnsxn1',    # MySQL 비밀번호
-            'host': '43.202.171.200',   # MySQL 호스트 주소
+            'user': 'root',        # MySQL 사용자 이름
+            'password': '0000',    # MySQL 비밀번호
+            'host': '127.0.0.1',   # MySQL 호스트 주소
             'database': 'isix',    # MySQL 데이터베이스 이름
             'port': 3306          # MySQL 포트 번호
         }
+        
         # # SQLAlchemy 엔진 생성
         engine = create_engine(f"mysql+pymysql://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}")
 

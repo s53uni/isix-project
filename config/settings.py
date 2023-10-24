@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # 사용할 데이터베이스 엔진
         'NAME': 'isix', # 데이터베이스 이름 
-        'USER': 'isix', # 접속할 Database 계정 아이디 ex) root
-        'PASSWORD': 'dnqnsxn1',  # 접속할 Database 계정 비밀번호 ex) 1234
-        'HOST': '43.202.171.200',   # host는 로컬 환경에서 동작한다면 ex) localhost
+        'USER': 'root', # 접속할 Database 계정 아이디 ex) root
+        'PASSWORD': '0000',  # 접속할 Database 계정 비밀번호 ex) 1234
+        'HOST': '127.0.0.1',   # host는 로컬 환경에서 동작한다면 ex) localhost
         'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
     },
 }
@@ -158,13 +158,13 @@ STATIC_URL = 'static/'
 
 ### 추가...
 ### 각 앱(app)에서 관리할 수 있도록 정적파일 관리 폴더 정의하기
-# STATICFILES_DIRS = [BASE_DIR/'static']
+STATICFILES_DIRS = [BASE_DIR/'static']
 
-STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'main', 'static'),
-        )
+# STATICFILES_DIRS = (
+#         os.path.join(BASE_DIR, 'main', 'static'),
+#         )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
