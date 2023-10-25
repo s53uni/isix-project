@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <title>회원등록</title>
     <!-- favicon 설정하기 -->
     <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
-    
+
     <!-- font.css 가져오기 -->
     <link rel="stylesheet" href="{% static 'css/font.css'%}">
 
@@ -16,6 +16,23 @@
 
     <!-- login.css 가져오기 -->
     <link rel="stylesheet" href="{% static 'mainapp/css/login.css'%}">
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+        function goCreate() {
+            fm = document.getElementById("fm");
+        
+            mem_id = fm.mem_id.value;
+            mem_pass = fm.mem_pass.value;
+            mem_com = fm.mem_com.value;
+            mem_plan = fm.mem_com.value;
+            mem_monitor = fm.mem_com.value;
+            mem_vision = fm.mem_com.value;
+
+            fm.action = "/joinafter";
+            fm.submit();
+        }
+    </script>
 </head>
 <body>
     <!-- header 시작 -->
@@ -23,6 +40,7 @@
     <!-- header 끝 -->
 
     <div class="container">
+        <!-- overlay -->
         <div class="overlay" id="overlay">
             <div class="sign-in" id="sign-in">
                 <h1>기존 회원이신가요?</h1>
@@ -35,25 +53,34 @@
                 <button class="switch-button" id="slide-left-button">회원가입하기</button>
             </div>
         </div>
+        <!-- form -->
         <div class="form">
             <div class="sign-in" id="sign-in-info">
                 <h1>로그인</h1>
-                <p class="small"></p>
-                <form id="sign-in-form">      
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/><br>
-                    <p class="forgot-password">비밀번호 찾기</p>
+                <p class="small">이메일 아이디를 입력해주세요.</p>
+                <form class="sign-in-form" id="fm" method="post">
+                    {% csrf_token %}
+                    <input type="email" placeholder="이메일"/>
+                    <input type="password" placeholder="비밀번호"/><br>
                     <button class="control-button in">로그인하기</button>
                 </form>
             </div>
             <div class="sign-up" id="sign-up-info">
                 <h1>회원가입</h1>
-                <p class="small"></p>
-                <form id="sign-up-form">
-                    <input type="text" placeholder="Name"/>
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
-                    <button class="control-button up">회원가입하기</button>
+                <p class="small">이용하실 서비스를 모두 선택해주세요.</p>
+                <form class="sign-up-form" id="fm" method="post" action="/joinafter">
+                    {% csrf_token %}
+                    <div class="sign-up-box">
+                        <input type="text" name="mem_id" placeholder="이메일"/>
+                        <input type="password" name="mem_pass" placeholder="비밀번호"/>
+                        <input type="text" name="mem_com" placeholder="회사명"/>
+                    </div>
+                    <div class="check-service">
+                        <div><input type="checkbox" name="mem_plan" value=1>생산 계획</div>
+                        <div><input type="checkbox" name="mem_monitor" value=1>공정 모니터링</div>
+                        <div><input type="checkbox" name="mem_vision" value=1>자동화 검사</div>
+                    </div>
+                    <button class="control-button up" onclick="goCreate()">회원가입하기</button>
                 </form>
             </div>
         </div>
@@ -122,8 +149,8 @@
         }
 
         // When a 'switch' button is pressed, switch page
-        openSignUpButton.addEventListener("click", openSignUp, false);
         openSignInButton.addEventListener("click", openSignIn, false);
+        openSignUpButton.addEventListener("click", openSignUp, false);
     </script>
 </body>
 </html>

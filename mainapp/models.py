@@ -10,6 +10,23 @@ from django.db.models import FileField
 # python manage.py migrate
 
 
+# 회원정보 테이블 매핑
+class Member(models.Model) :
+    
+    mem_id =  CharField(primary_key=True,
+                        max_length=20, null=False)
+    mem_pass = CharField(max_length=15, null=False)
+    mem_com = CharField(max_length=20, null=False)
+    mem_plan = IntegerField(null=False)
+    mem_monitor = IntegerField(null=False)
+    mem_vision = IntegerField(null=False)
+
+    # 내부 클래스 정의 : 메타클래스
+    class Meta :
+        managed = False
+        db_table = "member"
+
+
 ### 생산계획 테이블
 class Prod_Plan(models.Model):
     

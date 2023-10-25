@@ -4,7 +4,7 @@ from django.views import View
 from django.core.cache import cache
 
 # DB import
-from .models import Prod_Plan, Cnc_Proc, Vision
+from .models import Prod_Plan, Cnc_Proc, Vision, Member
 
 ### 클래스 불러오기
 from mainapp.pyfiles.cnc_proc.cnc_proc import Cnc_Proc_Model
@@ -185,6 +185,86 @@ def intro_plannning(request):
                   "mainapp/introduce/intro_planning.html",
                   {})
 #----------------------------------------------------------
+### 로그아웃 처리하기
+def logout(request):
+    
+    request.session.flush()
+    
+    msg = """
+            <script type='text/javascript'>
+                alert('로그아웃 되었습니다.');
+                location.href = '/';
+            </script>
+        """
+    
+    return HttpResponse(msg)
+#----------------------------------------------------------
+### 회원가입 후 페이지
+def joinafter(request):
+    try :
+        mem_id = request.POST.get("mem_id", "")
+        mem_pass = request.POST.get("mem_pass", "")
+        mem_com = request.POST.get("mem_com", "")
+        mem_plan = request.POST.get("mem_plan", 0)
+        mem_monitor = request.POST.get("mem_monitor", 0)
+        mem_vision = request.POST.get("mem_vision", 0)
+
+        
+        Member.objects.create(mem_id=mem_id,
+                            mem_pass=mem_pass,
+                            mem_com=mem_com,
+                            mem_plan=mem_plan,
+                            mem_monitor=mem_monitor,
+                            mem_vision=mem_vision)
+         
+    except:
+        msg = """
+            <script type='text/javascript'>
+                alert('정보를 다시 확인해주세요.');
+                history.go(-1);
+            </script>
+        """
+        return HttpResponse(msg)
+    
+    msg = """
+            <script type='text/javascript'>
+                alert('가입이 완료되었습니다.');
+                location.href = '/login';
+            </script>
+        """
+        
+    return HttpResponse(msg)
+#----------------------------------------------------------
+### 로그인 후 페이지
+def loginafter(request):
+    try :
+        mem_id = request.POST.get("mem_id","")
+        mem_pass = request.POST.get("mem_pass","")
+        
+        member = Member.objects.get(mem_id = mem_id)
+  
+        if (member.mem_id == mem_id) & (member.mem_pass == mem_pass):
+            msg = """
+                    <script type="text/javascript">
+                        alert('{}님 정상적으로 로그인 되었습니다.');
+                        location.href='/';
+                    </script>
+            """.format(member.mem_name)
+            
+            request.session["ses_mem_id"] = mem_id
+            request.session["ses_mem_name"] = member.mem_name
+            
+        return HttpResponse(msg)
+    
+    except :
+        msg = """
+                <script type="text/javascript">
+                    alert('아이디 또는 패스워드를 확인해주세요.');
+                    history.go(-1);
+                </script>
+        """ 
+        return HttpResponse(msg)
+
 ### 로그인 페이지
 def login(request) :
     return render(request,
