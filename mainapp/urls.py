@@ -51,10 +51,15 @@ urlpatterns = [
     # - http://127.0.0.1:8000/introduce/planning
     path('introduce/planning', views.intro_plannning),
     
-    
+    ### 로그아웃 페이지
+    # - http://127.0.0.1:8000/logout
+    path('logout', views.logout),
     ### 회원가입 후 페이지
     # - http://127.0.0.1:8000/joinafter
     path('joinafter', views.joinafter),
+    ### 로그인 후 페이지
+    # - http://127.0.0.1:8000/loginafter
+    path('loginafter', views.loginafter),
     ### 로그인 페이지
     # - http://127.0.0.1:8000/login
     path('login', views.login),

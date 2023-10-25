@@ -29,7 +29,11 @@
                         </div>
                     </li>
                     <li class="header__el"><a href="/vision" class="header__link">자동화 검사</a></li>
-                    <li class="header__el"><a href="/login" class="btn">로그인 →</a></li>
+                    {% if request.session.ses_mem_id == None %}
+                        <li class="header__el"><a href="/login" class="btn">로그인</a></li>
+                    {% else %}
+                        <li class="header__el"><a href="/logout" class="btn">로그아웃</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

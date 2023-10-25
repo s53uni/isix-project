@@ -89,7 +89,7 @@ def cnc_proc_monitoring(request):
     return render(request,
                   "mainapp/monitoring/cnc_proc_monitoring.html",
                   {})
-    
+#----------------------------------------------------------    
 ### 열처리 공정 모니터링 모델 페이지
 def heat_proc_model(request):
     global my_instance
@@ -110,7 +110,7 @@ def heat_proc_monitoring(request):
     return render(request,
                   "mainapp/monitoring/heat_proc_monitoring.html",
                   {})
-
+#----------------------------------------------------------
 ### 주조 공정 모니터링 모델 페이지
 def cast_proc_model(request):
     global my_instance
@@ -188,14 +188,14 @@ def intro_plannning(request):
 ### 로그아웃 처리하기
 def logout(request):
     
-    request.session.flush()
-    
     msg = """
             <script type='text/javascript'>
                 alert('로그아웃 되었습니다.');
                 location.href = '/';
             </script>
         """
+        
+    request.session.flush()
     
     return HttpResponse(msg)
 #----------------------------------------------------------
@@ -238,21 +238,23 @@ def joinafter(request):
 ### 로그인 후 페이지
 def loginafter(request):
     try :
-        mem_id = request.POST.get("mem_id","")
-        mem_pass = request.POST.get("mem_pass","")
+        mem_login_id = request.POST.get("mem_login_id","")
+        mem_login_pass = request.POST.get("mem_login_pass","")
         
-        member = Member.objects.get(mem_id = mem_id)
+        member = Member.objects.get(mem_id = mem_login_id)
   
-        if (member.mem_id == mem_id) & (member.mem_pass == mem_pass):
+        if (member.mem_id == mem_login_id) & (member.mem_pass == mem_login_pass):
             msg = """
                     <script type="text/javascript">
-                        alert('{}님 정상적으로 로그인 되었습니다.');
+                        alert('정상적으로 로그인 되었습니다.');
                         location.href='/';
                     </script>
-            """.format(member.mem_name)
+            """
             
-            request.session["ses_mem_id"] = mem_id
-            request.session["ses_mem_name"] = member.mem_name
+            request.session["ses_mem_id"] = mem_login_id
+            request.session["ses_mem_plan"] = member.mem_plan
+            request.session["ses_mem_monitor"] = member.mem_monitor
+            request.session["ses_mem_vision"] = member.mem_vision
             
         return HttpResponse(msg)
     
@@ -267,6 +269,10 @@ def loginafter(request):
 
 ### 로그인 페이지
 def login(request) :
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
     return render(request,
                   "mainapp/member/login.html",
                   {})

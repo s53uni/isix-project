@@ -19,8 +19,9 @@
 
     <!-- 자바스크립트 -->
     <script type="text/javascript">
+        // 회원가입
         function goCreate() {
-            fm = document.getElementById("fm");
+            fm = document.getElementById("sign-up-fm");
         
             mem_id = fm.mem_id.value;
             mem_pass = fm.mem_pass.value;
@@ -30,6 +31,21 @@
             mem_vision = fm.mem_com.value;
 
             fm.action = "/joinafter";
+            fm.submit();
+        }
+        // 로그인
+        function goLogin() {
+            fm = document.getElementById("sign-in-fm");
+        
+            mem_login_id = fm.mem_login_id.value;
+            mem_login_pass = fm.mem_login_pass.value;
+
+            if(mem_login_id == "" || mem_login_pass == ""){
+                alert("아이디 또는 비밀번호를 입력해주세요.");
+                return;
+            };
+               
+            fm.action = "/loginafter";
             fm.submit();
         }
     </script>
@@ -58,20 +74,20 @@
             <div class="sign-in" id="sign-in-info">
                 <h1>로그인</h1>
                 <p class="small">이메일 아이디를 입력해주세요.</p>
-                <form class="sign-in-form" id="fm" method="post">
+                <form class="sign-in-form" id="sign-in-fm" method="post" action="#">
                     {% csrf_token %}
-                    <input type="email" placeholder="이메일"/>
-                    <input type="password" placeholder="비밀번호"/><br>
-                    <button class="control-button in">로그인하기</button>
+                    <input type="email" name="mem_login_id" placeholder="이메일"/>
+                    <input type="password" name="mem_login_pass" placeholder="비밀번호"/><br>
+                    <button class="control-button in" onclick="goLogin()">로그인하기</button>
                 </form>
             </div>
             <div class="sign-up" id="sign-up-info">
                 <h1>회원가입</h1>
                 <p class="small">이용하실 서비스를 모두 선택해주세요.</p>
-                <form class="sign-up-form" id="fm" method="post" action="/joinafter">
+                <form class="sign-up-form" id="sign-up-fm" method="post" action="#">
                     {% csrf_token %}
                     <div class="sign-up-box">
-                        <input type="text" name="mem_id" placeholder="이메일"/>
+                        <input type="email" name="mem_id" placeholder="이메일"/>
                         <input type="password" name="mem_pass" placeholder="비밀번호"/>
                         <input type="text" name="mem_com" placeholder="회사명"/>
                     </div>
