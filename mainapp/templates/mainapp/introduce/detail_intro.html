@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기술 소개 - 생산 계획</title>
+    <!-- favicon 설정하기 -->
+    <link rel="icon" type="image/png" sizes="16x16"  href="{% static 'images/isix_logo.png'%}">
+
+    <!-- font.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'css/font.css'%}">
+
+    <!-- main.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/main.css'%}">
+
+    <!-- intro.css 가져오기 -->
+    <link rel="stylesheet" href="{% static 'mainapp/css/intro.css'%}">
+
+    <!-- fontawesome 가져오기-->
+    <script src="https://kit.fontawesome.com/a156a684e7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- header 시작 -->
+    {% include 'mainapp/include/header.html' %}
+    <!-- header 끝 -->
+
+    <!-- 기술 소개 시작 -->
+    <div class="intro__box">
+        <!-- 기술 제목 -->
+        <div class="intro__title">
+            <span class="intro__title__large">부품 생산 계획</span>
+            <span class="intro__title__small">Parts Production Planning</span>
+        </div>
+        <!-- 기술 소개 -->
+        <div class="intro__subtitle">
+            <span class="intro__subtitle__large">재고 관리를 위한 생산 계획</span>
+            <span class="intro__subtitle__small">딥러닝을 활용한 생산 계획을 통해 예측 오류로 인한 재고 발생을 해결하고 경영 악화를 극복합니다.<br>
+                부품의 발주 수량을 예측하고 각 공정에 전달하여 작업 흐름을 관리합니다.</span>
+        </div>
+        <!-- 기술 상세 내용 -->
+        <div class="intro__detail">
+            <div class="intro__detail__box">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">AI 기반 출고량 예측 및 생산 계획 최적화</span>
+                    <span class="intro__detail__text--cont">AI 알고리즘 기반 출고 수량을 예측을 통해 공급망의 효율성을 극대화합니다.
+                        기존 네트워크 내에 존재하는 업체들에 대한 수정이력, 설계변경 이력을 통해 생산 일정을 관리하고 
+                        발주/구매를 D+7일까지 정밀하게 모니터링 할 수 있습니다.</span>
+                </div>
+                <img class="intro__detail__img" src="/static/images/planning_week.png">
+            </div>
+            <div class="intro__detail__box">
+                <img class="intro__detail__img" src="/static/images/planning_all.png">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">특이사항 대응 및 공정 관리의 유연성 강화</span>
+                    <span class="intro__detail__text--cont">특이사항 발생 시, 즉각적인 정보 제공을 통해 수주, 발주, 원자재 수급에 대한 유연한 대응 및
+                        다양한 품목별 데이터 분석을 진행함으로써, 출고량 예측을 통한 효율적인 공급망을 구축할 수 있습니다.</span>
+                </div>
+            </div>
+        </div>
+        <!-- 기술 제목 -->
+        <div class="intro__title">
+            <span class="intro__title__large">공정 모니터링</span>
+            <span class="intro__title__small">Process Monitoring</span>
+        </div>
+        <!-- 기술 소개 -->
+        <div class="intro__subtitle">
+            <span class="intro__subtitle__large">공정 최적화를 위한 실시간 모니터링</span>
+            <span class="intro__subtitle__small">ML을 활용한 공정 로그 분석을 통해 최적의 공정 변수 Range를 추출하고 실시간 공정을 관리/감독합니다.<br>
+                효율적인 공정 이슈 파악을 통해 제품 품질의 원인 분석 작업 능률을 극대화합니다.</span>
+        </div>
+        <!-- 기술 상세 내용 -->
+        <div class="intro__detail">
+            <div class="intro__detail__box">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">데이터 기반 생산 최적화와 작업자 적응 주기 단축</span>
+                    <span class="intro__detail__text--cont">현장에서 발생하는 생산 데이터 수집/분석/추출 프로세스를 통해 생산 제품 품질 향상을 위한 최적의 공정 조건을 파악합니다.
+                         작업자의 경험과 노하우에 의존하였던 기존의 문제점을 개선함으로써 신규 작업자의 적응 주기를 단축할 수 있습니다.</span>
+                </div>
+                <img class="intro__detail__img" src="/static/images/monitoring_range.png">
+            </div>
+            <div class="intro__detail__box">
+                <img class="intro__detail__img" src="/static/images/monitoring_pred.png">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">불량 원인 분석에 따른 불량률 감소와 제조 비용 절감</span>
+                    <span class="intro__detail__text--cont">불량 발생시, 복합적인 공정 구조로 인한 주요 원인 불명확성 문제를 해결할 수 있습니다.
+                        품질과 공정 데이터를 분석하여 데이터 간의 상관관계를 찾고 주요 문제별 원인 인자를 분석합니다.
+                        중요 특성에 대한 중점적 관리를 통해 제품의 불량률을 감소와 동시에 제조 비용의 절감을 도모할 수 있습니다.</span>
+                </div>
+            </div>
+        </div>
+        <!-- 기술 제목 -->
+        <div class="intro__title">
+            <span class="intro__title__large">자동화 검사</span>
+            <span class="intro__title__small">Automated Inspection</span>
+        </div>
+        <!-- 기술 소개 -->
+        <div class="intro__subtitle">
+            <span class="intro__subtitle__large">최종 완성 전 부품에 대한 자동화 불량 검사</span>
+            <span class="intro__subtitle__small">딥러닝 및 컴퓨터 비전 기술을 활용한 자동 검사 시스템은 제품을 감지합니다.<br> 
+                제품 양불 판단 공정을 자동화하여 생산 공정을 효율적으로 관리하고 제품 품질을 향상시킬 수 있습니다.</span>
+        </div>
+        <!-- 기술 상세 내용 -->
+        <div class="intro__detail">
+            <div class="intro__detail__box">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">실시간 제품 품질 분석 및 모니터링 시스템</span>
+                    <span class="intro__detail__text--cont">현장 라인에서 나오는 제품을 실시간 비디오 스트리밍으로 모델에 전달하고 감지하여 양품과 불량품으로 분류할 수 있습니다.
+                        부품 번호, 분류 시각, 분류 결과를 제공하며 각 부품 이미지도 확인할 수 있습니다. 이를 통해 실시간으로 제품 품질을 모니터링하고 의사결정에 도움을 줄 수 있습니다.
+                    </span>
+                </div>
+                <img class="intro__detail__img" src="/static/images/vision_pred.png">
+            </div>
+            <div class="intro__detail__box">
+                <img class="intro__detail__img" src="/static/images/vision_table.png">
+                <div class="intro__detail__text">
+                    <span class="intro__detail__text--title">일관성 향상 및 비용 절감</span>
+                    <span class="intro__detail__text--cont">데이터 기반의 객관적 판단 기준을 적용하여 기존 여러 사람에 의해 진행되는 양불 판정 작업을 보다 일관적이고 높은 정확도로 대체할 수 있습니다.
+                        반복적이고 규칙적인 검사를 수행해야 하는 단순 반복 작업을 효과적으로 수행함으로써 인력 및 시간 비용 절감을 기대할 수 있습니다.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 기술 소개 끝 -->
+
+    <!-- footer 시작 -->
+    {% include 'mainapp/include/footer.html' %}
+    <!-- footer 끝 -->
+
+    <!-- 자바스크립트 -->
+    <script type="text/javascript">
+        const toggleBtn = document.querySelector('.navbar__toggleBtn');
+        const menu = document.querySelector('.header__elenco');
+
+        toggleBtn.addEventListener('click', () => {
+        menu.classList.toggle('active')
+        })
+    </script>
+</body>
+</html>

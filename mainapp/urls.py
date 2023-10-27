@@ -48,8 +48,8 @@ urlpatterns = [
     # - http://127.0.0.1:8000/introduce/monitoring
     path('introduce/monitoring', views.intro_monitoring),
     ### 기술 소개 - 생산 계획 페이지
-    # - http://127.0.0.1:8000/introduce/planning
-    path('introduce/planning', views.intro_plannning),
+    # - http://127.0.0.1:8000/introduce
+    path('introduce', views.detail_intro),
     
     ### 로그아웃 페이지
     # - http://127.0.0.1:8000/logout

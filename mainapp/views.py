@@ -250,13 +250,13 @@ def intro_monitoring(request):
                   {})
 
 ### 기술 소개 - 생산 계획 페이지
-def intro_plannning(request):
+def detail_intro(request):
     global my_instance
 
     if my_instance:
         my_instance.stopModel()
     return render(request,
-                  "mainapp/introduce/intro_planning.html",
+                  "mainapp/introduce/detail_intro.html",
                   {})
 #----------------------------------------------------------
 ### 로그아웃 처리하기

@@ -13,7 +13,7 @@ body {
     align-items: center;
     background-color: #1f4568;
     color:#ffffff;
-    padding: 50px;
+    padding: 65px 50px;
 }
 .intro__title__large {
     display: block;
@@ -34,7 +34,7 @@ body {
     justify-content:center; 
     font-size: 18px;
     background-color: #F1F4FB;
-    padding:30px 50px;
+    padding:25px 50px;
 }
 .intro__subtitle__large {
     display: block;
@@ -53,6 +53,7 @@ body {
 /* 기술 상세 내용 */
 .intro__detail {
     padding: 50px;
+    margin-bottom: 100px;
 }
 .intro__detail__box {
     display:flex;
