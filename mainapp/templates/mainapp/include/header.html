@@ -1,3 +1,49 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $(".header__plan").click(function() {
+            ses_mem_plan = "{{request.session.ses_mem_plan}}";
+            if (ses_mem_plan === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_plan === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+        $(".header__monitor").click(function() {
+            ses_mem_monitor = "{{request.session.ses_mem_monitor}}";
+            if (ses_mem_monitor === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_monitor === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+        $(".header__vision").click(function() {
+            ses_mem_vision = "{{request.session.ses_mem_vision}}";
+            if (ses_mem_vision === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_vision === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+    });
+</script>
 <header class="header">
     <div class="header__container">
         <!-- header logo -->
@@ -16,16 +62,25 @@
                     </li>
                     <li class="header__el">
                         <a href="/planning/?part_no=part6" class="header__link header__plan">부품 생산 계획</a>
-                        <div class="dropdown__content dropdown__margin--1">
-                        </div>
+                        {% if request.session.ses_mem_plan == 1 %}
+                            <div class="dropdown__content dropdown__margin--1">
+                                <a class="header__plan" href="/planning/?part_no=part6">헤드 볼트</a>
+                                <a class="header__plan" href="/planning/?part_no=part15">헤드 가스켓</a>
+                                <a class="header__plan" href="/planning/?part_no=part16">크랭크 축</a>
+                                <a class="header__plan" href="/planning/?part_no=part29">클록 스프링</a>
+                                <a class="header__plan" href="/planning/?part_no=part94">벨트 프리텐셔너</a>
+                            </div>
+                        {% endif %}
                     </li>
                     <li class="header__el">
                         <a href="/monitoring/cast_proc" class="header__link header__monitor">공정 모니터링</a>
-                        <div class="dropdown__content dropdown__margin--2">
-                            <a class="header__monitor" href="/monitoring/cast_proc">주조 공정</a>
-                            <a class="header__monitor" href="/monitoring/heat_proc">열처리 공정</a>
-                            <a class="header__monitor" href="/monitoring/cnc_proc">CNC 공정</a>
-                        </div>
+                        {% if request.session.ses_mem_monitor == 1 %}
+                            <div class="dropdown__content dropdown__margin--2">
+                                <a class="header__monitor" href="/monitoring/cast_proc">주조 공정</a>
+                                <a class="header__monitor" href="/monitoring/heat_proc">열처리 공정</a>
+                                <a class="header__monitor" href="/monitoring/cnc_proc">CNC 공정</a>
+                            </div>
+                        {% endif %}
                     </li>
                     <li class="header__el"><a href="/vision" class="header__link header__vision">자동화 검사</a></li>
                     {% if request.session.ses_mem_id == None %}

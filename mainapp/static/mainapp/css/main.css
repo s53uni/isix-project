@@ -63,17 +63,18 @@ body {
   text-decoration : none;
   color : #1f4568;
   font-size: 15px;
-  padding : 10px 20px;
+  padding : 10px 10px;
+  width: 100px;
 }
 .dropdown__content a:hover{
   background-color : #ececec;
   border-radius: 5px;
 }
 .dropdown__margin--1 {
-  margin: 2px 0 0 -28px;
+  margin: 2px 0 0 -10px;
 }
 .dropdown__margin--2 {
-  margin: 2px 0 0 -6px;
+  margin: 2px 0 0 -12px;
 }
 .header__el:hover .dropdown__content {
   display: block;

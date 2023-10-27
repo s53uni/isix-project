@@ -41,13 +41,7 @@ urlpatterns = [
     # - http://127.0.0.1:8000/planning/
     path('planning/', views.detail_planning),
     
-    ### 기술 소개 - 자동화 검사 페이지
-    # - http://127.0.0.1:8000/introduce/vision
-    path('introduce/vision', views.intro_vision),
-    ### 기술 소개 - 공정 모니터링 페이지
-    # - http://127.0.0.1:8000/introduce/monitoring
-    path('introduce/monitoring', views.intro_monitoring),
-    ### 기술 소개 - 생산 계획 페이지
+    ### 기술 소개 페이지
     # - http://127.0.0.1:8000/introduce
     path('introduce', views.detail_intro),
     

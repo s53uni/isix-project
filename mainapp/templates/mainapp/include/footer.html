@@ -1,3 +1,49 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $(".footer__plan").click(function() {
+            ses_mem_plan = "{{request.session.ses_mem_plan}}";
+            if (ses_mem_plan === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_plan === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+        $(".footer__monitor").click(function() {
+            ses_mem_monitor = "{{request.session.ses_mem_monitor}}";
+            if (ses_mem_monitor === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_monitor === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+        $(".footer__vision").click(function() {
+            ses_mem_vision = "{{request.session.ses_mem_vision}}";
+            if (ses_mem_vision === "") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            }
+            else if (ses_mem_vision === "0") {
+                event.preventDefault(); // 링크의 기본 동작(페이지 이동)을 막습니다.
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            }
+        });
+    });
+</script>
 <footer class="footer">
     <div class="footer__content">
         <!-- 1열 -->
@@ -12,9 +58,9 @@
         <div class="footer__box">
             <h3 class="footer__title">Links</h3>
             <a class="footer__text" href="/introduce">기술 소개</a>
-            <a class="footer__text" href="/planning/?part_no=part6">부품 생산 계획</a>
-            <a class="footer__text" href="/monitoring/cast_proc">공정 모니터링</a>
-            <a class="footer__text" href="/vision">자동화 검사</a>
+            <a class="footer__text footer__plan" href="/planning/?part_no=part6">부품 생산 계획</a>
+            <a class="footer__text footer__monitor" href="/monitoring/cast_proc">공정 모니터링</a>
+            <a class="footer__text footer__vision" href="/vision">자동화 검사</a>
         </div>
         <!-- 3열 -->
         <div class="footer__box">

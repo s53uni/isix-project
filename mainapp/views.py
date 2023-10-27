@@ -78,19 +78,9 @@ def vision_model(request):
 def detail_vision(request):
     global login_msg, permisson_msg
     
-    ### 페이지 권한 관리
-    userPermission = request.session.get('ses_mem_vision')
-    
-    if userPermission == None :
-        return HttpResponse(login_msg)
-
-    elif userPermission == 0 :
-        return HttpResponse(permisson_msg)
-    
-    else :
-        return render(request,
-                    "mainapp/vision/detail_vision.html",
-                    {})
+    return render(request,
+                "mainapp/vision/detail_vision.html",
+                {})
 #----------------------------------------------------------
 ### cnc 공정 모니터링 모델 페이지
 def cnc_proc_model(request):
@@ -111,19 +101,9 @@ def cnc_proc_model(request):
 def cnc_proc_monitoring(request):
     global login_msg, permisson_msg
     
-    ### 페이지 권한 관리
-    userPermission = request.session.get('ses_mem_monitor')
-    
-    if userPermission == None :
-        return HttpResponse(login_msg)
-
-    elif userPermission == 0 :
-        return HttpResponse(permisson_msg)
-    
-    else :
-        return render(request,
-                    "mainapp/monitoring/cnc_proc_monitoring.html",
-                    {})
+    return render(request,
+                "mainapp/monitoring/cnc_proc_monitoring.html",
+                {})
 #----------------------------------------------------------    
 ### 열처리 공정 모니터링 모델 페이지
 def heat_proc_model(request):
@@ -144,19 +124,9 @@ def heat_proc_model(request):
 def heat_proc_monitoring(request):
     global login_msg, permisson_msg
     
-    ### 페이지 권한 관리
-    userPermission = request.session.get('ses_mem_monitor')
-    
-    if userPermission == None :
-        return HttpResponse(login_msg)
-
-    elif userPermission == 0 :
-        return HttpResponse(permisson_msg)
-    
-    else :
-        return render(request,
-                    "mainapp/monitoring/heat_proc_monitoring.html",
-                    {})
+    return render(request,
+                "mainapp/monitoring/heat_proc_monitoring.html",
+                {})
 #----------------------------------------------------------
 ### 주조 공정 모니터링 모델 페이지
 def cast_proc_model(request):
@@ -177,19 +147,10 @@ def cast_proc_model(request):
 def cast_proc_monitoring(request):
     global login_msg, permisson_msg
     
-    ### 페이지 권한 관리
-    userPermission = request.session.get('ses_mem_monitor')
-    
-    if userPermission == None :
-        return HttpResponse(login_msg)
 
-    elif userPermission == 0 :
-        return HttpResponse(permisson_msg)
-    
-    else :
-        return render(request,
-                    "mainapp/monitoring/cast_proc_monitoring.html",
-                    {})
+    return render(request,
+                "mainapp/monitoring/cast_proc_monitoring.html",
+                {})
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
@@ -197,59 +158,28 @@ def detail_planning(request):
     
     if my_instance:
         my_instance.stopModel()
-    
-    ### 페이지 권한 관리
-    userPermission = request.session.get('ses_mem_plan')
-    
-    if userPermission == None:
-        return HttpResponse(login_msg)
 
-    elif userPermission == 0 :
-        return HttpResponse(permisson_msg)
-    
-    else :
-        ### 기본 변수
-        part_number = request.GET.get("part_no","")
-        part_plan = Prod_Plan.objects.filter(part_no=part_number)
+    part_number = request.GET.get("part_no","")
+    part_plan = Prod_Plan.objects.filter(part_no=part_number)
 
-        part_dict = {"part6":"헤드 볼트", "part15":"헤드 가스켓",
-                     "part16":"크랭크 축", "part29":"클록 스프링",
-                     "part94":"벨트 프리텐셔너"}
-        part_name = part_dict[part_number]
-        
-        ### select box 받아온 변수
-        part_date = request.POST.get("part_date","2021-09-13")
-        part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
-        
-        return render(request,
-                    "mainapp/planning/detail_planning.html",
-                    {"part_number":part_number,
-                    "part_plan":part_plan,
-                    "part_name":part_name,
-                    "part_date":part_date,
-                    "part_date_plan":part_date_plan})
+    part_dict = {"part6":"헤드 볼트", "part15":"헤드 가스켓",
+                    "part16":"크랭크 축", "part29":"클록 스프링",
+                    "part94":"벨트 프리텐셔너"}
+    part_name = part_dict[part_number]
+    
+    ### select box 받아온 변수
+    part_date = request.POST.get("part_date","2021-09-13")
+    part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
+    
+    return render(request,
+                "mainapp/planning/detail_planning.html",
+                {"part_number":part_number,
+                "part_plan":part_plan,
+                "part_name":part_name,
+                "part_date":part_date,
+                "part_date_plan":part_date_plan})
 #----------------------------------------------------------
-### 기술 소개 - 자동화 검사 페이지
-def intro_vision(request):
-    global my_instance
-
-    if my_instance:
-        my_instance.stopModel()
-    return render(request,
-                  "mainapp/introduce/intro_vision.html",
-                  {})
-
-### 기술 소개 - 공정 모니터링 페이지
-def intro_monitoring(request):
-    global my_instance
-
-    if my_instance:
-        my_instance.stopModel()
-    return render(request,
-                  "mainapp/introduce/intro_monitoring.html",
-                  {})
-
-### 기술 소개 - 생산 계획 페이지
+### 기술 소개 페이지
 def detail_intro(request):
     global my_instance
 
