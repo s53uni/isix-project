@@ -1,3 +1,4 @@
+
 <header class="header">
     <div class="header__container">
         <!-- header logo -->
@@ -19,16 +20,16 @@
                             <a href="/introduce/vision">자동화 검사</a>
                         </div>
                     </li>
-                    <li class="header__el"><a href="/planning/?part_no=part6" class="header__link">생산 계획</a></li>
+                    <li class="header__el"><a href="/planning/?part_no=part6" class="header__link header__plan">생산 계획</a></li>
                     <li class="header__el">
-                        <a href="/monitoring/cast_proc" class="header__link">공정 모니터링</a>
+                        <a href="/monitoring/cast_proc" class="header__link header__monitor">공정 모니터링</a>
                         <div class="dropdown__content dropdown__margin--2">
-                            <a href="/monitoring/cast_proc">주조 공정</a>
-                            <a href="/monitoring/heat_proc">열처리 공정</a>
-                            <a href="/monitoring/cnc_proc">CNC 공정</a>
+                            <a class="header__monitor" href="/monitoring/cast_proc">주조 공정</a>
+                            <a class="header__monitor" href="/monitoring/heat_proc">열처리 공정</a>
+                            <a class="header__monitor" href="/monitoring/cnc_proc">CNC 공정</a>
                         </div>
                     </li>
-                    <li class="header__el"><a href="/vision" class="header__link">자동화 검사</a></li>
+                    <li class="header__el"><a href="/vision" class="header__link header__vision">자동화 검사</a></li>
                     {% if request.session.ses_mem_id == None %}
                         <li class="header__el header__el--blue"><a href="/login" class="btn btn--white">로그인</a></li>
                     {% else %}

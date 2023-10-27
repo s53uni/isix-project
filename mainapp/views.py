@@ -14,7 +14,18 @@ from mainapp.pyfiles.vision.vision import Vision_Model
 
 ### 인스턴스 전역변수
 my_instance = None
-
+login_msg = """
+            <script type='text/javascript'>
+                alert('로그인 후 이용 가능합니다.');
+                location.href = '/login';
+            </script>
+        """
+permisson_msg = """
+            <script type='text/javascript'>
+                alert('접근 권한이 없습니다.');
+                location.href = '/';
+            </script>
+        """
 #----------------------------------------------------------
 ### 자동화 검사 fail 페이지
 def detail_fail(request):
@@ -54,20 +65,32 @@ def vision_model(request):
 
     if my_instance:
         my_instance.stopModel()
-        
+    
     # 클래스 인스턴스 생성
     my_instance = Vision_Model()
     my_instance.runModel()
     
     return render(request,
-                  "mainapp/vision/vision_model.html",
-                  {})
+                "mainapp/vision/vision_model.html",
+                {})
 
 ### 자동화 검사 페이지
 def detail_vision(request):
-    return render(request,
-                  "mainapp/vision/detail_vision.html",
-                  {})
+    global login_msg, permisson_msg
+    
+    ### 페이지 권한 관리
+    userPermission = request.session.get('ses_mem_vision')
+    
+    if userPermission == None :
+        return HttpResponse(login_msg)
+
+    elif userPermission == 0 :
+        return HttpResponse(permisson_msg)
+    
+    else :
+        return render(request,
+                    "mainapp/vision/detail_vision.html",
+                    {})
 #----------------------------------------------------------
 ### cnc 공정 모니터링 모델 페이지
 def cnc_proc_model(request):
@@ -75,7 +98,7 @@ def cnc_proc_model(request):
 
     if my_instance:
         my_instance.stopModel()
-        
+    
     # 클래스 인스턴스 생성
     my_instance = Cnc_Proc_Model()
     my_instance.runModel()
@@ -86,9 +109,21 @@ def cnc_proc_model(request):
 
 ### cnc 공정 모니터링 페이지
 def cnc_proc_monitoring(request):
-    return render(request,
-                  "mainapp/monitoring/cnc_proc_monitoring.html",
-                  {})
+    global login_msg, permisson_msg
+    
+    ### 페이지 권한 관리
+    userPermission = request.session.get('ses_mem_monitor')
+    
+    if userPermission == None :
+        return HttpResponse(login_msg)
+
+    elif userPermission == 0 :
+        return HttpResponse(permisson_msg)
+    
+    else :
+        return render(request,
+                    "mainapp/monitoring/cnc_proc_monitoring.html",
+                    {})
 #----------------------------------------------------------    
 ### 열처리 공정 모니터링 모델 페이지
 def heat_proc_model(request):
@@ -96,7 +131,7 @@ def heat_proc_model(request):
 
     if my_instance:
         my_instance.stopModel()
-        
+       
     # 클래스 인스턴스 생성    
     my_instance = Heat_Proc_Model()
     my_instance.runModel()
@@ -107,9 +142,21 @@ def heat_proc_model(request):
 
 ### 열처리 공정 모니터링 페이지
 def heat_proc_monitoring(request):
-    return render(request,
-                  "mainapp/monitoring/heat_proc_monitoring.html",
-                  {})
+    global login_msg, permisson_msg
+    
+    ### 페이지 권한 관리
+    userPermission = request.session.get('ses_mem_monitor')
+    
+    if userPermission == None :
+        return HttpResponse(login_msg)
+
+    elif userPermission == 0 :
+        return HttpResponse(permisson_msg)
+    
+    else :
+        return render(request,
+                    "mainapp/monitoring/heat_proc_monitoring.html",
+                    {})
 #----------------------------------------------------------
 ### 주조 공정 모니터링 모델 페이지
 def cast_proc_model(request):
@@ -128,32 +175,56 @@ def cast_proc_model(request):
 
 ### 주조 공정 모니터링 페이지
 def cast_proc_monitoring(request):
-    return render(request,
-                  "mainapp/monitoring/cast_proc_monitoring.html",
-                  {})
+    global login_msg, permisson_msg
+    
+    ### 페이지 권한 관리
+    userPermission = request.session.get('ses_mem_monitor')
+    
+    if userPermission == None :
+        return HttpResponse(login_msg)
+
+    elif userPermission == 0 :
+        return HttpResponse(permisson_msg)
+    
+    else :
+        return render(request,
+                    "mainapp/monitoring/cast_proc_monitoring.html",
+                    {})
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
-    global my_instance
-
+    global my_instance, login_msg, permisson_msg
+    
     if my_instance:
         my_instance.stopModel()
-    ### 기본 변수
-    part_number = request.GET.get("part_no","")
-    number = part_number[4:]
-    part_plan = Prod_Plan.objects.filter(part_no=part_number)
-
-    ### select box 받아온 변수
-    part_date = request.POST.get("part_date","2021-09-13")
-    part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
     
-    return render(request,
-                  "mainapp/planning/detail_planning.html",
-                  {"part_number":part_number,
-                   "number":number,
-                   "part_plan":part_plan,
-                   "part_date":part_date,
-                   "part_date_plan":part_date_plan})
+    ### 페이지 권한 관리
+    userPermission = request.session.get('ses_mem_plan')
+    
+    if userPermission == None:
+        return HttpResponse(login_msg)
+
+    elif userPermission == 0 :
+        return HttpResponse(permisson_msg)
+    
+    else :
+
+        ### 기본 변수
+        part_number = request.GET.get("part_no","")
+        number = part_number[4:]
+        part_plan = Prod_Plan.objects.filter(part_no=part_number)
+
+        ### select box 받아온 변수
+        part_date = request.POST.get("part_date","2021-09-13")
+        part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
+        
+        return render(request,
+                    "mainapp/planning/detail_planning.html",
+                    {"part_number":part_number,
+                    "number":number,
+                    "part_plan":part_plan,
+                    "part_date":part_date,
+                    "part_date_plan":part_date_plan})
 #----------------------------------------------------------
 ### 기술 소개 - 자동화 검사 페이지
 def intro_vision(request):
