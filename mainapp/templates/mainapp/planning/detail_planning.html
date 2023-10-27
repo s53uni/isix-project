@@ -57,11 +57,11 @@
     <!-- menu 시작-->
     <div class="res__menu">
         <ul>
-            <li><a href="/planning/?part_no=part6">PART 6</a></li>
-            <li><a href="/planning/?part_no=part15">PART 15</a></li>
-            <li><a href="/planning/?part_no=part16">PART 16</a></li>
-            <li><a href="/planning/?part_no=part29">PART 29</a></li>
-            <li><a href="/planning/?part_no=part94">PART 94</a></li>
+            <li><a href="/planning/?part_no=part6">헤드 볼트</a></li>
+            <li><a href="/planning/?part_no=part15">헤드 가스켓</a></li>
+            <li><a href="/planning/?part_no=part16">크랭크 축</a></li>
+            <li><a href="/planning/?part_no=part29">클록 스프링</a></li>
+            <li><a href="/planning/?part_no=part94">벨트 프리텐셔너</a></li>
         </ul>
     </div>
     <!-- menu 끝 -->
@@ -78,19 +78,19 @@
             </div>
             <nav class="menu">
                 <a id="part6" class="menu__item" href="/planning/?part_no=part6">
-                    <span class="menu__text">Part 6</span>
+                    <span class="menu__text">헤드 볼트</span>
                 </a>
                 <a id="part15" class="menu__item" href="/planning/?part_no=part15">
-                    <span class="menu__text">Part 15</span>
+                    <span class="menu__text">헤드 가스켓</span>
                 </a>
                 <a id="part16" class="menu__item" href="/planning/?part_no=part16">
-                    <span class="menu__text">Part 16</span>
+                    <span class="menu__text">크랭크 축</span>
                 </a>
                 <a id="part29" class="menu__item" href="/planning/?part_no=part29">
-                    <span class="menu__text">Part 29</span>
+                    <span class="menu__text">클록 스프링</span>
                 </a>
                 <a id="part94" class="menu__item" href="/planning/?part_no=part94">
-                    <span class="menu__text">Part 94</span>
+                    <span class="menu__text">벨트 프리텐셔너</span>
                 </a>
             </nav>
         </div>
@@ -100,7 +100,7 @@
         <div class="dashboard">
             <div class="dashboard__explain">
                 <div class="dashboard__text">
-                    <span class="dashboard__title">PART {{number}}의 생산 계획 </span>
+                    <span class="dashboard__title">{{part_name}}의 생산 계획</span>
                     <span class="dashboard__ex">AI 알고리즘 기반 수량 예측을 통해 기준 일자로부터 7일 간의 발주 예정 수량을 알려드립니다.</span>
                 </div>
                 <div class="dashboard__select">
@@ -134,7 +134,7 @@
                 </div>
                 <div class="dashboard__graph">
                     <iframe class="week_plan" src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/prod-plan?orgId=1&var-part_no={{part_number}}&var-plan_date={{part_date}}&theme=light&panelId=1" frameborder="0"></iframe>
-                    <iframe class="all_plan" src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/prod-plan?orgId=1&var-part_no={{part_number}}&theme=light&panelId=2" frameborder="0"></iframe>
+                    <iframe class="all_plan" src="http://127.0.0.1:3000/d-solo/c4cfc4fa-f500-4579-a12a-e5db68c94843/prod-plan?orgId=1&var-part_no={{part_number}}&var-part_name={{part_name}}&theme=light&panelId=2" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

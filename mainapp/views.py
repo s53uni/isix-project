@@ -208,12 +208,15 @@ def detail_planning(request):
         return HttpResponse(permisson_msg)
     
     else :
-
         ### 기본 변수
         part_number = request.GET.get("part_no","")
-        number = part_number[4:]
         part_plan = Prod_Plan.objects.filter(part_no=part_number)
 
+        part_dict = {"part6":"헤드 볼트", "part15":"헤드 가스켓",
+                     "part16":"크랭크 축", "part29":"클록 스프링",
+                     "part94":"벨트 프리텐셔너"}
+        part_name = part_dict[part_number]
+        
         ### select box 받아온 변수
         part_date = request.POST.get("part_date","2021-09-13")
         part_date_plan = Prod_Plan.objects.filter(part_no=part_number, plan_date=part_date)[0]
@@ -221,8 +224,8 @@ def detail_planning(request):
         return render(request,
                     "mainapp/planning/detail_planning.html",
                     {"part_number":part_number,
-                    "number":number,
                     "part_plan":part_plan,
+                    "part_name":part_name,
                     "part_date":part_date,
                     "part_date_plan":part_date_plan})
 #----------------------------------------------------------
