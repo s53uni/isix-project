@@ -13,7 +13,6 @@ from sklearn.preprocessing import StandardScaler
 ### 모델 관련 패키지
 import tensorflow as tf
 tf.random.set_seed(42)
-from tensorflow.keras.models import load_model
 from os import listdir
 from sklearn.metrics import mean_absolute_error
 
@@ -76,7 +75,7 @@ def getSplitData(data, num) :
 
 def getModel(part, num, Xscaler_part, X_part, yscaler_part, y_part) :
     ### 모델 불러오기
-    best_model = load_model('mainapp/pyfiles/prod_plan/best_model/part{}_d{}_lstm.h5'.format(part, num))
+    best_model = tf.keras.load_model('mainapp/pyfiles/prod_plan/best_model/part{}_d{}_lstm.h5'.format(part, num))
       
     ### 테스트 데이터로 예측하기
     y_pred_part = best_model.predict(X_part)

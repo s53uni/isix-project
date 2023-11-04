@@ -8,9 +8,6 @@ import time
 ### 학습 라이브러리
 from sklearn.preprocessing import Normalizer, MinMaxScaler
 import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras import layers, losses
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 import pickle
 
@@ -35,13 +32,13 @@ class Cnc_Proc_Model :
         self.is_running = True
         
         # Spindle Speed 모델 불러오기
-        spindlespeed_md = keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/spindlespeed.h5")
+        spindlespeed_md = tf.keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/spindlespeed.h5")
 
         # Spindle Load Max 모델 불러오기
-        SpindleLoad_max_md = keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/SpindleLoad_max.h5")
+        SpindleLoad_max_md = tf.keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/SpindleLoad_max.h5")
 
         # Servo Current X Mean 모델 불러오기
-        ServoCurrent_X_mean = keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/ServoCurrent_X_mean.h5")
+        ServoCurrent_X_mean = tf.keras.models.load_model("mainapp/pyfiles/cnc_proc/cnc_model/ServoCurrent_X_mean.h5")
 
         # Pass or Fail 모델 불러오기
         with open("mainapp/pyfiles/cnc_proc/cnc_model/xgb_model.pkl", 'rb') as model_file:
