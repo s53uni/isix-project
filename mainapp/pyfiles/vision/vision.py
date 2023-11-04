@@ -250,7 +250,7 @@ class Vision_Model :
                             superimposed_img = cv2.resize(superimposed_img, (640, 640))
 
                             cv2.imwrite(f'./mainapp/static/mainapp/pass/{vision_id}.jpg', img_to_draw_temp * 255)
-                            cv2.imwrite(f'./mainapp/static/mainapp/xai_pass/{vision_id}_xai.jpg', superimposed_img)
+                            cv2.imwrite(f'./mainapp/static/mainapp/xai_pass/{vision_id}.jpg', superimposed_img)
                             
                             
                             # vision_img = f"{os.getcwd()}/pass/{vision_id}.jpg"
@@ -301,7 +301,7 @@ class Vision_Model :
                             superimposed_img = cv2.resize(superimposed_img, (640, 640))
 
                             cv2.imwrite(f'./mainapp/static/mainapp/fail/{vision_id}.jpg', img_to_draw_temp * 255)
-                            cv2.imwrite(f'./mainapp/static/mainapp/xai_fail/{vision_id}_xai.jpg', superimposed_img)
+                            cv2.imwrite(f'./mainapp/static/mainapp/xai_fail/{vision_id}.jpg', superimposed_img)
                             
                             # vision_img = f"{os.getcwd()}/fail/{vision_id}.jpg"
                             vision_img = f"{vision_id}.jpg"
