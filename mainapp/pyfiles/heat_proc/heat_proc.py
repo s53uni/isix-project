@@ -127,7 +127,7 @@ class Heat_Proc_Model :
 
                 print("{}번째 데이터 삽입 완료".format(str(i)))
                 i = i + bs
-                time.sleep(2)
+                time.sleep(1)
 
             except Exception as result_error:
                 print(result_error)

@@ -140,7 +140,7 @@ class Cnc_Proc_Model :
         bs = 1
 
         # 데이터 삽입 코드
-        for i in range(0, 15, 1) :
+        for i in range(0, 50, 1) :
             
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:
@@ -180,7 +180,7 @@ class Cnc_Proc_Model :
                 
                 print("{}번째 데이터 삽입 완료".format(str(i)))
                 i = i + bs
-                time.sleep(2)
+                time.sleep(1)
             
             except Exception as result_error:
                 print(result_error)

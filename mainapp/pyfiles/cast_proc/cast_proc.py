@@ -153,9 +153,9 @@ class Cast_Proc_Model :
             print("테이블 생성 완료")
         
         bs = 1
-        max_idx = 60 # max index = 92014
+        max_idx = 65 # max index = 92014
         
-        for i in range(10, max_idx, 1) : 
+        for i in range(15, max_idx, 1) : 
         
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:
@@ -179,7 +179,7 @@ class Cast_Proc_Model :
         
                 print("{}번째 데이터 삽입 완료".format(str(i)))
                 i = i + bs
-                time.sleep(2)
+                time.sleep(1)
         
             except Exception as result_error:
                 print(result_error)
