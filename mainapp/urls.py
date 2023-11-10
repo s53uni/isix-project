@@ -12,6 +12,9 @@ urlpatterns = [
     ### 자동화 검사 모델 페이지
     # - http://127.0.0.1:8000/vision/model
     path('vision/model', views.vision_model),
+    ### 자동화 검사 캡처 이미지
+    # - http://127.0.0.1:8000/vision/cap
+    path('vision/cap', views.cap_vision),
     ### 자동화 검사 페이지
     # - http://127.0.0.1:8000/vision
     path('vision', views.detail_vision),

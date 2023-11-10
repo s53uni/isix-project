@@ -75,7 +75,8 @@ class Vision_Model :
                 print("테이블 생성 완료")
 
         # 실행시 기존 이미지 삭제하기
-        dir_list = ['mainapp/static/mainapp/pass', 'mainapp/static/mainapp/fail']
+        dir_list = ['mainapp/static/mainapp/pass', 'mainapp/static/mainapp/fail',
+                    'mainapp/static/mainapp/xai_pass', 'mainapp/static/mainapp/xai_fail']
         
         try:
             for dir in dir_list :
@@ -123,7 +124,7 @@ class Vision_Model :
         # model_cnn.summary()
 
         # 동영상 1초당 2프레임으로 저장
-        cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video.mp4')
+        cap = cv2.VideoCapture('mainapp/static/mainapp/videos/sample_video2.mp4')
 
         # 코덱 정의
         fourcc = cv2.VideoWriter_fourcc(*'DIVX') # window의 경우 DIVX
@@ -271,6 +272,8 @@ class Vision_Model :
                             count_ok += 1
                             number += 1
                             
+                            time.sleep(1.0)
+                            
                         else :
                             print(f"count_def[{count_def}] / 예측값[0] / 예측범주명칭[불량]")
                             vision_id = datetime.now().strftime("%Y%m%d") + "-" + "{:03d}".format(number)
@@ -323,7 +326,7 @@ class Vision_Model :
                             count_def += 1
                             number += 1
 
-
+                            time.sleep(1.0)
 
                     if prev_box != current_box :
                         prev_box = current_box

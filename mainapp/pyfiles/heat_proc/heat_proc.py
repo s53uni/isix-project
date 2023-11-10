@@ -6,6 +6,10 @@ from datetime import datetime
 from sqlalchemy import create_engine
 import mysql.connector
 import time
+import numpy as np
+
+### 여기 추가
+from tensorflow.keras.models import load_model
 
 
 
@@ -23,10 +27,13 @@ class Heat_Proc_Model :
         # 실행 플래그를 True로 설정
         self.is_running = True
         
-        with open("mainapp/pyfiles/heat_proc/tem_model/xgb_mm_heating.pickle", 'rb') as model_file:
+        with open("mainapp/pyfiles/heat_proc/tem_model/xgb_model.pkl", 'rb') as model_file:
             xgb_mm_heating = pickle.load(model_file)
 
-        df = pd.read_csv("mainapp/pyfiles/heat_proc/data_new/tem_fi.csv").iloc[:, 1:]
+#### 여기 추가함 ####
+        nn_model = load_model("mainapp/pyfiles/heat_proc/tem_model/nn_model.h5")
+
+        df = pd.read_csv("mainapp/pyfiles/heat_proc/data_new/tem_fi.csv")
 
         data = df.iloc[:, 1:]
         mms = MinMaxScaler()
@@ -58,9 +65,12 @@ class Heat_Proc_Model :
         create_query = """CREATE TABLE heat_proc (
                             heat_id VARCHAR(30) PRIMARY KEY,
                             heat_date DATETIME,
-                            quench_temp_min FLOAT,
-                            saltbelt_temp_max FLOAT,
-                            saltfurnace_temp_min FLOAT,
+                            dry_temp2_min FLOAT,
+                            scrubber_min FLOAT,
+                            quench_cp_max FLOAT,
+                            quench_temp1_min FLOAT,
+                            quench_temp2_max FLOAT,
+                            quench_temp3_max FLOAT,
                             heat_pred INT
                         );"""
 
@@ -78,29 +88,40 @@ class Heat_Proc_Model :
             print("테이블 생성 완료")
             
         bs = 1
-        max_idx = 15 # max number of = 136 
+        max_idx = 60 # max number of = 136 
 
-        for i in range(0, max_idx, 1) :
+        for i in range(10, max_idx, 1) :
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:
                 break
             
+#####################여기도 수정함###############################
             try:
-                heat_pred = xgb_mm_heating.predict(mms.fit_transform(data.iloc[i:i+1, :]))
+                heat_pred = xgb_mm_heating.predict(tr_data.iloc[i:i+1, :])
+                nn_pred = nn_model.predict(tr_data.iloc[i:i+1, :]).flatten()
+
+                alpha = 0.35
+                combined_pred = alpha * heat_pred + (1 - alpha) * nn_pred
+                
+                final_pred = np.where(combined_pred > 0.5, 1, 0)
 
                 # 컬럼명을 리스트로 감싸서 선택
-                df_temp = data.iloc[i:i+bs, [5, 7, 9]].reset_index(drop=True)
-                df_temp["heat_pred"] = heat_pred[0]
+                df_temp = data.iloc[i:i+bs, [1, 2, 4, 5, 7, 8]].reset_index(drop=True)
+                df_temp["heat_pred"] = final_pred[0]
+                print(final_pred[0])
                 df_temp0 = df.iloc[i:i+bs,0:1].reset_index(drop=True)
                 df_temp0["heat_date"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 df_temp = pd.concat((df_temp0,df_temp),axis=1)
                 # 컬럼 이름 변경
                 df_temp = df_temp.rename(columns={"배정번호": "heat_id",
-                                                "heat_date": "heat_date",
-                                                "소입로 온도 1 Zone_min": "quench_temp_min",
-                                                "솔트 컨베이어 온도 1 Zone_max": "saltbelt_temp_max", 
-                                                "솔트조 온도 1 Zone_min": "saltfurnace_temp_min",
-                                                "heat_pred": "heat_pred"})
+                                                  "heat_date": "heat_date",
+                                                  "건조로 온도 2 Zone_min" : "dry_temp2_min",
+                                                  "세정기_min" : "scrubber_min",
+                                                  "소입로 CP 값_max" : "quench_cp_max",
+                                                  "소입로 온도 1 Zone_min": "quench_temp1_min",
+                                                  "소입로 온도 2 Zone_max": "quench_temp2_max",
+                                                  "소입로 온도 3 Zone_max": "quench_temp3_max",
+                                                  "heat_pred": "heat_pred"})
                 df_temp["heat_date"] = pd.to_datetime(df_temp["heat_date"])
                 df_temp.to_sql(name="heat_proc", con=engine, if_exists='append', index=False)
 

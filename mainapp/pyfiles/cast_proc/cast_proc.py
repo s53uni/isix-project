@@ -153,9 +153,9 @@ class Cast_Proc_Model :
             print("테이블 생성 완료")
         
         bs = 1
-        max_idx = 15 # max index = 92014
+        max_idx = 60 # max index = 92014
         
-        for i in range(0, max_idx, 1) : 
+        for i in range(10, max_idx, 1) : 
         
             ### 외부에서 강제 종료 시키기
             if self.is_running == False:
@@ -170,8 +170,6 @@ class Cast_Proc_Model :
                 a_parsed = datetime.strptime(a_str, "%y-%m-%d %H:%M:%S.%f")
             
                 df_2 = pd.DataFrame([[csv_file["cast_id"][i],a_parsed]],columns=["cast_id","cast_date"])
-            
-                cast_pred = xgb_mm_casting.predict(mms.fit_transform(data.iloc[i:i+1]))
         
                 df_temp = data.iloc[i:i+bs, :].reset_index(drop=True)
                 df_temp["cast_pred"] = xgb_mm_casting.predict(np.array([tr_data[i]]))

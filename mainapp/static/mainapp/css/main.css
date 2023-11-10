@@ -156,7 +156,7 @@ body {
   margin-bottom: 130px; 
 }
 .computer__img img {
-  width: 80%;
+  width: 75%;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;

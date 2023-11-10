@@ -71,9 +71,8 @@ body {
     width: 85%;
 }
 .dashboard__explain {
-    padding:30px;
+    padding:20px 30px;
     font-weight: 300;
-    border-bottom: 0.8px solid #e3e3e3;
 }
 .dashboard__title {
     display: block;
@@ -112,7 +111,7 @@ body {
 .dashboard__content {
     position: relative;
     display: block;
-    padding:30px;
+    padding:0 30px 30px 30px;
 }
 /* -----생산 계획----- */
 .dashboard__day {
@@ -123,7 +122,7 @@ body {
 }
 .dashboard__plan {
     padding: 30px;
-    width: 31.3%;
+    width: 28%;
     border: 0.5px solid #e3e3e3;
     text-align: center;
     align-items: center;
@@ -149,18 +148,49 @@ body {
 }
 
 /* -----공정 모니터링----- */
-.dashboard__range {
-    display: flex;
+.dashboard__flex {
+    display:flex;
+    width:100%;
+}
+.dashboard__block {
+    display:block;
 }
 .dashboard__range {
+    display: flex;
     justify-content: space-between;
     width:100%;
 }
+.dashboard__range2 {
+    display: flex;
+    justify-content: space-between;
+    width:99.5%;
+}
 .dashboard__range--value {
     display: block;
-    width: 33%;
+    width:39.7%;
 }
 .dashboard__range--value iframe {
+    width: 100%;
+}
+.dashboard__range2--value {
+    display: block;
+    width:33%;
+}
+.dashboard__range2--value iframe {
+    width: 100%;
+}
+.dashboard__range--count {
+    display:block;
+    width:20%;
+}
+.dashboard__range--count iframe {
+    width: 100%;
+}
+.dashboard__range2--count {
+    display:block;
+    width:30%;
+}
+.dashboard__range2--count iframe {
     width: 100%;
 }
 .dashboard__pred iframe {
@@ -174,15 +204,38 @@ body {
 /* -----자동화 검사----- */
 .dashboard__video {
     display: flex;
-    justify-content: center;
-    padding: 5px;
 }
 .dashboard__video video {
     width: 300px;
-    height: auto;
+    height: 303px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    border: 0.8px solid #e3e3e3;
+}
+.dashboard__video h3 {
+    margin:5px;
+    color:#6284a7;
+}
+.dashboard__cap{
+    width: 300px;
+    height: 303px;
+    border: 0.8px solid #e3e3e3;
+    margin: 0 8px;
+}
+.dashboard__cap img{
+    width: 300px;
+    height: 303px;
 }
 .dashboard__graph {
     display:block;
+}
+.dashboard__vision {
+    width: 30%;
+    display: block;
+}
+.dashboard__vision iframe {
+    width: 98%;
 }
 .dashboard__passfail {
     display: flex;

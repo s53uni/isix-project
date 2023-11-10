@@ -74,9 +74,24 @@ def vision_model(request):
                 "mainapp/vision/vision_model.html",
                 {})
 
+### 자동화검사 캡처 이미지
+def cap_vision(request):
+    try :
+        latest_data = Vision.objects.latest('vision_date')
+        img = latest_data.vision_img
+        passfail = latest_data.vision_pred
+    
+    except :
+        img = None
+        passfail = None
+        
+    return render(request,
+                "mainapp/vision/cap_vision.html",
+                {"img":img,
+                 "passfail":passfail})
+
 ### 자동화 검사 페이지
 def detail_vision(request):
-    global login_msg, permisson_msg
     
     return render(request,
                 "mainapp/vision/detail_vision.html",
@@ -99,7 +114,6 @@ def cnc_proc_model(request):
 
 ### cnc 공정 모니터링 페이지
 def cnc_proc_monitoring(request):
-    global login_msg, permisson_msg
     
     return render(request,
                 "mainapp/monitoring/cnc_proc_monitoring.html",
@@ -122,7 +136,6 @@ def heat_proc_model(request):
 
 ### 열처리 공정 모니터링 페이지
 def heat_proc_monitoring(request):
-    global login_msg, permisson_msg
     
     return render(request,
                 "mainapp/monitoring/heat_proc_monitoring.html",
@@ -145,8 +158,6 @@ def cast_proc_model(request):
 
 ### 주조 공정 모니터링 페이지
 def cast_proc_monitoring(request):
-    global login_msg, permisson_msg
-    
 
     return render(request,
                 "mainapp/monitoring/cast_proc_monitoring.html",
@@ -154,7 +165,7 @@ def cast_proc_monitoring(request):
 #----------------------------------------------------------
 ### 생산 계획 페이지
 def detail_planning(request):
-    global my_instance, login_msg, permisson_msg
+    global my_instance
     
     if my_instance:
         my_instance.stopModel()
