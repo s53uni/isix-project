@@ -3,6 +3,16 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    ### 질의응답 페이지
+    # - http://127.0.0.1:8000/finish/thx
+    path('finish/thx', views.thx),
+    ### 질의응답 페이지
+    # - http://127.0.0.1:8000/finish/qna
+    path('finish/qna', views.qna),
+    ### 마지막 페이지
+    # - http://127.0.0.1:8000/finish
+    path('finish', views.finish),
+    
     ### 자동화 검사 fail 페이지
     # - http://127.0.0.1:8000/vision/fail
     path('vision/fail', views.detail_fail),

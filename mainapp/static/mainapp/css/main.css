@@ -301,6 +301,14 @@ body {
   font-weight: 300;
   font-size: 14px;
 }
+.finish__text {
+  text-align: center;
+  background-color: #000000;
+  color:#9aa3ad;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 14px;
+}
 /* -----footer----- */
 
 /* -----button----- */

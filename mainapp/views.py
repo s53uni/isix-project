@@ -301,3 +301,32 @@ def main(request):
     return render(request,
                   "mainapp/main.html",
                   {})
+#----------------------------------------------------------    
+### 마지막 페이지
+def finish(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+    return render(request,
+                  "mainapp/finish.html",
+                  {})
+    
+### 질의응답 페이지
+def qna(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+    return render(request,
+                  "mainapp/qna.html",
+                  {})
+### 감사 페이지
+def thx(request):
+    global my_instance
+
+    if my_instance:
+        my_instance.stopModel()
+    return render(request,
+                  "mainapp/thx.html",
+                  {})
