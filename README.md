@@ -90,7 +90,7 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 ### Web Architecture
 
-![web_architecture2](https://github.com/s53uni/isix-project/assets/142832376/51b85a8e-a061-41c3-9129-a69de8189f9e)
+![web_architecture](https://github.com/s53uni/isix-project/assets/142832376/00af515f-5a54-481f-aef4-600a211f925e)
   
 <br><br>
 
