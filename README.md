@@ -1,31 +1,17 @@
 <div align="center">
   
-# ⚙️ 데이터 기반 스마트 제조 서비스 ISIX ⚙️
+# 데이터 기반 스마트 제조 서비스 ISIX
 
 **대규모 투자가 제한적인 중견·중소기업을 대상으로 ML/AI 기반 SaaS Solution 지향**
 
 <br>
 
-🔽 ISIX 바로가기 🔽<br>
-<a href="http://isix.kr" style="color:black;">http://isix.kr</a>
+_🏆 2023 BDIA Dev Contest 미래창업가상 수상 🏆_
 
 <br>
 
-AWS 세부 정보
-<table align="center">
-    <tr align="center">
-        <td style="width:300px;"><b>vCPU</b></td>
-        <td style="width:300px;"><b>RAM(GiB)</b></td>
-        <td style="width:300px;"><b>CPU 크레딧/시간</b></td>
-    </tr>
-    <tr align="center">
-        <td>1</td>
-        <td>1.0</td>
-        <td>6</td>
-    </tr>
-</table>
-
-*AWS 웹 사양 문제로 속도가 느려질 수 있습니다.*
+🔽 ISIX 바로가기 🔽<br>
+~~<a href="http://isix.kr" style="color:black;">http://isix.kr</a>~~
 
 <br>
 
