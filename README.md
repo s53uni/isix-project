@@ -1,6 +1,6 @@
 <div align="center">
   
-# 데이터 기반 스마트 제조 서비스 ISIX
+# SaaS 기반 AI 공정 최적화 시스템, ISIX
 
 **대규모 투자가 제한적인 중견·중소기업을 대상으로 ML/AI 기반 SaaS Solution 지향**
 
