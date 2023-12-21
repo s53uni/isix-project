@@ -52,6 +52,11 @@ $I$ mplementing $S$ upply chain optimization and $I$ ndustrial automation to e $
 
 <br><br>
 
+## 📅 프로젝트 기간
+2023.09.07 ~ 2023.11.10
+
+<br><br>
+
 ## 🖥️ 개발환경
 * Jupyter Notebook
 * Visual Studio
