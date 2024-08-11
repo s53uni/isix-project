@@ -24,12 +24,12 @@
 
 <table>
     <tr align="center">
-        <td style="width:300px;"><a href="https://github.com/xx-Sommer-xx"><b>김소연</b></a></td>
-        <td style="width:300px;"><a href="https://github.com/pikachamps"><b>김현준</b></a></td>
-        <td style="width:300px;"><a href="https://github.com/s53uni"><b>박시윤</b></a></td>
-        <td style="width:300px;"><a href="https://github.com/rgon26"><b>양현준</b></a></td>
-        <td style="width:300px;"><a href="https://github.com/gustn1051"><b>이경현</b></a></td>
-        <td style="width:300px;"><a href="https://github.com/Erin-53"><b>최예진</b></a></td>
+        <td><a href="https://github.com/xx-Sommer-xx"><b>김소연</b></a></td>
+        <td><a href="https://github.com/pikachamps"><b>김현준</b></a></td>
+        <td><a href="https://github.com/s53uni"><b>박시윤</b></a></td>
+        <td><a href="https://github.com/rgon26"><b>양현준</b></a></td>
+        <td><a href="https://github.com/gustn1051"><b>이경현</b></a></td>
+        <td><a href="https://github.com/Erin-53"><b>최예진</b></a></td>
     </tr>
     <tr align="center">
         <td>안정 범위 모델<br>웹 배포</td>
