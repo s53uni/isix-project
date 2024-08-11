@@ -108,9 +108,9 @@
         <td><b>모바일</b></td>
     </tr>
     <tr align="center">
-        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/a2242374-55b1-494f-bd00-8376b5dea835.png"></td>
-        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/1055e703-5861-4bd8-b67e-6e9a8c5d92e5.png"></td>
-        <td><img src="https://github.com/s53uni/isix-project/assets/142832376/6525fa09-02b8-4f8c-a116-b360bb14c6f4.png"></td>
+        <td><img src="https://github.com/user-attachments/assets/0c0a00ae-6026-48d8-8f18-f8938673f37d"></td>
+        <td><img src="https://github.com/user-attachments/assets/0bd2f5d0-f29d-476f-8281-bb0f08d257ff"></td>
+        <td><img src="https://github.com/user-attachments/assets/07bbe3bf-5f30-4dfb-9731-8661da0adc09"></td>
     </tr>
 </table>
 
