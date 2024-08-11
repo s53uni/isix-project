@@ -55,8 +55,9 @@
 ## 사용 기술
 ### Back-End
 * Django
-* Grafana
 * MySQL
+* uWSGI
+* Grafana
 
 ### Front-End
 * HTML5
@@ -64,8 +65,8 @@
 * Javascript
 
 ### Cloud-Service
-* AWS
-* EC2
+* AWS EC2
+* Ubuntu
 
 ### Web Architecture
 ![image](https://github.com/user-attachments/assets/a6b3afbc-d46a-4079-b101-53578630f699)
