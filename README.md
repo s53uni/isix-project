@@ -74,7 +74,7 @@
 
 ## 주요 기능
 ### 메인 화면
-![그림1](https://github.com/user-attachments/assets/1cd6026b-99b8-4bbb-b7d9-8f742834f8ba)
+![메인화면](https://github.com/user-attachments/assets/a2078174-f4cf-4ba6-85fd-b845b6b44176)
 - 서비스에 대한 간략한 소개와 기대효과를 제공한다.
 - 기술 소개, 생산 계획, 공정 모니터링, 자동화 검사로 이어지는 메뉴가 있다.
 - 각 페이지는 실제 사용 시 고객이 보게 될 화면을 예시 데이터로 구현했다.
@@ -83,13 +83,13 @@
 <br>
 
 ### 기술 소개
-![그림2](https://github.com/user-attachments/assets/9c3adf0a-4d45-4bc4-b875-af80594fdb0e)
+![기술소개](https://github.com/user-attachments/assets/92e232bf-b0df-456a-8300-f1eeab9f9e48)
 - 생산 계획, 공정 모니터링, 자동화 검사에 대한 소개가 담겨있다.
 
 <br>
 
 ### 생산 계획
-![그림3](https://github.com/user-attachments/assets/19818c6a-6adf-4327-be35-9b00bf418419)
+![생산계획](https://github.com/user-attachments/assets/c16a8f36-29e9-4496-9bfb-35c53f2c0ee2)
 - 부품 5개에 대한 한 달의 생산 계획을 확인할 수 있다.
 - LSTM 모델을 활용하여 이전 정보를 장기간 기억하고 긴 시퀀스 데이터를 처리할 수 있다.
 - 딥러닝 기반의 모델을 통해 발주 수량을 예측하고 생산 계획을 수립할 수 있다.
@@ -97,7 +97,7 @@
 <br>
 
 ### 공정 모니터링
-![그림4](https://github.com/user-attachments/assets/605dfbea-ea4e-42b2-bf9e-7cc4c142ea89)
+![공정모니터링](https://github.com/user-attachments/assets/68d99d21-63fa-4a8a-b84b-c03a24c799ec)
 - 주조, 열처리, CNC 공정에 대한 모니터링을 제공한다.
 - XGBoost 모델을 사용하여 각 특성 값에 기반한 제품 품질을 예측한다.
 - RFE 분석을 통해 주요 특성을 도출하고, XGBoost Tree를 기준으로 공정 안정 범위를 설정했다.
@@ -105,7 +105,7 @@
 <br>
 
 ### 자동화 검사
-![그림5](https://github.com/user-attachments/assets/20464bc7-115a-4880-a5c0-4367308bd9c0)
+![자동화검사](https://github.com/user-attachments/assets/8184ffff-ef53-4f66-a271-aa82a84e1ba9)
 - 공정 완료 제품의 실시간 영상을 확인할 수 있다.
 - YOLOv5를 사용해 실시간 영상에서 제품을 감지하고 캡처한다.
 - CNN을 통해 캡처된 이미지를 양품 또는 불량품으로 예측하고 분류한다.
