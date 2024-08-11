@@ -40,7 +40,8 @@
         <td>안정 범위 모델<br>웹 배포</td>
     </tr>
 </table>
-<br>
+
+<p align="right"><a href="#top">⬆️TOP</a></p>
 
 ## 프로젝트 개요
 스마트 제조 시장은 2027년까지 연간 13.95% 성장할 것으로 예상되며, 특히 프로세스 분야에서 높은 시장 점유율이 예상된다. 
@@ -69,7 +70,7 @@
 ### Web Architecture
 ![image](https://github.com/user-attachments/assets/a6b3afbc-d46a-4079-b101-53578630f699)
   
-<br><br>
+<p align="right"><a href="#top">⬆️TOP</a></p>
 
 ## 주요 기능
 ### 메인 화면
@@ -96,7 +97,7 @@
 - YOLOv5를 사용해 실시간 영상에서 제품을 감지하고 캡처한다.
 - CNN을 통해 캡처된 이미지를 양품 또는 불량품으로 예측하고 분류한다.
 
-<br>
+<p align="right"><a href="#top">⬆️TOP</a></p>
 
 ## 미리보기
 해당 서비스는 반응형 웹 사이트로, 데스크탑과 모바일에서 실시간 확인 가능
@@ -112,3 +113,5 @@
         <td><img src="https://github.com/s53uni/isix-project/assets/142832376/6525fa09-02b8-4f8c-a116-b360bb14c6f4.png"></td>
     </tr>
 </table>
+
+<p align="right"><a href="#top">⬆️TOP</a></p>
