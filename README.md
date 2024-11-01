@@ -41,7 +41,7 @@
     </tr>
 </table>
 
-<p align="right"><a href="#top">⬆️TOP</a></p>
+<br>
 
 ## 프로젝트 개요
 스마트 제조 시장은 2027년까지 연간 13.95% 성장할 것으로 예상되며, 특히 프로세스 분야에서 높은 시장 점유율이 예상된다. 
@@ -71,7 +71,7 @@
 ### Web Architecture
 ![image](https://github.com/user-attachments/assets/a6b3afbc-d46a-4079-b101-53578630f699)
   
-<p align="right"><a href="#top">⬆️TOP</a></p>
+<h5 align="right"><a href="#top">⬆️TOP</a></h5>
 
 ## 주요 기능
 ### 메인 화면
@@ -87,7 +87,7 @@
 ![기술소개](https://github.com/user-attachments/assets/92e232bf-b0df-456a-8300-f1eeab9f9e48)
 - 생산 계획, 공정 모니터링, 자동화 검사에 대한 소개가 담겨있다.
 
-<p align="right"><a href="#top">⬆️TOP</a></p>
+<br>
 
 ### 생산 계획
 ![생산계획](https://github.com/user-attachments/assets/c16a8f36-29e9-4496-9bfb-35c53f2c0ee2)
@@ -111,7 +111,7 @@
 - YOLOv5를 사용해 실시간 영상에서 제품을 감지하고 캡처한다.
 - CNN을 통해 캡처된 이미지를 양품 또는 불량품으로 예측하고 분류한다.
 
-<p align="right"><a href="#top">⬆️TOP</a></p>
+<br>
 
 ## 미리보기
 해당 서비스는 반응형 웹 사이트로, 데스크탑과 모바일에서 실시간 확인 가능
@@ -128,4 +128,4 @@
     </tr>
 </table>
 
-<p align="right"><a href="#top">⬆️TOP</a></p>
+<h5 align="right"><a href="#top">⬆️TOP</a></h5>
